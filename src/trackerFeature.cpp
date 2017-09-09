@@ -63,7 +63,7 @@ TrackerFeatureHAAR::Params::Params(){
 TrackerFeatureHAAR::TrackerFeatureHAAR( const TrackerFeatureHAAR::Params& parameters ) : params( parameters ){
 	className = "HAAR";
 
-	CvHaarFeatureParams haarParams;
+	CvHaarFeatureParams haarParams; // feature.hpp
 	haarParams.numFeatures = params.numFeatures;
 	haarParams.isIntegral = params.isIntegral;
 	featureEvaluator = CvFeatureEvaluator::create( CvFeatureParams::HAAR ).staticCast<CvHaarEvaluator>();
@@ -109,7 +109,7 @@ bool TrackerFeatureHAAR::extractSelected( const std::vector<int> selFeatures, co
 
 	// Size_ (_Tp _width, _Tp _height)
 	response.create( cv::Size( (int) images.size(), numFeatures ), CV_32F );
-	response.setTo( 0 );
+	response.setTo( 0 ); // cv::Mat response  -->  行表示特征编号，列表示image编号
 
 	//double t = getTickCount();
   	//for each sample compute #n_feature -> put each feature (n Rect) in response
@@ -153,7 +153,7 @@ bool TrackerFeatureHAAR::computeImpl( const std::vector<cv::Mat>& images, cv::Ma
 		for ( int j = 0; j < numFeatures; j++ ){
 			float res = 0;
 			featureEvaluator->getFeatures( j ).eval( images[i], Rect( 0, 0, c, r ), &res );
-			( cv::Mat_<float>( response ) )( j, i ) = res;
+			( cv::Mat_<float>( response ) )( j, i ) = res; // cv::Mat response  -->  行表示特征编号，列表示image编号
 		}
 	}
 
@@ -163,6 +163,77 @@ bool TrackerFeatureHAAR::computeImpl( const std::vector<cv::Mat>& images, cv::Ma
 void TrackerFeatureHAAR::selection( Mat& /*response*/, int /*npoints*/){
 
 }
+
+
+/*************************** TrackerFeatureSet **********************************/
+TrackerFeatureSet::TrackerFeatureSet(){
+	blockAddTrackerFeature = false;
+}
+
+TrackerFeatureSet::~TrackerFeatureSet(){
+
+}
+
+void TrackerFeatureSet::extraction( const std::vector<cv::Mat>& images ){
+	// Extract features from the images collection. 
+
+	clearResponses(); // std::vector< std::pair< cv::String, cv::Ptr<TrackerFeature> > > features; 不同种类(HAAR, LBP, ...)的特征
+	responses.resize( features.size() ); // std::vector<cv::Mat> responses
+
+	for( size_t i = 0; i < features.size(); i++ ){
+		cv::Mat response;
+		features[i].second->compute( images, response );
+		responses[i] = response;
+	}
+
+	if( !blockAddTrackerFeature )
+		blockAddTrackerFeature = true;
+}
+
+void TrackerFeatureSet::selection(){
+
+}
+
+void TrackerFeatureSet::removeOutliers(){
+
+}
+
+bool TrackerFeatureSet::addTrackerFeature( cv::String trackerFeatureType ){
+	if( blockAddTrackerFeature )
+		return false;
+
+	cv::Ptr<TrackerFeature> feature = TrackerFeature::create( trackerFeatureType );
+	
+	if( feature == 0 )
+		return false;
+
+	features.push_back( std::make_pair( trackerFeatureType, feature ) );
+
+	return true;
+}
+
+bool TrackerFeatureSet::addTrackerFeature( cv::Ptr<TrackerFeature>& feature ){
+	if( blockAddTrackerFeature )
+		return false;
+
+	cv::String trackerFeatureType = feature->getClassName();
+	features.push_back( std::make_pair( trackerFeatureType, feature ) );
+
+	return true;
+}
+
+const std::vector< std::pair< cv::String, cv::Ptr<TrackerFeature> > >& TrackerFeatureSet::getTrackerFeature() const{
+	return features;
+}
+
+const std::vector<cv::Mat>& TrackerFeatureSet::getResponses() const{
+	return responses;
+}
+
+void TrackerFeatureSet::clearResponses(){
+	responses.clear();
+}
+
 
 
 } /* namespace MIL */

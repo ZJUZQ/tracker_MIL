@@ -179,8 +179,8 @@ protected:
 	cv::Mat _ii_img;
 	void compute_integral( const cv::Mat& img, std::vector< cv::Mat_<float> >& ii_imgs ){
 		cv::Mat ii_img;
-		integral( img, ii_img, CV_32F );	// Calculates the integral of an image
-		split( ii_img, ii_imgs );	// Divides a multi-channel array into several single-channel arrays
+		cv::integral( img, ii_img, CV_32F );	// Calculates the integral of an image
+		cv::split( ii_img, ii_imgs );	// Divides a multi-channel array into several single-channel arrays
 	}
 
 	std::vector<FeatureHaar> features;
