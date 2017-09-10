@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MIL.dir/feature.cpp.o"
   "CMakeFiles/MIL.dir/trackerFeature.cpp.o"
+  "CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o"
   "CMakeFiles/MIL.dir/trackerMIL.cpp.o"
   "CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o"
   "CMakeFiles/MIL.dir/trackerMILModel.cpp.o"

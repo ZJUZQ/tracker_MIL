@@ -179,6 +179,33 @@ trackerFeature.cpp.s:
 	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/trackerFeature.cpp.s
 .PHONY : trackerFeature.cpp.s
 
+trackerFeatureSet.o: trackerFeatureSet.cpp.o
+
+.PHONY : trackerFeatureSet.o
+
+# target to build an object file
+trackerFeatureSet.cpp.o:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o
+.PHONY : trackerFeatureSet.cpp.o
+
+trackerFeatureSet.i: trackerFeatureSet.cpp.i
+
+.PHONY : trackerFeatureSet.i
+
+# target to preprocess a source file
+trackerFeatureSet.cpp.i:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.i
+.PHONY : trackerFeatureSet.cpp.i
+
+trackerFeatureSet.s: trackerFeatureSet.cpp.s
+
+.PHONY : trackerFeatureSet.s
+
+# target to generate assembly for a file
+trackerFeatureSet.cpp.s:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.s
+.PHONY : trackerFeatureSet.cpp.s
+
 trackerMIL.o: trackerMIL.cpp.o
 
 .PHONY : trackerMIL.o
@@ -383,6 +410,9 @@ help:
 	@echo "... trackerFeature.o"
 	@echo "... trackerFeature.i"
 	@echo "... trackerFeature.s"
+	@echo "... trackerFeatureSet.o"
+	@echo "... trackerFeatureSet.i"
+	@echo "... trackerFeatureSet.s"
 	@echo "... trackerMIL.o"
 	@echo "... trackerMIL.i"
 	@echo "... trackerMIL.s"

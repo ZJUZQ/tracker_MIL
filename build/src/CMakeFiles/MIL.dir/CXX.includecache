@@ -38,11 +38,17 @@ MIL/common_includes.hpp
 MIL/feature.hpp
 ../include/MIL/MIL/feature.hpp
 
-../include/MIL/trackerMIL.hpp
+../include/MIL/trackerFeatureSet.hpp
 MIL/common_includes.hpp
 ../include/MIL/MIL/common_includes.hpp
 MIL/trackerFeature.hpp
 ../include/MIL/MIL/trackerFeature.hpp
+
+../include/MIL/trackerMIL.hpp
+MIL/common_includes.hpp
+../include/MIL/MIL/common_includes.hpp
+MIL/trackerFeatureSet.hpp
+../include/MIL/MIL/trackerFeatureSet.hpp
 MIL/trackerSampler.hpp
 ../include/MIL/MIL/trackerSampler.hpp
 MIL/trackerMILModel.hpp
@@ -57,8 +63,6 @@ MIL/common_includes.hpp
 ../include/MIL/MIL/common_includes.hpp
 MIL/trackerModel.hpp
 ../include/MIL/MIL/trackerModel.hpp
-MIL/trackerStateEstimator.hpp
-../include/MIL/MIL/trackerStateEstimator.hpp
 
 ../include/MIL/trackerModel.hpp
 MIL/common_includes.hpp
@@ -95,6 +99,10 @@ MIL/feature.hpp
 /home/vortex/zhou_temp_test/tracker_MIL/src/trackerFeature.cpp
 MIL/trackerFeature.hpp
 /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeature.hpp
+
+/home/vortex/zhou_temp_test/tracker_MIL/src/trackerFeatureSet.cpp
+MIL/trackerFeatureSet.hpp
+/home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeatureSet.hpp
 
 /home/vortex/zhou_temp_test/tracker_MIL/src/trackerMIL.cpp
 MIL/trackerMIL.hpp

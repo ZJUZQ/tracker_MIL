@@ -5,6 +5,7 @@ test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/common_includes.hp
 test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/feature.hpp
 test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/roiSelector.hpp
 test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/trackerFeature.hpp
+test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/trackerFeatureSet.hpp
 test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/trackerMIL.hpp
 test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/trackerMILClassifier.hpp
 test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o: ../include/MIL/trackerMILModel.hpp

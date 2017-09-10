@@ -39,8 +39,6 @@ opencv2/core/utility.hpp
 -
 opencv2/imgproc/imgproc.hpp
 -
-opencv2/imgcodecs.hpp
--
 algorithm
 -
 
@@ -50,11 +48,17 @@ MIL/common_includes.hpp
 MIL/feature.hpp
 ../include/MIL/MIL/feature.hpp
 
-../include/MIL/trackerMIL.hpp
+../include/MIL/trackerFeatureSet.hpp
 MIL/common_includes.hpp
 ../include/MIL/MIL/common_includes.hpp
 MIL/trackerFeature.hpp
 ../include/MIL/MIL/trackerFeature.hpp
+
+../include/MIL/trackerMIL.hpp
+MIL/common_includes.hpp
+../include/MIL/MIL/common_includes.hpp
+MIL/trackerFeatureSet.hpp
+../include/MIL/MIL/trackerFeatureSet.hpp
 MIL/trackerSampler.hpp
 ../include/MIL/MIL/trackerSampler.hpp
 MIL/trackerMILModel.hpp
@@ -69,8 +73,6 @@ MIL/common_includes.hpp
 ../include/MIL/MIL/common_includes.hpp
 MIL/trackerModel.hpp
 ../include/MIL/MIL/trackerModel.hpp
-MIL/trackerStateEstimator.hpp
-../include/MIL/MIL/trackerStateEstimator.hpp
 
 ../include/MIL/trackerModel.hpp
 MIL/common_includes.hpp
