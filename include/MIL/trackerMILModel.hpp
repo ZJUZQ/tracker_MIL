@@ -3,7 +3,6 @@
 
 #include "MIL/common_includes.hpp"
 #include "MIL/trackerModel.hpp"
-#include "MIL/trackerStateEstimator.hpp"
 
 namespace MIL
 {

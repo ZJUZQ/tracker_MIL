@@ -1,7 +1,7 @@
 add_library( MIL SHARED
 		feature.cpp
-		#roiSelector.cpp
 		trackerFeature.cpp
+		trackerFeatureSet.cpp
 		trackerMIL.cpp
 		trackerMILClassifier.cpp
 		trackerMILModel.cpp
@@ -9,7 +9,6 @@ add_library( MIL SHARED
 		trackerSampler.cpp
 		trackerSamplerAlgorithm.cpp
 		trackerStateEstimator.cpp
-		#trackerStateEstimatorMILBoosting.cpp 
 												)
 
 target_link_libraries( MIL ${THIRD_PARTY_LIBS} )
