@@ -44,7 +44,7 @@ cv::Ptr<TrackerFeature> TrackerFeature::create( const std::string& trackerFeatur
 		return cv::Ptr<TrackerFeatureHAAR>( new TrackerFeatureHAAR() );
 	}
 
-	cv::CV_Error( -1, "Tracker feature type not supported" );
+	CV_Error( -1, "Tracker feature type not supported" );
 	return cv::Ptr<TrackerFeature>();
 }
 
@@ -152,7 +152,7 @@ bool TrackerFeatureHAAR::computeImpl( const std::vector<cv::Mat>& images, cv::Ma
 
 		for ( int j = 0; j < numFeatures; j++ ){
 			float res = 0;
-			featureEvaluator->getFeatures( j ).eval( images[i], Rect( 0, 0, c, r ), &res );
+			featureEvaluator->getFeatures( j ).eval( images[i], cv::Rect( 0, 0, c, r ), &res );
 			( cv::Mat_<float>( response ) )( j, i ) = res; // cv::Mat response  -->  行表示特征编号，列表示image编号
 		}
 	}
@@ -160,7 +160,7 @@ bool TrackerFeatureHAAR::computeImpl( const std::vector<cv::Mat>& images, cv::Ma
 	return true;
 }
 
-void TrackerFeatureHAAR::selection( Mat& /*response*/, int /*npoints*/){
+void TrackerFeatureHAAR::selection( cv::Mat& /*response*/, int /*npoints*/){
 
 }
 

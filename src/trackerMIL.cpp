@@ -1,4 +1,4 @@
-#include "MIL/trackerMIL.cpp"
+#include "MIL/trackerMIL.hpp"
 
 namespace MIL
 {
@@ -24,7 +24,7 @@ bool Tracker::init( cv::InputArray image, const cv::Rect2d& boundingBox ){
 
 	// check if the model component is initialized
 	if( model == 0 ){
-		cv::CV_Error( -1, "The model is not initialized" );
+		CV_Error( -1, "The model is not initialized" );
 		return false;
 	}
 
@@ -242,7 +242,7 @@ bool TrackerMILImpl::updateImpl( const cv::Mat& image, cv::Rect2d& boundingBox )
 	sampler->sampling( intImage, boundingBox );
 	std::vector<cv::Mat> negSamples = sampler->getSamples();
 
-	if( posSamples.empty() || negSamples.empyt() )
+	if( posSamples.empty() || negSamples.empty() )
 		return false;
 
 	// extract features

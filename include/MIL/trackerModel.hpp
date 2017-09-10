@@ -1,14 +1,8 @@
 #ifndef MIL_TRACKERMODEL_HPP_
 #define MIL_TRACKERMODEL_HPP_
 
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc/types_c.h>
-
-#include "MIL/feature.hpp"
-#include "MIL/trackerTargetState.hpp"
-
-#include <iostream>
-#include <vector>
+#include "MIL/common_includes.hpp"
+#include "MIL/trackerStateEstimator.hpp"
 
 namespace MIL
 {
@@ -18,10 +12,10 @@ tracker
 
 Inherits this with your TrackerModel
  */
-class TrackerModle{
+class TrackerModel{
 public:
-	TrackerModle();
-	virtual ~TrackerModle();
+	TrackerModel();
+	virtual ~TrackerModel();
 
 	/** @brief Set TrackerEstimator, return true if the tracker state estimator is added, false otherwise
 

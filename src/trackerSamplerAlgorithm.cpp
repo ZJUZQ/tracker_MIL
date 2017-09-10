@@ -12,7 +12,7 @@ TrackerSamplerAlgorithm::~TrackerSamplerAlgorithm(){
 
 bool TrackerSamplerAlgorithm::sampling( const cv::Mat& image, cv::Rect boundingBox, std::vector<cv::Mat>& samples ){
 	if( image.empty() )
-		retrun false;
+		return false;
 	return samplingImpl( image, boundingBox, samples );
 }
 
@@ -27,7 +27,7 @@ cv::Ptr<TrackerSamplerAlgorithm> TrackerSamplerAlgorithm::create( const std::str
 	}
 	 */
 
-	cv::CV_Error( -1, "Tracker samper algorithm type not supported" );
+	CV_Error( -1, "Tracker samper algorithm type not supported" );
 	return cv::Ptr<TrackerSamplerAlgorithm>();
 }
 
@@ -47,10 +47,10 @@ TrackerSamplerCSC::Params::Params(){
 	trackMaxPosNum = 100000;
 }
 
-TrackerSamplerCSC::TrackerSamplerCSC( const TrackerSamplerCSC::Params& parameters ) : Params( parameters ){
+TrackerSamplerCSC::TrackerSamplerCSC( const TrackerSamplerCSC::Params& parameters ) : params( parameters ){
 	className = "CSC";
 	mode = MODE_INIT_POS; //  for the positive sampling in initialization step
-	rng = cv::RNG( cv::uint64( time( 0 ) ) );
+	rng = cv::RNG( uint64( time( 0 ) ) );
 }
 
 TrackerSamplerCSC::~TrackerSamplerCSC(){
@@ -140,7 +140,7 @@ std::vector<cv::Mat> TrackerSamplerCSC::sampleImage( const cv::Mat& img, int x, 
 				i++;
 			}
 		}
-	samples.resize( min( i, maxnum ) );
+	samples.resize( std::min( i, maxnum ) );
 	return samples;
 }
 

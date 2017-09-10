@@ -2,6 +2,9 @@
 #define MIL_TRACKERMIL_HPP
 
 #include "MIL/common_includes.hpp"
+#include "MIL/trackerFeature.hpp"
+#include "MIL/trackerSampler.hpp"
+#include "MIL/trackerMILModel.hpp"
 
 namespace MIL
 {

@@ -31,7 +31,7 @@ public:
 	 * \return The width of the target
 	 */
 	int getTargetWidth() const{
-		retrun targetWidth;
+		return targetWidth;
 	}
 
 	void setTargetWidth( int width ){

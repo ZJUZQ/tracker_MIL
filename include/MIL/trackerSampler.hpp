@@ -2,6 +2,7 @@
 #define MIL_TRACKERSAMPLER_HPP
 
 #include "MIL/common_includes.hpp"
+#include "MIL/trackerSamplerAlgorithm.hpp"
 
 namespace MIL
 {

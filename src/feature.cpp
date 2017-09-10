@@ -88,7 +88,7 @@ bool CvHaarFeatureParams::read( const cv::FileNode &node )
 	if( !CvFeatureParams::read( node ) )
 		return false;
 
-	FileNode rnode = node["isIntegral"];
+	cv::FileNode rnode = node["isIntegral"];
 	if( !rnode.isString() )
 		return false;
 	cv::String intStr;
@@ -114,7 +114,7 @@ bool CvHaarFeatureParams::scanAttr( const std::string /*prmName*/, const std::st
 }
 
 /********************************** CvFeatureEvaluator *********************************/
-void CvFeatureEvaluator::init( const CvFeatureParams *_featureParams, int _maxSampleCount, Size _winSize ){
+void CvFeatureEvaluator::init( const CvFeatureParams *_featureParams, int _maxSampleCount, cv::Size _winSize ){
 	CV_Assert( _maxSampleCount > 0 );
 	featureParams = (CvFeatureParams *) _featureParams; 
 	winSize = _winSize;
@@ -124,7 +124,7 @@ void CvFeatureEvaluator::init( const CvFeatureParams *_featureParams, int _maxSa
 	generateFeatures();
 }
 
-void CvFeatureEvaluator::setImage( const Mat &img, uchar clsLabel, int idx ){
+void CvFeatureEvaluator::setImage( const cv::Mat &img, uchar clsLabel, int idx ){
 	winSize.width = img.cols; // 注： Size  winSize
 	winSize.height = img.rows;
 	//CV_Assert( img.cols == winSize.width );
@@ -144,15 +144,15 @@ cv::Ptr<CvFeatureEvaluator> CvFeatureEvaluator::create( int type ){
 
 
 /*************************** CvHaarEvaluator *******************************/
-void CvHaarEvaluator::init( const CvFeatureParams *_featureParams, int /*_maxSampleCount*/, Size _winSize ){
+void CvHaarEvaluator::init( const CvFeatureParams *_featureParams, int /*_maxSampleCount*/, cv::Size _winSize ){
 	int cols = ( _winSize.width + 1 ) * ( _winSize.height + 1 );
 	sum.create( (int) 1, cols, CV_32SC1 ); // cv::Mat sum; --> sum images (each row represents image)
 	isIntegral = ( (CvHaarFeatureParams*) _featureParams )->isIntegral;
 	CvFeatureEvaluator::init( _featureParams, 1, _winSize ); // virtual void  init (const CvFeatureParams *_featureParams, int _maxSampleCount, Size _winSize)
 }
 
-void CvHaarEvaluator::setImage( const Mat& img, uchar /*clsLabel*/, int /*idx*/){
-	cv::CV_DbgAssert( !sum.empty() );
+void CvHaarEvaluator::setImage( const cv::Mat& img, uchar /*clsLabel*/, int /*idx*/){
+	CV_DbgAssert( !sum.empty() );
 
 	winSize.width = img.cols;
 	winSize.height = img.rows;
@@ -184,7 +184,7 @@ void CvHaarEvaluator::generateFeatures(){
 
 void CvHaarEvaluator::generateFeatures( int nFeatures ){  //  随机生成numFeatures个Haar特征
 	for ( int i = 0; i < nFeatures; i++ ){
-		CvHaarEvaluator::FeatureHaar feature( Size( winSize.width, winSize.height ) );
+		CvHaarEvaluator::FeatureHaar feature( cv::Size( winSize.width, winSize.height ) );
 		features.push_back( feature );  // 注： std::vector<FeatureHaar> features;
 	}
 }
@@ -197,7 +197,7 @@ float CvHaarEvaluator::operator()( int featureIdx, int /*sampleIdx*/){
 	/* TODO Added from MIL implementation */
 	//return features[featureIdx].calc( _ii_img, Mat(), 0 );
 	float res;
-	features.at( featureIdx ).eval( _ii_img, Rect( 0, 0, winSize.width, winSize.height ), &res );
+	features.at( featureIdx ).eval( _ii_img, cv::Rect( 0, 0, winSize.width, winSize.height ), &res );
 	return res;
 }
 
@@ -211,7 +211,7 @@ cv::Size CvHaarEvaluator::setWinSize() const{
 }
 
 /*********************** CvHaarEvaluator::FeatureHaar ********************************/
-CvHaarEvaluator::FeatureHaar::FeatureHaar( Size patchSize ){
+CvHaarEvaluator::FeatureHaar::FeatureHaar( cv::Size patchSize ){
 	try{
 		generateRandomFeature( patchSize );
 	}
@@ -630,7 +630,7 @@ void CvHaarEvaluator::FeatureHaar::generateRandomFeature( cv::Size patchSize ){
 			valid = true;
     	}
     	else
-    		cv::CV_Error( cv::CV_StsAssert, "" );
+    		CV_Error( CV_StsAssert, "" );
 	}
 
 	m_initSize = patchSize;
@@ -682,7 +682,7 @@ float CvHaarEvaluator::FeatureHaar::getSum( const cv::Mat& image, cv::Rect image
 	int depth = image.depth();
 
 	//  这里用的integral_image计算Haar特征
-	if( depth == CV_8U || depth == CV_32U )
+	if( depth == CV_8U || depth == CV_32S )
 		value = static_cast<float>( image.at<int>( OriginY + Height, OriginX + Width ) + image.at<int>( OriginY, OriginX ) - image.at<int>(OriginY, OriginX + Width)
 				- image.at<int>(OriginY + Height, OriginX) );
 
@@ -701,11 +701,11 @@ int CvHaarEvaluator::FeatureHaar::getNumAreas(){
 	return m_numAreas;
 }
 
-const std::vector<float>& CvFeatureEvaluator::FeatureHaar;:getWeights() const{
+const std::vector<float>& CvHaarEvaluator::FeatureHaar::getWeights() const{
 	return m_weights;
 }
 
-const std::vector<cv::Rect>& CvFeatureEvaluator::FeatureHaar::getAreas() const{
+const std::vector<cv::Rect>& CvHaarEvaluator::FeatureHaar::getAreas() const{
 	return m_areas;
 }
 

@@ -2,6 +2,7 @@
 #define MIL_TRACKERFEATURE_HPP
 
 #include "MIL/common_includes.hpp"
+#include "MIL/feature.hpp"
 
 namespace MIL
 {
@@ -63,7 +64,7 @@ public:
 	struct Params{
 		Params();
 		int numFeatures;  //!< # of rects
-	    Size rectSize;    //!< rect size
+	    cv::Size rectSize;    //!< rect size
 	    bool isIntegral;  //!< true if input images are integral, false otherwise
 	};
 

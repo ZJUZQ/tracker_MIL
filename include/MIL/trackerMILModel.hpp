@@ -1,10 +1,9 @@
 #ifndef MIL_TRACKERMILMODEL_H
 #define MIL_TRACKERMILMODEL_H
 
-#include <opencv2/core/core.hpp>
-
-#include <iostream>
-#include <vector>
+#include "MIL/common_includes.hpp"
+#include "MIL/trackerModel.hpp"
+#include "MIL/trackerStateEstimator.hpp"
 
 namespace MIL
 {
@@ -15,18 +14,18 @@ namespace MIL
 class TrackerMILModel : public TrackerModel{
 public:
 	enum{
-		MODE_POSITIVE = 1; // mode for positive features
-		MODE_NEGATIVE = 2; // mode for negtive features
-		MODE_ESTIMATION = 3; // mode for estimation step 
+		MODE_POSITIVE = 1, // mode for positive features
+		MODE_NEGATIVE = 2, // mode for negtive features
+		MODE_ESTIMATION = 3 // mode for estimation step 
 	};
 
 	/**
    * \brief Constructor
    * \param boundingBox The first boundingBox
    */
-	TrackerModel( const cv::Rect& boundingBox );
+	TrackerMILModel( const cv::Rect& boundingBox );
 
-	~TrackerModel(){}
+	~TrackerMILModel(){}
 
 	/**
    * \brief Set the mode

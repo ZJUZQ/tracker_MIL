@@ -218,7 +218,7 @@ void ClfOnlineStump::update( const cv::Mat& posx, const cv::Mat& negx, const cv:
 	if( posx.cols > 0 )
 		posmu = float( cv::mean( posx.col( _ind ) )[0] ); // The function cv::mean calculates the mean value M of array elements, independently for each channel, and return it: 
 	if( negx.cols > 0 )
-		negmu = float( cv::mean( negx.col( _inx ) )[0] );
+		negmu = float( cv::mean( negx.col( _ind ) )[0] );
 
 	if( _trained ){
 		if( posx.cols > 0 ){  // 有正样本，更新：_mu1, _sig1
@@ -247,7 +247,7 @@ void ClfOnlineStump::update( const cv::Mat& posx, const cv::Mat& negx, const cv:
 		if( posx.cols > 0 ){
 			_mu1 = posmu;	// 初始化均值
 			cv::Scalar scal_mean, scal_std_dev;
-			cv::meanStdDev( posx,col( _ind ), scal_mean, scal_std_dev );	// 计算数组元素的平均值和标准偏差
+			cv::meanStdDev( posx.col( _ind ), scal_mean, scal_std_dev );	// 计算数组元素的平均值和标准偏差
 			_sig1 = std::pow( float( scal_std_dev[0] ), 2.0f ) + 1e-9f;	// 初始化标准方差 	
 		}
 		if( negx.cols > 0 ){
