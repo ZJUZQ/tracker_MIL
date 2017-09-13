@@ -120,21 +120,47 @@ MIL: cmake_check_build_system
 
 # fast build rule for target.
 MIL/fast:
-	$(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/build
+	$(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/build
 .PHONY : MIL/fast
 
 #=============================================================================
-# Target rules for targets named tracker_MIL
+# Target rules for targets named BOOSTING
 
 # Build rule for target.
-tracker_MIL: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tracker_MIL
-.PHONY : tracker_MIL
+BOOSTING: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BOOSTING
+.PHONY : BOOSTING
 
 # fast build rule for target.
-tracker_MIL/fast:
-	$(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/build
-.PHONY : tracker_MIL/fast
+BOOSTING/fast:
+	$(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/build
+.PHONY : BOOSTING/fast
+
+#=============================================================================
+# Target rules for targets named tracker_MILBoosting
+
+# Build rule for target.
+tracker_MILBoosting: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tracker_MILBoosting
+.PHONY : tracker_MILBoosting
+
+# fast build rule for target.
+tracker_MILBoosting/fast:
+	$(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/build
+.PHONY : tracker_MILBoosting/fast
+
+#=============================================================================
+# Target rules for targets named tracker_AdaBoosting
+
+# Build rule for target.
+tracker_AdaBoosting: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tracker_AdaBoosting
+.PHONY : tracker_AdaBoosting
+
+# fast build rule for target.
+tracker_AdaBoosting/fast:
+	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
+.PHONY : tracker_AdaBoosting/fast
 
 # Help Target
 help:
@@ -145,7 +171,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MIL"
-	@echo "... tracker_MIL"
+	@echo "... BOOSTING"
+	@echo "... tracker_MILBoosting"
+	@echo "... tracker_AdaBoosting"
 .PHONY : help
 
 

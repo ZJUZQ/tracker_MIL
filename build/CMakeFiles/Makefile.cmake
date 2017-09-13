@@ -11,7 +11,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
+  "../src/BOOSTING/CMakeLists.txt"
   "../src/CMakeLists.txt"
+  "../src/MIL/CMakeLists.txt"
   "../test/CMakeLists.txt"
   "/opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVConfig-version.cmake"
   "/opt/ros/kinetic/share/OpenCV-3.2.0-dev/OpenCVConfig.cmake"
@@ -47,11 +49,15 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/MIL/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/BOOSTING/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "src/CMakeFiles/MIL.dir/DependInfo.cmake"
-  "test/CMakeFiles/tracker_MIL.dir/DependInfo.cmake"
+  "src/MIL/CMakeFiles/MIL.dir/DependInfo.cmake"
+  "src/BOOSTING/CMakeFiles/BOOSTING.dir/DependInfo.cmake"
+  "test/CMakeFiles/tracker_MILBoosting.dir/DependInfo.cmake"
+  "test/CMakeFiles/tracker_AdaBoosting.dir/DependInfo.cmake"
   )

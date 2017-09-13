@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/tracker_MIL/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,46 +111,88 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/tracker_MIL.dir/rule:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_MIL.dir/rule
-.PHONY : test/CMakeFiles/tracker_MIL.dir/rule
+test/CMakeFiles/tracker_MILBoosting.dir/rule:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_MILBoosting.dir/rule
+.PHONY : test/CMakeFiles/tracker_MILBoosting.dir/rule
 
 # Convenience name for target.
-tracker_MIL: test/CMakeFiles/tracker_MIL.dir/rule
+tracker_MILBoosting: test/CMakeFiles/tracker_MILBoosting.dir/rule
 
-.PHONY : tracker_MIL
+.PHONY : tracker_MILBoosting
 
 # fast build rule for target.
-tracker_MIL/fast:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/build
-.PHONY : tracker_MIL/fast
+tracker_MILBoosting/fast:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/build
+.PHONY : tracker_MILBoosting/fast
 
-tracker.o: tracker.cpp.o
+# Convenience name for target.
+test/CMakeFiles/tracker_AdaBoosting.dir/rule:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_AdaBoosting.dir/rule
+.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/rule
 
-.PHONY : tracker.o
+# Convenience name for target.
+tracker_AdaBoosting: test/CMakeFiles/tracker_AdaBoosting.dir/rule
+
+.PHONY : tracker_AdaBoosting
+
+# fast build rule for target.
+tracker_AdaBoosting/fast:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
+.PHONY : tracker_AdaBoosting/fast
+
+tracker_AdaBoosting.o: tracker_AdaBoosting.cpp.o
+
+.PHONY : tracker_AdaBoosting.o
 
 # target to build an object file
-tracker.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/tracker.cpp.o
-.PHONY : tracker.cpp.o
+tracker_AdaBoosting.cpp.o:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/tracker_AdaBoosting.cpp.o
+.PHONY : tracker_AdaBoosting.cpp.o
 
-tracker.i: tracker.cpp.i
+tracker_AdaBoosting.i: tracker_AdaBoosting.cpp.i
 
-.PHONY : tracker.i
+.PHONY : tracker_AdaBoosting.i
 
 # target to preprocess a source file
-tracker.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/tracker.cpp.i
-.PHONY : tracker.cpp.i
+tracker_AdaBoosting.cpp.i:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/tracker_AdaBoosting.cpp.i
+.PHONY : tracker_AdaBoosting.cpp.i
 
-tracker.s: tracker.cpp.s
+tracker_AdaBoosting.s: tracker_AdaBoosting.cpp.s
 
-.PHONY : tracker.s
+.PHONY : tracker_AdaBoosting.s
 
 # target to generate assembly for a file
-tracker.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/tracker.cpp.s
-.PHONY : tracker.cpp.s
+tracker_AdaBoosting.cpp.s:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/tracker_AdaBoosting.cpp.s
+.PHONY : tracker_AdaBoosting.cpp.s
+
+tracker_MILBoosting.o: tracker_MILBoosting.cpp.o
+
+.PHONY : tracker_MILBoosting.o
+
+# target to build an object file
+tracker_MILBoosting.cpp.o:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/tracker_MILBoosting.cpp.o
+.PHONY : tracker_MILBoosting.cpp.o
+
+tracker_MILBoosting.i: tracker_MILBoosting.cpp.i
+
+.PHONY : tracker_MILBoosting.i
+
+# target to preprocess a source file
+tracker_MILBoosting.cpp.i:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/tracker_MILBoosting.cpp.i
+.PHONY : tracker_MILBoosting.cpp.i
+
+tracker_MILBoosting.s: tracker_MILBoosting.cpp.s
+
+.PHONY : tracker_MILBoosting.s
+
+# target to generate assembly for a file
+tracker_MILBoosting.cpp.s:
+	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/tracker_MILBoosting.cpp.s
+.PHONY : tracker_MILBoosting.cpp.s
 
 # Help Target
 help:
@@ -158,12 +200,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... tracker_MIL"
-	@echo "... tracker.o"
-	@echo "... tracker.i"
-	@echo "... tracker.s"
+	@echo "... rebuild_cache"
+	@echo "... tracker_MILBoosting"
+	@echo "... tracker_AdaBoosting"
+	@echo "... tracker_AdaBoosting.o"
+	@echo "... tracker_AdaBoosting.i"
+	@echo "... tracker_AdaBoosting.s"
+	@echo "... tracker_MILBoosting.o"
+	@echo "... tracker_MILBoosting.i"
+	@echo "... tracker_MILBoosting.s"
 .PHONY : help
 
 

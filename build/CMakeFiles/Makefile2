@@ -63,54 +63,130 @@ CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/tracker_MIL/build
 # Directory level rules for directory src
 
 # Convenience name for "all" pass in the directory.
-src/all: src/CMakeFiles/MIL.dir/all
+src/all: src/MIL/all
+src/all: src/BOOSTING/all
 
 .PHONY : src/all
 
 # Convenience name for "clean" pass in the directory.
-src/clean: src/CMakeFiles/MIL.dir/clean
+src/clean: src/MIL/clean
+src/clean: src/BOOSTING/clean
 
 .PHONY : src/clean
 
 # Convenience name for "preinstall" pass in the directory.
-src/preinstall:
+src/preinstall: src/MIL/preinstall
+src/preinstall: src/BOOSTING/preinstall
 
 .PHONY : src/preinstall
 
 #=============================================================================
-# Target rules for target src/CMakeFiles/MIL.dir
+# Directory level rules for directory src/MIL
+
+# Convenience name for "all" pass in the directory.
+src/MIL/all: src/MIL/CMakeFiles/MIL.dir/all
+
+.PHONY : src/MIL/all
+
+# Convenience name for "clean" pass in the directory.
+src/MIL/clean: src/MIL/CMakeFiles/MIL.dir/clean
+
+.PHONY : src/MIL/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/MIL/preinstall:
+
+.PHONY : src/MIL/preinstall
+
+#=============================================================================
+# Target rules for target src/MIL/CMakeFiles/MIL.dir
 
 # All Build rule for target.
-src/CMakeFiles/MIL.dir/all:
-	$(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/depend
-	$(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target MIL"
-.PHONY : src/CMakeFiles/MIL.dir/all
+src/MIL/CMakeFiles/MIL.dir/all:
+	$(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/depend
+	$(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20,21,22 "Built target MIL"
+.PHONY : src/MIL/CMakeFiles/MIL.dir/all
 
 # Include target in all.
-all: src/CMakeFiles/MIL.dir/all
+all: src/MIL/CMakeFiles/MIL.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-src/CMakeFiles/MIL.dir/rule: cmake_check_build_system
+src/MIL/CMakeFiles/MIL.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 11
-	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/MIL.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 src/MIL/CMakeFiles/MIL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 0
-.PHONY : src/CMakeFiles/MIL.dir/rule
+.PHONY : src/MIL/CMakeFiles/MIL.dir/rule
 
 # Convenience name for target.
-MIL: src/CMakeFiles/MIL.dir/rule
+MIL: src/MIL/CMakeFiles/MIL.dir/rule
 
 .PHONY : MIL
 
 # clean rule for target.
-src/CMakeFiles/MIL.dir/clean:
-	$(MAKE) -f src/CMakeFiles/MIL.dir/build.make src/CMakeFiles/MIL.dir/clean
-.PHONY : src/CMakeFiles/MIL.dir/clean
+src/MIL/CMakeFiles/MIL.dir/clean:
+	$(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/clean
+.PHONY : src/MIL/CMakeFiles/MIL.dir/clean
 
 # clean rule for target.
-clean: src/CMakeFiles/MIL.dir/clean
+clean: src/MIL/CMakeFiles/MIL.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory src/BOOSTING
+
+# Convenience name for "all" pass in the directory.
+src/BOOSTING/all: src/BOOSTING/CMakeFiles/BOOSTING.dir/all
+
+.PHONY : src/BOOSTING/all
+
+# Convenience name for "clean" pass in the directory.
+src/BOOSTING/clean: src/BOOSTING/CMakeFiles/BOOSTING.dir/clean
+
+.PHONY : src/BOOSTING/clean
+
+# Convenience name for "preinstall" pass in the directory.
+src/BOOSTING/preinstall:
+
+.PHONY : src/BOOSTING/preinstall
+
+#=============================================================================
+# Target rules for target src/BOOSTING/CMakeFiles/BOOSTING.dir
+
+# All Build rule for target.
+src/BOOSTING/CMakeFiles/BOOSTING.dir/all:
+	$(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/depend
+	$(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target BOOSTING"
+.PHONY : src/BOOSTING/CMakeFiles/BOOSTING.dir/all
+
+# Include target in all.
+all: src/BOOSTING/CMakeFiles/BOOSTING.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+src/BOOSTING/CMakeFiles/BOOSTING.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 11
+	$(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/CMakeFiles/BOOSTING.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 0
+.PHONY : src/BOOSTING/CMakeFiles/BOOSTING.dir/rule
+
+# Convenience name for target.
+BOOSTING: src/BOOSTING/CMakeFiles/BOOSTING.dir/rule
+
+.PHONY : BOOSTING
+
+# clean rule for target.
+src/BOOSTING/CMakeFiles/BOOSTING.dir/clean:
+	$(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/clean
+.PHONY : src/BOOSTING/CMakeFiles/BOOSTING.dir/clean
+
+# clean rule for target.
+clean: src/BOOSTING/CMakeFiles/BOOSTING.dir/clean
 
 .PHONY : clean
 
@@ -118,12 +194,14 @@ clean: src/CMakeFiles/MIL.dir/clean
 # Directory level rules for directory test
 
 # Convenience name for "all" pass in the directory.
-test/all: test/CMakeFiles/tracker_MIL.dir/all
+test/all: test/CMakeFiles/tracker_MILBoosting.dir/all
+test/all: test/CMakeFiles/tracker_AdaBoosting.dir/all
 
 .PHONY : test/all
 
 # Convenience name for "clean" pass in the directory.
-test/clean: test/CMakeFiles/tracker_MIL.dir/clean
+test/clean: test/CMakeFiles/tracker_MILBoosting.dir/clean
+test/clean: test/CMakeFiles/tracker_AdaBoosting.dir/clean
 
 .PHONY : test/clean
 
@@ -133,39 +211,76 @@ test/preinstall:
 .PHONY : test/preinstall
 
 #=============================================================================
-# Target rules for target test/CMakeFiles/tracker_MIL.dir
+# Target rules for target test/CMakeFiles/tracker_MILBoosting.dir
 
 # All Build rule for target.
-test/CMakeFiles/tracker_MIL.dir/all: src/CMakeFiles/MIL.dir/all
-	$(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/depend
-	$(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=12,13 "Built target tracker_MIL"
-.PHONY : test/CMakeFiles/tracker_MIL.dir/all
+test/CMakeFiles/tracker_MILBoosting.dir/all: src/MIL/CMakeFiles/MIL.dir/all
+	$(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/depend
+	$(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=25,26 "Built target tracker_MILBoosting"
+.PHONY : test/CMakeFiles/tracker_MILBoosting.dir/all
 
 # Include target in all.
-all: test/CMakeFiles/tracker_MIL.dir/all
+all: test/CMakeFiles/tracker_MILBoosting.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-test/CMakeFiles/tracker_MIL.dir/rule: cmake_check_build_system
+test/CMakeFiles/tracker_MILBoosting.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 13
-	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_MIL.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_MILBoosting.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 0
-.PHONY : test/CMakeFiles/tracker_MIL.dir/rule
+.PHONY : test/CMakeFiles/tracker_MILBoosting.dir/rule
 
 # Convenience name for target.
-tracker_MIL: test/CMakeFiles/tracker_MIL.dir/rule
+tracker_MILBoosting: test/CMakeFiles/tracker_MILBoosting.dir/rule
 
-.PHONY : tracker_MIL
-
-# clean rule for target.
-test/CMakeFiles/tracker_MIL.dir/clean:
-	$(MAKE) -f test/CMakeFiles/tracker_MIL.dir/build.make test/CMakeFiles/tracker_MIL.dir/clean
-.PHONY : test/CMakeFiles/tracker_MIL.dir/clean
+.PHONY : tracker_MILBoosting
 
 # clean rule for target.
-clean: test/CMakeFiles/tracker_MIL.dir/clean
+test/CMakeFiles/tracker_MILBoosting.dir/clean:
+	$(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/clean
+.PHONY : test/CMakeFiles/tracker_MILBoosting.dir/clean
+
+# clean rule for target.
+clean: test/CMakeFiles/tracker_MILBoosting.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target test/CMakeFiles/tracker_AdaBoosting.dir
+
+# All Build rule for target.
+test/CMakeFiles/tracker_AdaBoosting.dir/all: src/BOOSTING/CMakeFiles/BOOSTING.dir/all
+	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/depend
+	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=23,24 "Built target tracker_AdaBoosting"
+.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/all
+
+# Include target in all.
+all: test/CMakeFiles/tracker_AdaBoosting.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test/CMakeFiles/tracker_AdaBoosting.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 13
+	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_AdaBoosting.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 0
+.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/rule
+
+# Convenience name for target.
+tracker_AdaBoosting: test/CMakeFiles/tracker_AdaBoosting.dir/rule
+
+.PHONY : tracker_AdaBoosting
+
+# clean rule for target.
+test/CMakeFiles/tracker_AdaBoosting.dir/clean:
+	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/clean
+.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/clean
+
+# clean rule for target.
+clean: test/CMakeFiles/tracker_AdaBoosting.dir/clean
 
 .PHONY : clean
 
