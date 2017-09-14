@@ -18,7 +18,11 @@ TrackerBoostingModel::TrackerBoostingModel( const cv::Rect& boundingBox ){
 }
 
 void TrackerBoostingModel::modelEstimationImpl( const std::vector<cv::Mat>& responses ){
-	responseToConfidenceMap( responses, currentConfidenceMap );
+	
+}
+
+void TrackerBoostingModel::evalCurrentConfidenceMap( const std::vector<cv::Mat>& responseSet ){
+	responseToConfidenceMap( responseSet, currentConfidenceMap );
 }
 
 void TrackerBoostingModel::modelUpdateImpl(){

@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/feature.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoosting.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingClassifier.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingModel.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeature.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeatureSet.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerModel.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSampler.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSamplerAlgorithm.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o"
-  "/home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerStateEstimator.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/feature.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoosting.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingClassifier.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingModel.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeature.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeatureSet.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerModel.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSampler.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSamplerAlgorithm.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerStateEstimator.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

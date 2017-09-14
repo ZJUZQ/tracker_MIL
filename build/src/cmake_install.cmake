@@ -1,4 +1,4 @@
-# Install script for directory: /home/vortex/zhou_temp_test/tracker_MIL/src
+# Install script for directory: /home/vortex/zhou_temp_test/visual_tracker/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL/cmake_install.cmake")
-  include("/home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/cmake_install.cmake")
+  include("/home/vortex/zhou_temp_test/visual_tracker/build/src/MIL/cmake_install.cmake")
+  include("/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/cmake_install.cmake")
 
 endif()
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/tracker_MIL
+CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/visual_tracker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/tracker_MIL/build
+CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/visual_tracker/build
 
 # Include any dependencies generated for this target.
 include src/MIL/CMakeFiles/MIL.dir/depend.make
@@ -59,16 +59,16 @@ include src/MIL/CMakeFiles/MIL.dir/flags.make
 
 src/MIL/CMakeFiles/MIL.dir/feature.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/feature.cpp.o: ../src/MIL/feature.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/MIL/CMakeFiles/MIL.dir/feature.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/feature.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/feature.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/MIL/CMakeFiles/MIL.dir/feature.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/feature.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/feature.cpp
 
 src/MIL/CMakeFiles/MIL.dir/feature.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/feature.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/feature.cpp > CMakeFiles/MIL.dir/feature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/feature.cpp > CMakeFiles/MIL.dir/feature.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/feature.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/feature.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/feature.cpp -o CMakeFiles/MIL.dir/feature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/feature.cpp -o CMakeFiles/MIL.dir/feature.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/feature.cpp.o.requires:
 
@@ -83,16 +83,16 @@ src/MIL/CMakeFiles/MIL.dir/feature.cpp.o.provides.build: src/MIL/CMakeFiles/MIL.
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o: ../src/MIL/trackerFeature.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerFeature.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeature.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerFeature.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerFeature.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerFeature.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeature.cpp > CMakeFiles/MIL.dir/trackerFeature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerFeature.cpp > CMakeFiles/MIL.dir/trackerFeature.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerFeature.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeature.cpp -o CMakeFiles/MIL.dir/trackerFeature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerFeature.cpp -o CMakeFiles/MIL.dir/trackerFeature.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o.requires:
 
@@ -107,16 +107,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o.provides.build: src/MIL/CMakeFil
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o: ../src/MIL/trackerFeatureSet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeatureSet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerFeatureSet.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerFeatureSet.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeatureSet.cpp > CMakeFiles/MIL.dir/trackerFeatureSet.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerFeatureSet.cpp > CMakeFiles/MIL.dir/trackerFeatureSet.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerFeatureSet.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerFeatureSet.cpp -o CMakeFiles/MIL.dir/trackerFeatureSet.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerFeatureSet.cpp -o CMakeFiles/MIL.dir/trackerFeatureSet.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o.requires:
 
@@ -131,16 +131,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o.provides.build: src/MIL/CMake
 
 src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o: ../src/MIL/trackerMIL.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerMIL.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMIL.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerMIL.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMIL.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerMIL.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMIL.cpp > CMakeFiles/MIL.dir/trackerMIL.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMIL.cpp > CMakeFiles/MIL.dir/trackerMIL.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerMIL.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMIL.cpp -o CMakeFiles/MIL.dir/trackerMIL.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMIL.cpp -o CMakeFiles/MIL.dir/trackerMIL.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o.requires:
 
@@ -155,16 +155,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o.provides.build: src/MIL/CMakeFiles/M
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o: ../src/MIL/trackerMILClassifier.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMILClassifier.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMILClassifier.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerMILClassifier.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMILClassifier.cpp > CMakeFiles/MIL.dir/trackerMILClassifier.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMILClassifier.cpp > CMakeFiles/MIL.dir/trackerMILClassifier.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerMILClassifier.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMILClassifier.cpp -o CMakeFiles/MIL.dir/trackerMILClassifier.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMILClassifier.cpp -o CMakeFiles/MIL.dir/trackerMILClassifier.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o.requires:
 
@@ -179,16 +179,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o.provides.build: src/MIL/CM
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o: ../src/MIL/trackerMILModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerMILModel.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMILModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerMILModel.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMILModel.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerMILModel.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMILModel.cpp > CMakeFiles/MIL.dir/trackerMILModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMILModel.cpp > CMakeFiles/MIL.dir/trackerMILModel.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerMILModel.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerMILModel.cpp -o CMakeFiles/MIL.dir/trackerMILModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerMILModel.cpp -o CMakeFiles/MIL.dir/trackerMILModel.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o.requires:
 
@@ -203,16 +203,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o.provides.build: src/MIL/CMakeFi
 
 src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o: ../src/MIL/trackerModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerModel.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerModel.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerModel.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerModel.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerModel.cpp > CMakeFiles/MIL.dir/trackerModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerModel.cpp > CMakeFiles/MIL.dir/trackerModel.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerModel.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerModel.cpp -o CMakeFiles/MIL.dir/trackerModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerModel.cpp -o CMakeFiles/MIL.dir/trackerModel.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o.requires:
 
@@ -227,16 +227,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o.provides.build: src/MIL/CMakeFiles
 
 src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o: ../src/MIL/trackerSampler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerSampler.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerSampler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerSampler.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerSampler.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerSampler.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerSampler.cpp > CMakeFiles/MIL.dir/trackerSampler.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerSampler.cpp > CMakeFiles/MIL.dir/trackerSampler.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerSampler.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerSampler.cpp -o CMakeFiles/MIL.dir/trackerSampler.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerSampler.cpp -o CMakeFiles/MIL.dir/trackerSampler.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o.requires:
 
@@ -251,16 +251,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o.provides.build: src/MIL/CMakeFil
 
 src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o: ../src/MIL/trackerSamplerAlgorithm.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerSamplerAlgorithm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerSamplerAlgorithm.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerSamplerAlgorithm.cpp > CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerSamplerAlgorithm.cpp > CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerSamplerAlgorithm.cpp -o CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerSamplerAlgorithm.cpp -o CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o.requires:
 
@@ -275,16 +275,16 @@ src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o.provides.build: src/MIL
 
 src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o: src/MIL/CMakeFiles/MIL.dir/flags.make
 src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o: ../src/MIL/trackerStateEstimator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerStateEstimator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerStateEstimator.cpp
 
 src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MIL.dir/trackerStateEstimator.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerStateEstimator.cpp > CMakeFiles/MIL.dir/trackerStateEstimator.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerStateEstimator.cpp > CMakeFiles/MIL.dir/trackerStateEstimator.cpp.i
 
 src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MIL.dir/trackerStateEstimator.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/MIL/trackerStateEstimator.cpp -o CMakeFiles/MIL.dir/trackerStateEstimator.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/MIL/trackerStateEstimator.cpp -o CMakeFiles/MIL.dir/trackerStateEstimator.cpp.s
 
 src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o.requires:
 
@@ -367,8 +367,8 @@ MIL_EXTERNAL_OBJECTS =
 ../lib/libMIL.so: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
 ../lib/libMIL.so: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
 ../lib/libMIL.so: src/MIL/CMakeFiles/MIL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library ../../../lib/libMIL.so"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MIL.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library ../../../lib/libMIL.so"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MIL.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/MIL/CMakeFiles/MIL.dir/build: ../lib/libMIL.so
@@ -389,10 +389,10 @@ src/MIL/CMakeFiles/MIL.dir/requires: src/MIL/CMakeFiles/MIL.dir/trackerStateEsti
 .PHONY : src/MIL/CMakeFiles/MIL.dir/requires
 
 src/MIL/CMakeFiles/MIL.dir/clean:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL && $(CMAKE_COMMAND) -P CMakeFiles/MIL.dir/cmake_clean.cmake
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL && $(CMAKE_COMMAND) -P CMakeFiles/MIL.dir/cmake_clean.cmake
 .PHONY : src/MIL/CMakeFiles/MIL.dir/clean
 
 src/MIL/CMakeFiles/MIL.dir/depend:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vortex/zhou_temp_test/tracker_MIL /home/vortex/zhou_temp_test/tracker_MIL/src/MIL /home/vortex/zhou_temp_test/tracker_MIL/build /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL/CMakeFiles/MIL.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vortex/zhou_temp_test/visual_tracker /home/vortex/zhou_temp_test/visual_tracker/src/MIL /home/vortex/zhou_temp_test/visual_tracker/build /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL/CMakeFiles/MIL.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/MIL/CMakeFiles/MIL.dir/depend
 

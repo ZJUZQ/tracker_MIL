@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/tracker_MIL
+CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/visual_tracker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/tracker_MIL/build
+CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/visual_tracker/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles /home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL/CMakeFiles/progress.marks
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 0
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles /home/vortex/zhou_temp_test/visual_tracker/build/src/MIL/CMakeFiles/progress.marks
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/clean
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/preinstall
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/preinstall
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/MIL/CMakeFiles/MIL.dir/rule:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/CMakeFiles/MIL.dir/rule
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/MIL/CMakeFiles/MIL.dir/rule
 .PHONY : src/MIL/CMakeFiles/MIL.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ MIL: src/MIL/CMakeFiles/MIL.dir/rule
 
 # fast build rule for target.
 MIL/fast:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/build
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/build
 .PHONY : MIL/fast
 
 feature.o: feature.cpp.o
@@ -131,7 +131,7 @@ feature.o: feature.cpp.o
 
 # target to build an object file
 feature.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/feature.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/feature.cpp.o
 .PHONY : feature.cpp.o
 
 feature.i: feature.cpp.i
@@ -140,7 +140,7 @@ feature.i: feature.cpp.i
 
 # target to preprocess a source file
 feature.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/feature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/feature.cpp.i
 .PHONY : feature.cpp.i
 
 feature.s: feature.cpp.s
@@ -149,7 +149,7 @@ feature.s: feature.cpp.s
 
 # target to generate assembly for a file
 feature.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/feature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/feature.cpp.s
 .PHONY : feature.cpp.s
 
 trackerFeature.o: trackerFeature.cpp.o
@@ -158,7 +158,7 @@ trackerFeature.o: trackerFeature.cpp.o
 
 # target to build an object file
 trackerFeature.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.o
 .PHONY : trackerFeature.cpp.o
 
 trackerFeature.i: trackerFeature.cpp.i
@@ -167,7 +167,7 @@ trackerFeature.i: trackerFeature.cpp.i
 
 # target to preprocess a source file
 trackerFeature.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.i
 .PHONY : trackerFeature.cpp.i
 
 trackerFeature.s: trackerFeature.cpp.s
@@ -176,7 +176,7 @@ trackerFeature.s: trackerFeature.cpp.s
 
 # target to generate assembly for a file
 trackerFeature.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeature.cpp.s
 .PHONY : trackerFeature.cpp.s
 
 trackerFeatureSet.o: trackerFeatureSet.cpp.o
@@ -185,7 +185,7 @@ trackerFeatureSet.o: trackerFeatureSet.cpp.o
 
 # target to build an object file
 trackerFeatureSet.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.o
 .PHONY : trackerFeatureSet.cpp.o
 
 trackerFeatureSet.i: trackerFeatureSet.cpp.i
@@ -194,7 +194,7 @@ trackerFeatureSet.i: trackerFeatureSet.cpp.i
 
 # target to preprocess a source file
 trackerFeatureSet.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.i
 .PHONY : trackerFeatureSet.cpp.i
 
 trackerFeatureSet.s: trackerFeatureSet.cpp.s
@@ -203,7 +203,7 @@ trackerFeatureSet.s: trackerFeatureSet.cpp.s
 
 # target to generate assembly for a file
 trackerFeatureSet.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerFeatureSet.cpp.s
 .PHONY : trackerFeatureSet.cpp.s
 
 trackerMIL.o: trackerMIL.cpp.o
@@ -212,7 +212,7 @@ trackerMIL.o: trackerMIL.cpp.o
 
 # target to build an object file
 trackerMIL.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.o
 .PHONY : trackerMIL.cpp.o
 
 trackerMIL.i: trackerMIL.cpp.i
@@ -221,7 +221,7 @@ trackerMIL.i: trackerMIL.cpp.i
 
 # target to preprocess a source file
 trackerMIL.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.i
 .PHONY : trackerMIL.cpp.i
 
 trackerMIL.s: trackerMIL.cpp.s
@@ -230,7 +230,7 @@ trackerMIL.s: trackerMIL.cpp.s
 
 # target to generate assembly for a file
 trackerMIL.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMIL.cpp.s
 .PHONY : trackerMIL.cpp.s
 
 trackerMILClassifier.o: trackerMILClassifier.cpp.o
@@ -239,7 +239,7 @@ trackerMILClassifier.o: trackerMILClassifier.cpp.o
 
 # target to build an object file
 trackerMILClassifier.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.o
 .PHONY : trackerMILClassifier.cpp.o
 
 trackerMILClassifier.i: trackerMILClassifier.cpp.i
@@ -248,7 +248,7 @@ trackerMILClassifier.i: trackerMILClassifier.cpp.i
 
 # target to preprocess a source file
 trackerMILClassifier.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.i
 .PHONY : trackerMILClassifier.cpp.i
 
 trackerMILClassifier.s: trackerMILClassifier.cpp.s
@@ -257,7 +257,7 @@ trackerMILClassifier.s: trackerMILClassifier.cpp.s
 
 # target to generate assembly for a file
 trackerMILClassifier.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILClassifier.cpp.s
 .PHONY : trackerMILClassifier.cpp.s
 
 trackerMILModel.o: trackerMILModel.cpp.o
@@ -266,7 +266,7 @@ trackerMILModel.o: trackerMILModel.cpp.o
 
 # target to build an object file
 trackerMILModel.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.o
 .PHONY : trackerMILModel.cpp.o
 
 trackerMILModel.i: trackerMILModel.cpp.i
@@ -275,7 +275,7 @@ trackerMILModel.i: trackerMILModel.cpp.i
 
 # target to preprocess a source file
 trackerMILModel.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.i
 .PHONY : trackerMILModel.cpp.i
 
 trackerMILModel.s: trackerMILModel.cpp.s
@@ -284,7 +284,7 @@ trackerMILModel.s: trackerMILModel.cpp.s
 
 # target to generate assembly for a file
 trackerMILModel.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerMILModel.cpp.s
 .PHONY : trackerMILModel.cpp.s
 
 trackerModel.o: trackerModel.cpp.o
@@ -293,7 +293,7 @@ trackerModel.o: trackerModel.cpp.o
 
 # target to build an object file
 trackerModel.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.o
 .PHONY : trackerModel.cpp.o
 
 trackerModel.i: trackerModel.cpp.i
@@ -302,7 +302,7 @@ trackerModel.i: trackerModel.cpp.i
 
 # target to preprocess a source file
 trackerModel.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.i
 .PHONY : trackerModel.cpp.i
 
 trackerModel.s: trackerModel.cpp.s
@@ -311,7 +311,7 @@ trackerModel.s: trackerModel.cpp.s
 
 # target to generate assembly for a file
 trackerModel.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerModel.cpp.s
 .PHONY : trackerModel.cpp.s
 
 trackerSampler.o: trackerSampler.cpp.o
@@ -320,7 +320,7 @@ trackerSampler.o: trackerSampler.cpp.o
 
 # target to build an object file
 trackerSampler.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.o
 .PHONY : trackerSampler.cpp.o
 
 trackerSampler.i: trackerSampler.cpp.i
@@ -329,7 +329,7 @@ trackerSampler.i: trackerSampler.cpp.i
 
 # target to preprocess a source file
 trackerSampler.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.i
 .PHONY : trackerSampler.cpp.i
 
 trackerSampler.s: trackerSampler.cpp.s
@@ -338,7 +338,7 @@ trackerSampler.s: trackerSampler.cpp.s
 
 # target to generate assembly for a file
 trackerSampler.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSampler.cpp.s
 .PHONY : trackerSampler.cpp.s
 
 trackerSamplerAlgorithm.o: trackerSamplerAlgorithm.cpp.o
@@ -347,7 +347,7 @@ trackerSamplerAlgorithm.o: trackerSamplerAlgorithm.cpp.o
 
 # target to build an object file
 trackerSamplerAlgorithm.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.o
 .PHONY : trackerSamplerAlgorithm.cpp.o
 
 trackerSamplerAlgorithm.i: trackerSamplerAlgorithm.cpp.i
@@ -356,7 +356,7 @@ trackerSamplerAlgorithm.i: trackerSamplerAlgorithm.cpp.i
 
 # target to preprocess a source file
 trackerSamplerAlgorithm.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.i
 .PHONY : trackerSamplerAlgorithm.cpp.i
 
 trackerSamplerAlgorithm.s: trackerSamplerAlgorithm.cpp.s
@@ -365,7 +365,7 @@ trackerSamplerAlgorithm.s: trackerSamplerAlgorithm.cpp.s
 
 # target to generate assembly for a file
 trackerSamplerAlgorithm.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerSamplerAlgorithm.cpp.s
 .PHONY : trackerSamplerAlgorithm.cpp.s
 
 trackerStateEstimator.o: trackerStateEstimator.cpp.o
@@ -374,7 +374,7 @@ trackerStateEstimator.o: trackerStateEstimator.cpp.o
 
 # target to build an object file
 trackerStateEstimator.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.o
 .PHONY : trackerStateEstimator.cpp.o
 
 trackerStateEstimator.i: trackerStateEstimator.cpp.i
@@ -383,7 +383,7 @@ trackerStateEstimator.i: trackerStateEstimator.cpp.i
 
 # target to preprocess a source file
 trackerStateEstimator.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.i
 .PHONY : trackerStateEstimator.cpp.i
 
 trackerStateEstimator.s: trackerStateEstimator.cpp.s
@@ -392,7 +392,7 @@ trackerStateEstimator.s: trackerStateEstimator.cpp.s
 
 # target to generate assembly for a file
 trackerStateEstimator.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/MIL/CMakeFiles/MIL.dir/build.make src/MIL/CMakeFiles/MIL.dir/trackerStateEstimator.cpp.s
 .PHONY : trackerStateEstimator.cpp.s
 
 # Help Target
@@ -445,6 +445,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

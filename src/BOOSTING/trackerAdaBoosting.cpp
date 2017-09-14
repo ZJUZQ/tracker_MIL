@@ -173,9 +173,9 @@ bool TrackerBoostingImpl::initImpl( const cv::Mat& image, const cv::Rect2d& boun
 		cv::Ptr<TrackerFeatureHAAR> trackerFeature2 = cv::Ptr<TrackerFeatureHAAR>( new TrackerFeatureHAAR( HAARparameters2 ) );
 
 		model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_NEGATIVE, negSamples );
-		model->modelEstimation( negResponse );
+		model->evalCurrentConfidenceMap( negResponse );
 		model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_POSITIVE, posSamples );
-		model->modelEstimation( posResponse );
+		model->evalCurrentConfidenceMap( posResponse );
 		model->modelUpdate();
 
 		// get replaced classifier and change the features
@@ -284,9 +284,9 @@ bool TrackerBoostingImpl::updateImpl( const cv::Mat& image, cv::Rect2d& bounding
 
 	// model estimate
 	model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_NEGATIVE, negSamples );
-	model->modelEstimation( negResponse );
+	model->evalCurrentConfidenceMap( negResponse );
 	model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_POSITIVE, posSamples );
-	model->modelEstimation( posResponse );
+	model->evalCurrentConfidenceMap( posResponse );
 
 	// model update
 	model->modelUpdate();

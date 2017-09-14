@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/tracker_MIL
+CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/visual_tracker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/tracker_MIL/build
+CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/visual_tracker/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/progress.marks
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 0
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/progress.marks
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/clean
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/preinstall
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/preinstall
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/BOOSTING/CMakeFiles/BOOSTING.dir/rule:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/CMakeFiles/BOOSTING.dir/rule
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/BOOSTING/CMakeFiles/BOOSTING.dir/rule
 .PHONY : src/BOOSTING/CMakeFiles/BOOSTING.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ BOOSTING: src/BOOSTING/CMakeFiles/BOOSTING.dir/rule
 
 # fast build rule for target.
 BOOSTING/fast:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/build
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/build
 .PHONY : BOOSTING/fast
 
 feature.o: feature.cpp.o
@@ -131,7 +131,7 @@ feature.o: feature.cpp.o
 
 # target to build an object file
 feature.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o
 .PHONY : feature.cpp.o
 
 feature.i: feature.cpp.i
@@ -140,7 +140,7 @@ feature.i: feature.cpp.i
 
 # target to preprocess a source file
 feature.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.i
 .PHONY : feature.cpp.i
 
 feature.s: feature.cpp.s
@@ -149,7 +149,7 @@ feature.s: feature.cpp.s
 
 # target to generate assembly for a file
 feature.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.s
 .PHONY : feature.cpp.s
 
 trackerAdaBoosting.o: trackerAdaBoosting.cpp.o
@@ -158,7 +158,7 @@ trackerAdaBoosting.o: trackerAdaBoosting.cpp.o
 
 # target to build an object file
 trackerAdaBoosting.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o
 .PHONY : trackerAdaBoosting.cpp.o
 
 trackerAdaBoosting.i: trackerAdaBoosting.cpp.i
@@ -167,7 +167,7 @@ trackerAdaBoosting.i: trackerAdaBoosting.cpp.i
 
 # target to preprocess a source file
 trackerAdaBoosting.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.i
 .PHONY : trackerAdaBoosting.cpp.i
 
 trackerAdaBoosting.s: trackerAdaBoosting.cpp.s
@@ -176,7 +176,7 @@ trackerAdaBoosting.s: trackerAdaBoosting.cpp.s
 
 # target to generate assembly for a file
 trackerAdaBoosting.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.s
 .PHONY : trackerAdaBoosting.cpp.s
 
 trackerAdaBoostingClassifier.o: trackerAdaBoostingClassifier.cpp.o
@@ -185,7 +185,7 @@ trackerAdaBoostingClassifier.o: trackerAdaBoostingClassifier.cpp.o
 
 # target to build an object file
 trackerAdaBoostingClassifier.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o
 .PHONY : trackerAdaBoostingClassifier.cpp.o
 
 trackerAdaBoostingClassifier.i: trackerAdaBoostingClassifier.cpp.i
@@ -194,7 +194,7 @@ trackerAdaBoostingClassifier.i: trackerAdaBoostingClassifier.cpp.i
 
 # target to preprocess a source file
 trackerAdaBoostingClassifier.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.i
 .PHONY : trackerAdaBoostingClassifier.cpp.i
 
 trackerAdaBoostingClassifier.s: trackerAdaBoostingClassifier.cpp.s
@@ -203,7 +203,7 @@ trackerAdaBoostingClassifier.s: trackerAdaBoostingClassifier.cpp.s
 
 # target to generate assembly for a file
 trackerAdaBoostingClassifier.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.s
 .PHONY : trackerAdaBoostingClassifier.cpp.s
 
 trackerAdaBoostingModel.o: trackerAdaBoostingModel.cpp.o
@@ -212,7 +212,7 @@ trackerAdaBoostingModel.o: trackerAdaBoostingModel.cpp.o
 
 # target to build an object file
 trackerAdaBoostingModel.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o
 .PHONY : trackerAdaBoostingModel.cpp.o
 
 trackerAdaBoostingModel.i: trackerAdaBoostingModel.cpp.i
@@ -221,7 +221,7 @@ trackerAdaBoostingModel.i: trackerAdaBoostingModel.cpp.i
 
 # target to preprocess a source file
 trackerAdaBoostingModel.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.i
 .PHONY : trackerAdaBoostingModel.cpp.i
 
 trackerAdaBoostingModel.s: trackerAdaBoostingModel.cpp.s
@@ -230,7 +230,7 @@ trackerAdaBoostingModel.s: trackerAdaBoostingModel.cpp.s
 
 # target to generate assembly for a file
 trackerAdaBoostingModel.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.s
 .PHONY : trackerAdaBoostingModel.cpp.s
 
 trackerFeature.o: trackerFeature.cpp.o
@@ -239,7 +239,7 @@ trackerFeature.o: trackerFeature.cpp.o
 
 # target to build an object file
 trackerFeature.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o
 .PHONY : trackerFeature.cpp.o
 
 trackerFeature.i: trackerFeature.cpp.i
@@ -248,7 +248,7 @@ trackerFeature.i: trackerFeature.cpp.i
 
 # target to preprocess a source file
 trackerFeature.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.i
 .PHONY : trackerFeature.cpp.i
 
 trackerFeature.s: trackerFeature.cpp.s
@@ -257,7 +257,7 @@ trackerFeature.s: trackerFeature.cpp.s
 
 # target to generate assembly for a file
 trackerFeature.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.s
 .PHONY : trackerFeature.cpp.s
 
 trackerFeatureSet.o: trackerFeatureSet.cpp.o
@@ -266,7 +266,7 @@ trackerFeatureSet.o: trackerFeatureSet.cpp.o
 
 # target to build an object file
 trackerFeatureSet.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o
 .PHONY : trackerFeatureSet.cpp.o
 
 trackerFeatureSet.i: trackerFeatureSet.cpp.i
@@ -275,7 +275,7 @@ trackerFeatureSet.i: trackerFeatureSet.cpp.i
 
 # target to preprocess a source file
 trackerFeatureSet.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.i
 .PHONY : trackerFeatureSet.cpp.i
 
 trackerFeatureSet.s: trackerFeatureSet.cpp.s
@@ -284,7 +284,7 @@ trackerFeatureSet.s: trackerFeatureSet.cpp.s
 
 # target to generate assembly for a file
 trackerFeatureSet.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.s
 .PHONY : trackerFeatureSet.cpp.s
 
 trackerModel.o: trackerModel.cpp.o
@@ -293,7 +293,7 @@ trackerModel.o: trackerModel.cpp.o
 
 # target to build an object file
 trackerModel.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o
 .PHONY : trackerModel.cpp.o
 
 trackerModel.i: trackerModel.cpp.i
@@ -302,7 +302,7 @@ trackerModel.i: trackerModel.cpp.i
 
 # target to preprocess a source file
 trackerModel.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.i
 .PHONY : trackerModel.cpp.i
 
 trackerModel.s: trackerModel.cpp.s
@@ -311,7 +311,7 @@ trackerModel.s: trackerModel.cpp.s
 
 # target to generate assembly for a file
 trackerModel.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.s
 .PHONY : trackerModel.cpp.s
 
 trackerSampler.o: trackerSampler.cpp.o
@@ -320,7 +320,7 @@ trackerSampler.o: trackerSampler.cpp.o
 
 # target to build an object file
 trackerSampler.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o
 .PHONY : trackerSampler.cpp.o
 
 trackerSampler.i: trackerSampler.cpp.i
@@ -329,7 +329,7 @@ trackerSampler.i: trackerSampler.cpp.i
 
 # target to preprocess a source file
 trackerSampler.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.i
 .PHONY : trackerSampler.cpp.i
 
 trackerSampler.s: trackerSampler.cpp.s
@@ -338,7 +338,7 @@ trackerSampler.s: trackerSampler.cpp.s
 
 # target to generate assembly for a file
 trackerSampler.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.s
 .PHONY : trackerSampler.cpp.s
 
 trackerSamplerAlgorithm.o: trackerSamplerAlgorithm.cpp.o
@@ -347,7 +347,7 @@ trackerSamplerAlgorithm.o: trackerSamplerAlgorithm.cpp.o
 
 # target to build an object file
 trackerSamplerAlgorithm.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o
 .PHONY : trackerSamplerAlgorithm.cpp.o
 
 trackerSamplerAlgorithm.i: trackerSamplerAlgorithm.cpp.i
@@ -356,7 +356,7 @@ trackerSamplerAlgorithm.i: trackerSamplerAlgorithm.cpp.i
 
 # target to preprocess a source file
 trackerSamplerAlgorithm.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.i
 .PHONY : trackerSamplerAlgorithm.cpp.i
 
 trackerSamplerAlgorithm.s: trackerSamplerAlgorithm.cpp.s
@@ -365,7 +365,7 @@ trackerSamplerAlgorithm.s: trackerSamplerAlgorithm.cpp.s
 
 # target to generate assembly for a file
 trackerSamplerAlgorithm.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.s
 .PHONY : trackerSamplerAlgorithm.cpp.s
 
 trackerStateEstimator.o: trackerStateEstimator.cpp.o
@@ -374,7 +374,7 @@ trackerStateEstimator.o: trackerStateEstimator.cpp.o
 
 # target to build an object file
 trackerStateEstimator.cpp.o:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o
 .PHONY : trackerStateEstimator.cpp.o
 
 trackerStateEstimator.i: trackerStateEstimator.cpp.i
@@ -383,7 +383,7 @@ trackerStateEstimator.i: trackerStateEstimator.cpp.i
 
 # target to preprocess a source file
 trackerStateEstimator.cpp.i:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.i
 .PHONY : trackerStateEstimator.cpp.i
 
 trackerStateEstimator.s: trackerStateEstimator.cpp.s
@@ -392,7 +392,7 @@ trackerStateEstimator.s: trackerStateEstimator.cpp.s
 
 # target to generate assembly for a file
 trackerStateEstimator.cpp.s:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f src/BOOSTING/CMakeFiles/BOOSTING.dir/build.make src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.s
 .PHONY : trackerStateEstimator.cpp.s
 
 # Help Target
@@ -445,6 +445,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

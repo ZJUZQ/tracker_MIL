@@ -1,4 +1,4 @@
-# Install script for directory: /home/vortex/zhou_temp_test/tracker_MIL/src/MIL
+# Install script for directory: /home/vortex/zhou_temp_test/visual_tracker/src/MIL
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/vortex/zhou_temp_test/tracker_MIL/test/tracker_MILBoosting.cpp" "/home/vortex/zhou_temp_test/tracker_MIL/build/test/CMakeFiles/tracker_MILBoosting.dir/tracker_MILBoosting.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/test/tracker_MILBoosting.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/tracker_MILBoosting.dir/tracker_MILBoosting.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/vortex/zhou_temp_test/tracker_MIL/build/src/MIL/CMakeFiles/MIL.dir/DependInfo.cmake"
+  "/home/vortex/zhou_temp_test/visual_tracker/build/src/MIL/CMakeFiles/MIL.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

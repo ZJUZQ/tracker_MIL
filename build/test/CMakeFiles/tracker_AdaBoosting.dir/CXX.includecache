@@ -102,7 +102,7 @@ BOOSTING/trackerAdaBoostingClassifier.hpp
 BOOSTING/common_includes.hpp
 ../include/BOOSTING/BOOSTING/common_includes.hpp
 
-/home/vortex/zhou_temp_test/tracker_MIL/test/tracker_AdaBoosting.cpp
+/home/vortex/zhou_temp_test/visual_tracker/test/tracker_AdaBoosting.cpp
 opencv2/core/utility.hpp
 -
 opencv2/tracking.hpp
@@ -116,9 +116,9 @@ iostream
 cstring
 -
 BOOSTING/trackerAdaBoosting.hpp
-/home/vortex/zhou_temp_test/tracker_MIL/test/BOOSTING/trackerAdaBoosting.hpp
+/home/vortex/zhou_temp_test/visual_tracker/test/BOOSTING/trackerAdaBoosting.hpp
 BOOSTING/roiSelector.hpp
-/home/vortex/zhou_temp_test/tracker_MIL/test/BOOSTING/roiSelector.hpp
+/home/vortex/zhou_temp_test/visual_tracker/test/BOOSTING/roiSelector.hpp
 
 /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cxcore.h
 opencv2/core/core_c.h

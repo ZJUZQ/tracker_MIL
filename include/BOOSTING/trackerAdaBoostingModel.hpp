@@ -46,6 +46,9 @@ public:
 	*/
 	std::vector<int> getSelectedWeakClassifier();
 
+	// evaluate the currentConfidenceMap from a list of response
+	void evalCurrentConfidenceMap( const std::vector<cv::Mat>& responseSet );
+
 protected:
 	void modelEstimationImpl( const std::vector<cv::Mat>& responses );
   	void modelUpdateImpl();

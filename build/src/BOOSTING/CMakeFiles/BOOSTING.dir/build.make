@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/tracker_MIL
+CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/visual_tracker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/tracker_MIL/build
+CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/visual_tracker/build
 
 # Include any dependencies generated for this target.
 include src/BOOSTING/CMakeFiles/BOOSTING.dir/depend.make
@@ -59,16 +59,16 @@ include src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o: ../src/BOOSTING/feature.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/feature.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/feature.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/feature.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/feature.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/feature.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/feature.cpp > CMakeFiles/BOOSTING.dir/feature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/feature.cpp > CMakeFiles/BOOSTING.dir/feature.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/feature.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/feature.cpp -o CMakeFiles/BOOSTING.dir/feature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/feature.cpp -o CMakeFiles/BOOSTING.dir/feature.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o.requires:
 
@@ -83,16 +83,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/feature.cpp.o.provides.build: src/BOOSTING/
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o: ../src/BOOSTING/trackerAdaBoosting.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoosting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoosting.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoosting.cpp > CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoosting.cpp > CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoosting.cpp -o CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoosting.cpp -o CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o.requires:
 
@@ -107,16 +107,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoosting.cpp.o.provides.build: sr
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o: ../src/BOOSTING/trackerAdaBoostingClassifier.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingClassifier.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingClassifier.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingClassifier.cpp > CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingClassifier.cpp > CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingClassifier.cpp -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingClassifier.cpp -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o.requires:
 
@@ -131,16 +131,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingClassifier.cpp.o.provides
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o: ../src/BOOSTING/trackerAdaBoostingModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingModel.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingModel.cpp > CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingModel.cpp > CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerAdaBoostingModel.cpp -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerAdaBoostingModel.cpp -o CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o.requires:
 
@@ -155,16 +155,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerAdaBoostingModel.cpp.o.provides.buil
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o: ../src/BOOSTING/trackerFeature.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeature.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeature.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerFeature.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeature.cpp > CMakeFiles/BOOSTING.dir/trackerFeature.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeature.cpp > CMakeFiles/BOOSTING.dir/trackerFeature.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerFeature.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeature.cpp -o CMakeFiles/BOOSTING.dir/trackerFeature.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeature.cpp -o CMakeFiles/BOOSTING.dir/trackerFeature.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o.requires:
 
@@ -179,16 +179,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeature.cpp.o.provides.build: src/BO
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o: ../src/BOOSTING/trackerFeatureSet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeatureSet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeatureSet.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeatureSet.cpp > CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeatureSet.cpp > CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerFeatureSet.cpp -o CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerFeatureSet.cpp -o CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o.requires:
 
@@ -203,16 +203,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerFeatureSet.cpp.o.provides.build: src
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o: ../src/BOOSTING/trackerModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerModel.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerModel.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerModel.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerModel.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerModel.cpp > CMakeFiles/BOOSTING.dir/trackerModel.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerModel.cpp > CMakeFiles/BOOSTING.dir/trackerModel.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerModel.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerModel.cpp -o CMakeFiles/BOOSTING.dir/trackerModel.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerModel.cpp -o CMakeFiles/BOOSTING.dir/trackerModel.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o.requires:
 
@@ -227,16 +227,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerModel.cpp.o.provides.build: src/BOOS
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o: ../src/BOOSTING/trackerSampler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSampler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSampler.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerSampler.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSampler.cpp > CMakeFiles/BOOSTING.dir/trackerSampler.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSampler.cpp > CMakeFiles/BOOSTING.dir/trackerSampler.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerSampler.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSampler.cpp -o CMakeFiles/BOOSTING.dir/trackerSampler.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSampler.cpp -o CMakeFiles/BOOSTING.dir/trackerSampler.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o.requires:
 
@@ -251,16 +251,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSampler.cpp.o.provides.build: src/BO
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o: ../src/BOOSTING/trackerSamplerAlgorithm.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSamplerAlgorithm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSamplerAlgorithm.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSamplerAlgorithm.cpp > CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSamplerAlgorithm.cpp > CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerSamplerAlgorithm.cpp -o CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerSamplerAlgorithm.cpp -o CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o.requires:
 
@@ -275,16 +275,16 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerSamplerAlgorithm.cpp.o.provides.buil
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o: src/BOOSTING/CMakeFiles/BOOSTING.dir/flags.make
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o: ../src/BOOSTING/trackerStateEstimator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o -c /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerStateEstimator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerStateEstimator.cpp
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.i"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerStateEstimator.cpp > CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerStateEstimator.cpp > CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.i
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.s"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING/trackerStateEstimator.cpp -o CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING/trackerStateEstimator.cpp -o CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.s
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/trackerStateEstimator.cpp.o.requires:
 
@@ -367,8 +367,8 @@ BOOSTING_EXTERNAL_OBJECTS =
 ../lib/libBOOSTING.so: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
 ../lib/libBOOSTING.so: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
 ../lib/libBOOSTING.so: src/BOOSTING/CMakeFiles/BOOSTING.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library ../../../lib/libBOOSTING.so"
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BOOSTING.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared library ../../../lib/libBOOSTING.so"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BOOSTING.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/BOOSTING/CMakeFiles/BOOSTING.dir/build: ../lib/libBOOSTING.so
@@ -389,10 +389,10 @@ src/BOOSTING/CMakeFiles/BOOSTING.dir/requires: src/BOOSTING/CMakeFiles/BOOSTING.
 .PHONY : src/BOOSTING/CMakeFiles/BOOSTING.dir/requires
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/clean:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING && $(CMAKE_COMMAND) -P CMakeFiles/BOOSTING.dir/cmake_clean.cmake
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING && $(CMAKE_COMMAND) -P CMakeFiles/BOOSTING.dir/cmake_clean.cmake
 .PHONY : src/BOOSTING/CMakeFiles/BOOSTING.dir/clean
 
 src/BOOSTING/CMakeFiles/BOOSTING.dir/depend:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vortex/zhou_temp_test/tracker_MIL /home/vortex/zhou_temp_test/tracker_MIL/src/BOOSTING /home/vortex/zhou_temp_test/tracker_MIL/build /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING /home/vortex/zhou_temp_test/tracker_MIL/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vortex/zhou_temp_test/visual_tracker /home/vortex/zhou_temp_test/visual_tracker/src/BOOSTING /home/vortex/zhou_temp_test/visual_tracker/build /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/BOOSTING/CMakeFiles/BOOSTING.dir/depend
 

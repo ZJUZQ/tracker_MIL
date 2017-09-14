@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/tracker_MIL
+CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/visual_tracker
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/tracker_MIL/build
+CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/visual_tracker/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles /home/vortex/zhou_temp_test/tracker_MIL/build/src/CMakeFiles/progress.marks
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/tracker_MIL/build/CMakeFiles 0
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles /home/vortex/zhou_temp_test/visual_tracker/build/src/CMakeFiles/progress.marks
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,17 +97,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -129,6 +129,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/vortex/zhou_temp_test/tracker_MIL/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -31,6 +31,9 @@ public:
      */
 	void modelEstimation( const std::vector<cv::Mat>& responses );
 
+    // evaluate the currentConfidenceMap from a list of response
+    virtual void evalCurrentConfidenceMap( const std::vector<cv::Mat>& responseSet ) = 0;
+
 	/** @brief Update the model
 
     	@cite AAM MU, Model Update table I
