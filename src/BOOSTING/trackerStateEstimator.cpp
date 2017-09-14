@@ -164,7 +164,7 @@ void TrackerStateEstimatorAdaBoosting::updateImpl( std::vector<ConfidenceMap>& c
 		boostClassifier = cv::Ptr<StrongClassifierDirectSelection>( 
 			new StrongClassifierDirectSelection( numBaseClassifier, numWeakClassifier, initPatchSize, sampleROI, useFeatureExchange, iterationInit ) );
 		// init base classifiers
-		boostClassifier->initBaseClassifier();
+		boostClassifier->initBaseClassifiers();
 
 		trained = true;
 	}
@@ -177,16 +177,16 @@ void TrackerStateEstimatorAdaBoosting::updateImpl( std::vector<ConfidenceMap>& c
 	swappedClassifier.clear();
 	swappedClassifier.resize( lastConfidenceMap.size(), -1 );
 
-	for( size_t i = 0; i < lastConfidenceMap.size() / 2; i++ ){
+	for( size_t i = 0; i < lastConfidenceMap.size(); i++ ){
 		cv::Ptr<TrackerAdaBoostingTargetState> currentTargetState = lastConfidenceMap.at( i ).first.staticCast<TrackerAdaBoostingTargetState>();
 
 		int currentFg = 1;
 		if( !currentTargetState->isTargetFg() )
 			currentFg = -1;
 
-		cv::Mat resp = currentTargetState->getTargetResponses();
+		cv::Mat respCol = currentTargetState->getTargetResponses();
 
-		boostClassifier->update( resp, currentFg );
+		boostClassifier->update( respCol, currentFg );
 
 		if( featureEx ){
 			replacedClassifier[i] = boostClassifier->getReplacedClassifier();
@@ -199,27 +199,6 @@ void TrackerStateEstimatorAdaBoosting::updateImpl( std::vector<ConfidenceMap>& c
 			swappedClassifier[i] = -1;
 		}
 
-		int mapPosition = (int)( i + lastConfidenceMap.size() / 2 );
-		cv::Ptr<TrackerAdaBoostingTargetState> currentTargetState2 = lastConfidenceMap.at( mapPosition ).first.staticCast<TrackerAdaBoostingTargetState>();
-
-		currentFg = 1;
-		if( !currentTargetState2->isTargetFg() )
-			currentFg = -1;
-
-		const cv::Mat resp2 = currentTargetState2->getTargetResponses();
-
-		boostClassifier->update( resp2, currentFg );
-
-		if( featureEx ){
-			replacedClassifier[mapPosition] = boostClassifier->getReplacedClassifier();
-			swappedClassifier[mapPosition] = boostClassifier->getSwappedClassifier();
-			if( replacedClassifier[mapPosition] >= 0 && swappedClassifier[mapPosition] >= 0 )
-				boostClassifier->replaceWeakClassifier( replacedClassifier[mapPosition] );
-		}
-		else{
-			replacedClassifier[mapPosition] = -1;
-			swappedClassifier[mapPosition] = -1;
-		}
 	}
 }
 

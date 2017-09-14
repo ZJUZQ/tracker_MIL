@@ -67,11 +67,12 @@ class TrackerBoosting : public Tracker{
 public:
 	struct Params{
 		Params();
-		int numClassifiers; // the number of classifiers to use in a OnlineBoosting algorithm
+		int numBaseClassifiers; // the number of base classifiers to use in a OnlineBoosting algorithm
+		int iterationInit; // the initial iterations
+		int featureSetNumFeatures; // features, feature pool
+
 		float samplerOverlap; // search region paramters to use in a OnlineBoosting algorithm
 		float samplerSearchFactor; // search region parameters
-		int iterationInit; // the initial iterations
-		int featureSetNumFeatures; // features
 
 		/**
 		* \brief Read parameters from file

@@ -26,21 +26,18 @@ StrongClassifierDirectSelection::StrongClassifierDirectSelection( int numBaseClf
 	detector = new Detector( this );
 }
 
-void StrongClassifierDirectSelection::initBaseClassifiers(){
-  	baseClassifiers = new BaseClassifier*[numBaseClassifier];
-  	baseClassifiers[0] = new BaseClassifier( numWeakClassifier, iterInit );
+void StrongClassifierDirectSelection::initBaseClassifier(){
+  	baseClassifier = new BaseClassifier*[numBaseClassifier];
+  	baseClassifier[0] = new BaseClassifier( numWeakClassifier, iterInit );
 
-  	/*	后面的基分类器(selector)的特征池(弱分类器，weakclassifiers)都引用第一个基分类器的，
-  		即所有基分类器共享一个特征池，可以加快弱分类器的更新 速度；
-  	*/
   	for ( int curBaseClassifier = 1; curBaseClassifier < numBaseClassifier; curBaseClassifier++ )
-    	baseClassifiers[curBaseClassifier] = new BaseClassifier( numWeakClassifier, iterInit, baseClassifiers[0]->getReferenceWeakClassifier() );
+    	baseClassifier[curBaseClassifier] = new BaseClassifier( numWeakClassifier, iterInit, baseClassifier[0]->getReferenceWeakClassifier() );
 }
 
 StrongClassifierDirectSelection::~StrongClassifierDirectSelection(){
   	for ( int curBaseClassifier = 0; curBaseClassifier < numBaseClassifier; curBaseClassifier++ )
-    	delete baseClassifiers[curBaseClassifier];
-  	delete[] baseClassifiers;
+    	delete baseClassifier[curBaseClassifier];
+  	delete[] baseClassifier;
   	alpha.clear();
   	delete detector;
 }
@@ -83,31 +80,27 @@ int StrongClassifierDirectSelection::getSwappedClassifier() const{
   	return swappedClassifier;
 }
 
-bool StrongClassifierDirectSelection::update( const cv::Mat& resp, int target_Fg, float importance ){
-	// resp --> colummn vector, extracted features value for a sample patch
+bool StrongClassifierDirectSelection::update( const cv::Mat& respCol, int target, float importance ){
+	// when a new sample comes, the initial importance == 1.0
 
 	m_errorMask.assign( (size_t)numAllWeakClassifier, false );
 	m_errors.assign( (size_t)numAllWeakClassifier, 0.0f );
 	m_sumErrors.assign( (size_t)numAllWeakClassifier, 0.0f );
 
-  	baseClassifiers[0]->trainClassifier( resp, target_Fg, importance, m_errorMask ); // BaseClassifier** baseClassifier;
+  	baseClassifier[0]->trainClassifier( respCol, target, importance, m_errorMask ); // BaseClassifier** baseClassifier;
   	
   	for ( int curBaseClassifier = 0; curBaseClassifier < numBaseClassifier; curBaseClassifier++ ){
-		int selectedClassifier = baseClassifiers[curBaseClassifier]->selectBestClassifier( m_errorMask, importance, m_errors );
+		int selectedClassifier = baseClassifier[curBaseClassifier]->selectBestClassifier( m_errorMask, importance, m_errors );
 
 		if( m_errors[selectedClassifier] >= 0.5 )
 			alpha[curBaseClassifier] = 0;
 		else
-			alpha[curBaseClassifier] = std::log( ( 1.0f - m_errors[selectedClassifier] ) / m_errors[selectedClassifier] ) / 2.0;
+			alpha[curBaseClassifier] = std::log( ( 1.0f - m_errors[selectedClassifier] ) / m_errors[selectedClassifier] );
 
-		if( m_errorMask[selectedClassifier] ){
-			// importance *= (float) std::sqrt( ( 1.0f - m_errors[selectedClassifier] ) / m_errors[selectedClassifier] );
-			importance *= ( 0.5f / m_errors[selectedClassifier] );
-		}
-		else{
-			// importance *= (float) std::sqrt( m_errors[selectedClassifier] / ( 1.0f - m_errors[selectedClassifier] ) );
-			importance *= 0.5f / ( 1 - m_errors[selectedClassifier] );
-		}
+		if( m_errorMask[selectedClassifier] )
+			importance *= (float) std::sqrt( ( 1.0f - m_errors[selectedClassifier] ) / m_errors[selectedClassifier] );
+		else
+			importance *= (float) std::sqrt( m_errors[selectedClassifier] / ( 1.0f - m_errors[selectedClassifier] ) );
 
 	    //weight limitation
 	    //if (importance > 100) importance = 100;
@@ -124,8 +117,8 @@ bool StrongClassifierDirectSelection::update( const cv::Mat& resp, int target_Fg
  	}
 
 	if( useFeatureExchange ){
-		replacedClassifier = baseClassifiers[0]->computeReplaceWeakestClassifier( m_sumErrors );
-		swappedClassifier = baseClassifiers[0]->getIdxOfNewWeakClassifier();
+		replacedClassifier = baseClassifier[0]->computeReplaceWeakestClassifier( m_sumErrors );
+		swappedClassifier = baseClassifier[0]->getIdxOfNewWeakClassifier();
 	}
 
   	return true;
@@ -133,9 +126,9 @@ bool StrongClassifierDirectSelection::update( const cv::Mat& resp, int target_Fg
 
 void StrongClassifierDirectSelection::replaceWeakClassifier( int idx ){
 	if( useFeatureExchange && idx >= 0 ){
-		baseClassifiers[0]->replaceWeakClassifier( idx );
+		baseClassifier[0]->replaceWeakClassifier( idx );
 		for ( int curBaseClassifier = 1; curBaseClassifier < numBaseClassifier; curBaseClassifier++ )
-	  		baseClassifiers[curBaseClassifier]->replaceClassifierStatistic( baseClassifiers[0]->getIdxOfNewWeakClassifier(), idx );  // ?
+	  		baseClassifier[curBaseClassifier]->replaceClassifierStatistic( baseClassifier[0]->getIdxOfNewWeakClassifier(), idx );
 	}
 }
 
@@ -143,19 +136,17 @@ std::vector<int> StrongClassifierDirectSelection::getSelectedWeakClassifier(){
 	std::vector<int> selected;
 	int curBaseClassifier = 0;
 	for ( curBaseClassifier = 0; curBaseClassifier < numBaseClassifier; curBaseClassifier++ ){
-		selected.push_back( baseClassifiers[curBaseClassifier]->getSelectedClassifier() );
+		selected.push_back( baseClassifier[curBaseClassifier]->getSelectedClassifier() );
 	}
 	return selected;
 }
 
 float StrongClassifierDirectSelection::eval( const cv::Mat& response ){
-	// evaluate the strongclassifier's confidence measure, sum( alpha_i * h_i )
-
 	float value = 0.0f;
 	int curBaseClassifier = 0;
 
 	for ( curBaseClassifier = 0; curBaseClassifier < numBaseClassifier; curBaseClassifier++ )
-		value += baseClassifiers[curBaseClassifier]->eval( response ) * alpha[curBaseClassifier];
+		value += baseClassifier[curBaseClassifier]->eval( response ) * alpha[curBaseClassifier];
 
 	return value;
 }
@@ -171,16 +162,16 @@ BaseClassifier::BaseClassifier( int numWeakClassifier, int iterationInit ){
 	this->m_numWeakClassifier = numWeakClassifier;
 	this->m_iterationInit = iterationInit;
 
-	// 定义: WeakClassifierHaarFeature** weakClassifiers
-	weakClassifiers = new WeakClassifierHaarFeature*[numWeakClassifier + iterationInit];
+	// 定义: WeakClassifierHaarFeature** weakClassifier
+	weakClassifier = new WeakClassifierHaarFeature*[numWeakClassifier + iterationInit];
 	m_idxOfNewWeakClassifier = numWeakClassifier;
 
-	generateRandomClassifier(); // 生成 numWeakClassifier + iterationInit 个弱分类器weakclassifier
+	generateRandomClassifier(); // 生成 numWeakClassifier + iterationInit 个 weakclassifiers
 
 	m_referenceWeakClassifier = false;
 	m_selectedClassifier = 0;
 
-	m_wCorrect.assign( numWeakClassifier + iterationInit, 0 ); // 记录每个弱分类器到目前为止正确分类的权重
+	m_wCorrect.assign( numWeakClassifier + iterationInit, 0 ); // 记录每个弱分类器到目前为止正确分类的数目
 	m_wWrong.assign( numWeakClassifier + iterationInit, 0 );
 
 	for( int curWeakClassifier = 0; curWeakClassifier < numWeakClassifier + iterationInit; curWeakClassifier++ )
@@ -191,7 +182,7 @@ BaseClassifier::BaseClassifier( int numWeakClassifier, int iterationInit, WeakCl
 
 	m_numWeakClassifier = numWeakClassifier;
 	m_iterationInit = iterationInit;
-	weakClassifiers = weakCls;
+	weakClassifier = weakCls;
 
 	m_referenceWeakClassifier = true; //  引用了weakCls
 
@@ -209,8 +200,8 @@ BaseClassifier::~BaseClassifier(){
 
 	if( !m_referenceWeakClassifier ){
 		for( int curWeakClassifier = 0; curWeakClassifier < m_numWeakClassifier + m_iterationInit; curWeakClassifier++ )
-	  		delete weakClassifiers[curWeakClassifier];
-		delete[] weakClassifiers;
+	  		delete weakClassifier[curWeakClassifier];
+		delete[] weakClassifier;
 	}
 	m_wCorrect.clear();
 	m_wWrong.clear();
@@ -218,26 +209,25 @@ BaseClassifier::~BaseClassifier(){
 
 void BaseClassifier::generateRandomClassifier(){
 	for( int curWeakClassifier = 0; curWeakClassifier < m_numWeakClassifier + m_iterationInit; curWeakClassifier++ )
-		weakClassifiers[curWeakClassifier] = new WeakClassifierHaarFeature();
+		weakClassifier[curWeakClassifier] = new WeakClassifierHaarFeature();
 }
 
-int BaseClassifier::eval( const cv::Mat& response_ ){
-  	return weakClassifiers[m_selectedClassifier]->eval( response_.at<float>( m_selectedClassifier ) );
+int BaseClassifier::eval( const cv::Mat& image ){
+  	return weakClassifier[m_selectedClassifier]->eval( image.at<float>( m_selectedClassifier ) );
 }
 
 int BaseClassifier::getSelectedClassifier() const{
   	return m_selectedClassifier;
 }
 
-void BaseClassifier::trainClassifier( const cv::Mat& resp_traget, int Fg_target, float importance, std::vector<bool>& errorMask ){
-	// resp_traget --> column Mat, all extracted features value for the target patch
-	
+void BaseClassifier::trainClassifier( const cv::Mat& image, int target, float importance, std::vector<bool>& errorMask ){
+
 	//get poisson value
 	double A = 1;
 	int K = 0;
 	int K_max = 10;
 
-	for( ; ; )	// get the number of training times K
+	for( ; ; )
 	{
 		double U_k = (double) std::rand() / RAND_MAX;
 		A *= U_k;
@@ -249,7 +239,7 @@ void BaseClassifier::trainClassifier( const cv::Mat& resp_traget, int Fg_target,
 	for( int curK = 0; curK <= K; curK++ ){
 		for( int curWeakClassifier = 0; curWeakClassifier < m_numWeakClassifier + m_iterationInit; curWeakClassifier++ ){
 	  		// errorMask: true表示分类器估计错误，false表示估计正确
-	  		errorMask[curWeakClassifier] = weakClassifiers[curWeakClassifier]->update( resp_traget.at<float>( curWeakClassifier ), Fg_target );
+	  		errorMask[curWeakClassifier] = weakClassifier[curWeakClassifier]->update( image.at<float>( curWeakClassifier ), target );
 		}
 	}
 }
@@ -262,17 +252,16 @@ float BaseClassifier::getError( int curWeakClassifier ){
   	return m_wWrong[curWeakClassifier] / ( m_wWrong[curWeakClassifier] + m_wCorrect[curWeakClassifier] );
 }
 
-int BaseClassifier::selectBestClassifier( std::vector<bool>& errorMask, float importance, std::vector<float>& errors ){
-  	// importance: lamda
-
+int BaseClassifier::selectBestClassifier( std::vector<bool>& errorMask, float importance, std::vector<float> & errors ){
   	float minError = FLT_MAX;
   	int tmp_selectedClassifier = m_selectedClassifier;
 
   	for( int curWeakClassifier = 0; curWeakClassifier < m_numWeakClassifier + m_iterationInit; curWeakClassifier++ ){
-    	if( errorMask[curWeakClassifier] ) 
-      		m_wWrong[curWeakClassifier] += importance; // 分类错误
+    	if( errorMask[curWeakClassifier] ) // 分类错误
+      		m_wWrong[curWeakClassifier] += importance;
     	else
-     		 m_wCorrect[curWeakClassifier] += importance; // 分类正确
+     		 m_wCorrect[curWeakClassifier] += importance;
+
 
     	if( errors[curWeakClassifier] == FLT_MAX )
       		continue;
@@ -314,15 +303,14 @@ void BaseClassifier::getErrors( float* errors ){
 }
 
 void BaseClassifier::replaceWeakClassifier( int index ){
-	delete weakClassifiers[index];
-	weakClassifiers[index] = weakClassifiers[m_idxOfNewWeakClassifier];
-
+	delete weakClassifier[index];
+	weakClassifier[index] = weakClassifier[m_idxOfNewWeakClassifier];
 	m_wWrong[index] = m_wWrong[m_idxOfNewWeakClassifier];
 	m_wWrong[m_idxOfNewWeakClassifier] = 1;
 	m_wCorrect[index] = m_wCorrect[m_idxOfNewWeakClassifier];
 	m_wCorrect[m_idxOfNewWeakClassifier] = 1;
 
-	weakClassifiers[m_idxOfNewWeakClassifier] = new WeakClassifierHaarFeature(); // 产生新的候选弱分类器
+	weakClassifier[m_idxOfNewWeakClassifier] = new WeakClassifierHaarFeature();
 }
 
 int BaseClassifier::computeReplaceWeakestClassifier( const std::vector<float> & errors ){
@@ -364,17 +352,12 @@ void BaseClassifier::replaceClassifierStatistic( int sourceIndex, int targetInde
 }
 
 /******************************** EstimatedGaussDistribution *********************************/
-/**
-   Gauss distribution (mean, sigma);
-   Incremently estimate the mean and sigma by a Kalman filtering approach.
- */
 
 EstimatedGaussDistribution::EstimatedGaussDistribution(){
 	m_mean = 0;
+	m_sigma = 1;
 	this->m_P_mean = 1000;  // initial state for P, where P is the estimate error covariance
 	this->m_R_mean = 0.01f;
-
-	m_sigma = 1;
 	this->m_P_sigma = 1000;
 	this->m_R_sigma = 0.01f;
 }
@@ -394,12 +377,11 @@ EstimatedGaussDistribution::~EstimatedGaussDistribution(){
 
 void EstimatedGaussDistribution::update( float value ){
 	//update distribution (mean and sigma) using a kalman filter for each
-	// value = fj(x), where fj(x) evalutes feature_j on the image x
 
 	float K;
 	float minFactor = 0.001f;
 
-	// update mean
+	//mean
 
   	K = m_P_mean / ( m_P_mean + m_R_mean ); // P is the estimate error covariance
  	if( K < minFactor )
@@ -408,16 +390,14 @@ void EstimatedGaussDistribution::update( float value ){
   	m_mean = K * value + ( 1.0f - K ) * m_mean;
   	m_P_mean = m_P_mean * m_R_mean / ( m_P_mean + m_R_mean );
 
-  	// update sigma
-
   	K = m_P_sigma / ( m_P_sigma + m_R_sigma );
   	if( K < minFactor )
     	K = minFactor;
 
-  	float sigma_sq = K * ( m_mean - value ) * ( m_mean - value ) + ( 1.0f - K ) * m_sigma * m_sigma;
-  	m_P_sigma = m_P_sigma * m_R_sigma / ( m_P_sigma + m_R_sigma );
+  	float tmp_sigma = K * ( m_mean - value ) * ( m_mean - value ) + ( 1.0f - K ) * m_sigma * m_sigma;
+  	m_P_sigma = m_P_sigma * m_R_mean / ( m_P_sigma + m_R_sigma );
 
-  	m_sigma = static_cast<float>( sqrt( sigma_sq ) );
+  	m_sigma = static_cast<float>( sqrt( tmp_sigma ) );
   	if( m_sigma <= 1.0f )
     	m_sigma = 1.0f;
 }
@@ -441,45 +421,44 @@ WeakClassifierHaarFeature::WeakClassifierHaarFeature(){
 	sigma = 1;
 	mean = 0;
 
-	EstimatedGaussDistribution* _posGauss = new EstimatedGaussDistribution();
-	EstimatedGaussDistribution* _negGauss = new EstimatedGaussDistribution();
+	EstimatedGaussDistribution* m_posSamples = new EstimatedGaussDistribution();
+	EstimatedGaussDistribution* m_negSamples = new EstimatedGaussDistribution();
+	generateRandomClassifier( m_posSamples, m_negSamples );
 
-	generateRandomClassifier( _posGauss, _negGauss ); // 初始化m_classifier
-
-	setInitialDistribution( (EstimatedGaussDistribution*) m_thresholdclassifier->getDistribution( -1 ) );
+	getInitialDistribution( (EstimatedGaussDistribution*) m_classifier->getDistribution( -1 ) );
 	// set the negtive sample gaussion distribution's initial mean and sigma
 
-	setInitialDistribution( (EstimatedGaussDistribution*) m_thresholdclassifier->getDistribution( 1 ) );
+	getInitialDistribution( (EstimatedGaussDistribution*) m_classifier->getDistribution( 1 ) );
 	// set the positive sample gaussion distribution's initial mean and sigma
 }
 
 WeakClassifierHaarFeature::~WeakClassifierHaarFeature(){
-  	delete m_thresholdclassifier;
+  	delete m_classifier;
 }
 
-void WeakClassifierHaarFeature::setInitialDistribution( EstimatedGaussDistribution* gauss ){
-  	gauss->setValues( mean, sigma );
+void WeakClassifierHaarFeature::getInitialDistribution( EstimatedGaussDistribution* distribution ){
+  	distribution->setValues( mean, sigma );
 }
 
-void WeakClassifierHaarFeature::generateRandomClassifier( EstimatedGaussDistribution* posGauss, EstimatedGaussDistribution* negGauss ){
-  	m_thresholdclassifier = new ClassifierThreshold( posGauss, negGauss );
+void WeakClassifierHaarFeature::generateRandomClassifier( EstimatedGaussDistribution* m_posSamples, EstimatedGaussDistribution* m_negSamples ){
+  	m_classifier = new ClassifierThreshold( m_posSamples, m_negSamples );
 }
 
 bool WeakClassifierHaarFeature::update( float value, int target ){
-  	m_thresholdclassifier->update( value, target ); 	// update the posGauss and negGauss distributions' parameters
+  	m_classifier->update( value, target ); 	// update the gaussion distribution's parameter: mean and sigma
                                          	// update the classifierthreshold's parameter: threshold and parity
 
-  	return ( m_thresholdclassifier->eval( value ) != target ); // ?  ture 表示分类错误
+  	return ( m_classifier->eval( value ) != target );
 }
 
 int WeakClassifierHaarFeature::eval( float value ){
-  	return m_thresholdclassifier->eval( value );
+  	return m_classifier->eval( value );
 }
 
 /*********************************** Detector ***********************************/
 
 Detector::Detector( StrongClassifierDirectSelection* classifier ) : m_sizeDetections( 0 ){
-	this->m_strongClassifier = classifier;
+	this->m_classifier = classifier;
 
 	m_sizeConfidences = 0;
 	m_maxConfidence = -FLT_MAX;
@@ -507,8 +486,8 @@ void Detector::prepareDetectionsMemory( int numDetections ){
   	m_idxDetections.resize( numDetections );
 }
 
-void Detector::classifySmooth( const std::vector<cv::Mat>& samples_, float minMargin ){
-	int numPatches = static_cast<int>(samples_.size());
+void Detector::classifySmooth( const std::vector<cv::Mat>& images, float minMargin ){
+	int numPatches = static_cast<int>(images.size());
 
 	prepareConfidencesMemory( numPatches );
 
@@ -517,8 +496,8 @@ void Detector::classifySmooth( const std::vector<cv::Mat>& samples_, float minMa
 	m_maxConfidence = -FLT_MAX;
 
 	//compute grid
-	//TODO 0.99 :  overlap from TrackerSamplerCS::Params
-	cv::Size patchSz = m_strongClassifier->getPatchSize();
+	//TODO 0.99 overlap from params
+	cv::Size patchSz = m_classifier->getPatchSize();
 	int stepCol = (int) floor( ( 1.0f - 0.99f ) * (float) patchSz.width + 0.5f );
 	int stepRow = (int) floor( ( 1.0f - 0.99f ) * (float) patchSz.height + 0.5f );
 	if( stepCol <= 0 )
@@ -527,9 +506,9 @@ void Detector::classifySmooth( const std::vector<cv::Mat>& samples_, float minMa
 		stepRow = 1;
 
 	cv::Size patchGrid;
-	cv::Rect searchROI = m_strongClassifier->getROI();
-	patchGrid.height = ( (int) ( (float) ( searchROI.height - patchSz.height ) / stepRow ) + 1 );
-	patchGrid.width = ( (int) ( (float) ( searchROI.width - patchSz.width ) / stepCol ) + 1 );
+	cv::Rect ROI = m_classifier->getROI();
+	patchGrid.height = ( (int) ( (float) ( ROI.height - patchSz.height ) / stepRow ) + 1 );
+	patchGrid.width = ( (int) ( (float) ( ROI.width - patchSz.width ) / stepCol ) + 1 );
 
 	if( ( patchGrid.width != m_confMatrix.cols ) || ( patchGrid.height != m_confMatrix.rows ) ){
 		m_confMatrix.create( patchGrid.height, patchGrid.width );
@@ -541,7 +520,7 @@ void Detector::classifySmooth( const std::vector<cv::Mat>& samples_, float minMa
   	// Eval and filter
   	for( int row = 0; row < patchGrid.height; row++ ){
     	for ( int col = 0; col < patchGrid.width; col++ ){
-      		m_confidences[curPatch] = m_strongClassifier->eval( samples_[curPatch] );
+      		m_confidences[curPatch] = m_classifier->eval( images[curPatch] );
 
       		// fill matrix
 			m_confMatrix( row, col ) = m_confidences[curPatch];
@@ -555,9 +534,8 @@ void Detector::classifySmooth( const std::vector<cv::Mat>& samples_, float minMa
 
 	// Make display friendly
 	double min_val, max_val;
-	cv::minMaxLoc( m_confMatrixSmooth, &min_val, &max_val ); // Finds the global minimum and maximum in an array
+	cv::minMaxLoc( m_confMatrixSmooth, &min_val, &max_val );
 
-	// confidence value convert to [0, 255] for display
 	for( int y = 0; y < m_confImageDisplay.rows; y++ ){
     	unsigned char* pConfImg = m_confImageDisplay[y];
     	const float* pConfData = m_confMatrixSmooth[y];
@@ -615,42 +593,38 @@ int Detector::getPatchIdxOfDetection( int detectionIdx ){
 }
 
 /********************************** ClassifierThreshold *********************************/
-/**
-   Calculate the hypotheses of a weakClassifier by using a simple threshold
- */
 
-ClassifierThreshold::ClassifierThreshold( EstimatedGaussDistribution* posGauss, EstimatedGaussDistribution* negGauss ){
-	m_posGauss = posGauss;
-	m_negGauss = negGauss;
+ClassifierThreshold::ClassifierThreshold( EstimatedGaussDistribution* posSamples, EstimatedGaussDistribution* negSamples ){
+	m_posSamples = posSamples;
+	m_negSamples = negSamples;
 	m_threshold = 0.0f;
 	m_parity = 0;
 }
 
 ClassifierThreshold::~ClassifierThreshold(){
-  	if( m_posGauss != NULL )
-    	delete m_posGauss;
-  	if( m_negGauss != NULL )
-    	delete m_negGauss;
+  	if( m_posSamples != NULL )
+    	delete m_posSamples;
+  	if( m_negSamples != NULL )
+    	delete m_negSamples;
 }
 
-void* ClassifierThreshold::getDistribution( int label ){ // void* : 无类型指针，可以指向任何数据类型
-  	if( label == 1 )
-    	return m_posGauss;
+void* ClassifierThreshold::getDistribution( int target ){
+  	if( target == 1 )
+    	return m_posSamples;
   	else
-    	return m_negGauss;
+    	return m_negSamples;
 }
 
-void ClassifierThreshold::update( float value, int label ){
-
+void ClassifierThreshold::update( float value, int target ){
   	//update distribution
-  	if( label == 1 )
-    	m_posGauss->update( value ); // update the u+ and sigma+
+  	if( target == 1 )
+    	m_posSamples->update( value ); // update the u+ and sigma+
   	else
-    	m_negGauss->update( value ); // update the u- and sigma-
+    	m_negSamples->update( value ); // update the u- and sigma-
 
-	//update threshold and parity
-	m_threshold = ( m_posGauss->getMean() + m_negGauss->getMean() ) / 2.0f;
-	m_parity = ( m_posGauss->getMean() > m_negGauss->getMean() ) ? 1 : -1;
+	//adapt threshold and parity
+	m_threshold = ( m_posSamples->getMean() + m_negSamples->getMean() ) / 2.0f;
+	m_parity = ( m_posSamples->getMean() > m_negSamples->getMean() ) ? 1 : -1;
 }
 
 int ClassifierThreshold::eval( float value ){

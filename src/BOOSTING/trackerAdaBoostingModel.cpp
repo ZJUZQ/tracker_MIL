@@ -17,9 +17,6 @@ TrackerBoostingModel::TrackerBoostingModel( const cv::Rect& boundingBox ){
   	maxCMLength = 10;
 }
 
-void TrackerBoostingModel::modelEstimationImpl( const std::vector<cv::Mat>& responses ){
-	
-}
 
 void TrackerBoostingModel::evalCurrentConfidenceMap( const std::vector<cv::Mat>& responseSet ){
 	responseToConfidenceMap( responseSet, currentConfidenceMap );

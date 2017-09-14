@@ -24,22 +24,26 @@ public:
      */
 	bool setTrackerStateEstimator( cv::Ptr<TrackerStateEstimator> trackerStateEstimator );
 
+
 	/** @brief Estimate the most likely target location
 
 	    @cite AAM ME, Model Estimation table I
 	    @param responses Features extracted from TrackerFeatureSet
      */
-	void modelEstimation( const std::vector<cv::Mat>& responses );
+	bool modelEstimation();
+
+
+    /** @brief Update the model
+
+        @cite AAM MU, Model Update table I
+     */
+    void modelUpdate();
+
 
     // evaluate the currentConfidenceMap from a list of response
     virtual void evalCurrentConfidenceMap( const std::vector<cv::Mat>& responseSet ) = 0;
 
-	/** @brief Update the model
-
-    	@cite AAM MU, Model Update table I
-     */
-	void modelUpdate();
-
+	
 	/** @brief Run the TrackerStateEstimator, return true if is possible to estimate a new state, false otherwise
     */
     bool runStateEstimator();
@@ -75,7 +79,7 @@ protected:
 	Trajectory trajectory;
 	int maxCMLength;
 
-	virtual void modelEstimationImpl( const std::vector<cv::Mat>& responses ) = 0;
+	virtual bool modelEstimationImpl();
 	virtual void modelUpdateImpl() = 0;
 
 };

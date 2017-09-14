@@ -50,7 +50,7 @@ public:
 	void evalCurrentConfidenceMap( const std::vector<cv::Mat>& responseSet );
 
 protected:
-	void modelEstimationImpl( const std::vector<cv::Mat>& responses );
+
   	void modelUpdateImpl();
 
 private:

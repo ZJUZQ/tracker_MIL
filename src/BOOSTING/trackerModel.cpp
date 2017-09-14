@@ -25,9 +25,10 @@ cv::Ptr<TrackerStateEstimator> TrackerModel::getTrackerStateEstimator() const{
 	return stateEstimator;
 }
 
-void TrackerModel::modelEstimation( const std::vector<cv::Mat>& responses ){
+
+bool TrackerModel::modelEstimation(){
 	// Estimate the most likely target location. 
-	modelEstimationImpl( responses );
+	return modelEstimationImpl();
 }
 
 void TrackerModel::clearCurrentConfidenceMap(){
@@ -56,7 +57,7 @@ void TrackerModel::modelUpdate(){
 	clearCurrentConfidenceMap();
 }
 
-bool TrackerModel::runStateEstimator(){
+bool TrackerModel::modelEstimationImpl(){
 	// Run the TrackerStateEstimator, return true if is possible to estimate a new state, false otherwise. 
 	if( stateEstimator == 0 ){
 		CV_Error(-1, "Tracker state estimator is not setted" );

@@ -64,15 +64,15 @@ bool Tracker::update( cv::InputArray image, cv::Rect2d& boundingBox ){
  * Parameters
  */
 TrackerBoosting::Params::Params(){
-	numClassifiers = 100;
+	numBaseClassifiers = 100;
 	samplerOverlap = 0.99f;
 	samplerSearchFactor = 1.8f;
 	iterationInit = 50;
-	featureSetNumFeatures = ( numClassifiers * 10 ) + iterationInit;
+	featureSetNumFeatures = ( numBaseClassifiers * 10 ) + iterationInit;
 }
 
 void TrackerBoosting::Params::read( const cv::FileNode& fn ){
-	numClassifiers = fn["numClassifiers"];
+	numBaseClassifiers = fn["numBaseClassifiers"];
 	samplerOverlap = fn["overlap"];
 	samplerSearchFactor = fn["samplerSearchFactor"];
 	iterationInit = fn["iterationInit"];
@@ -80,7 +80,7 @@ void TrackerBoosting::Params::read( const cv::FileNode& fn ){
 }
 
 void TrackerBoosting::Params::write( cv::FileStorage& fs ) const{
-	fs << "numClassifiers" << numClassifiers;
+	fs << "numBaseClassifiers" << numBaseClassifiers;
 	fs << "overlap" << samplerOverlap;
 	fs << "searchFactor" << samplerSearchFactor;
 	fs << "iterationInit" << iterationInit;
@@ -110,15 +110,16 @@ void TrackerBoostingImpl::write( cv::FileStorage& fs ) const{
 }
 
 bool TrackerBoostingImpl::initImpl( const cv::Mat& image, const cv::Rect2d& boundingBox ){
+
 	std::srand( 1 );
 
-	// sampling
 	cv::Mat_<int> intImage;
 	cv::Mat_<double> intSqImage;
 	cv::Mat image_;
 	cv::cvtColor( image, image_, CV_RGB2GRAY );
 	cv::integral( image_, intImage, intSqImage, CV_32S );
 
+	// sampler
 	TrackerSamplerCS::Params CSparameters;
 	CSparameters.overlap = params.samplerOverlap;
 	CSparameters.searchFactor = params.samplerSearchFactor;
@@ -138,9 +139,9 @@ bool TrackerBoostingImpl::initImpl( const cv::Mat& image, const cv::Rect2d& boun
 	if( posSamples.empty() || negSamples.empty() )
 		return false;
 
-	cv::Rect ROI = CSSampler.staticCast<TrackerSamplerCS>()->getsampleROI();
+	cv::Rect searchROI = CSSampler.staticCast<TrackerSamplerCS>()->getsampleROI();
 
-	// compute HAAR features
+	// featureSet
 	TrackerFeatureHAAR::Params HAARparameters;
 	HAARparameters.numFeatures = params.featureSetNumFeatures;
 	HAARparameters.isIntegral = true;
@@ -151,31 +152,32 @@ bool TrackerBoostingImpl::initImpl( const cv::Mat& image, const cv::Rect2d& boun
 		return false;
 
 	featureSet->extraction( posSamples );
-	const std::vector<cv::Mat> posResponse = featureSet->getResponses();
+	const std::vector<cv::Mat> posResponseSet = featureSet->getResponses();
 	featureSet->extraction( negSamples );
-	const std::vector<cv::Mat> negResponse = featureSet->getResponses();
+	const std::vector<cv::Mat> negResponseSet = featureSet->getResponses();
 
 	// Model
 	model = cv::Ptr<TrackerBoostingModel>( new TrackerBoostingModel( boundingBox ) );
 	cv::Ptr<TrackerStateEstimatorAdaBoosting> stateEstimator = cv::Ptr<TrackerStateEstimatorAdaBoosting>( 
-		new TrackerStateEstimatorAdaBoosting( params.numClassifiers, params.iterationInit, params.featureSetNumFeatures, 
-											  cv::Size( (int)boundingBox.width, (int)boundingBox.height ), ROI ) );
+		new TrackerStateEstimatorAdaBoosting( params.numBaseClassifiers, params.iterationInit, params.featureSetNumFeatures, 
+											  cv::Size( (int)boundingBox.width, (int)boundingBox.height ), searchROI ) );
 	model->setTrackerStateEstimator( stateEstimator );
+
 
 	// Run model estimation and update for iterationInit iterations
 	for( int i = 0; i < params.iterationInit; i++ ){
-		// compute temp features
+
+		// 将随机生成posSamples.size() + negSamples.size()个新的TrackerFeatureHAAR，用来替换feature pool中每次用一个样本训练时挑出的最差feature
 		TrackerFeatureHAAR::Params HAARparameters2;
 		HAARparameters2.numFeatures = static_cast<int>( posSamples.size() + negSamples.size() );
 		HAARparameters2.isIntegral = true;
 		HAARparameters2.rectSize = cv::Size( (int)boundingBox.width, (int)boundingBox.height );
-
 		cv::Ptr<TrackerFeatureHAAR> trackerFeature2 = cv::Ptr<TrackerFeatureHAAR>( new TrackerFeatureHAAR( HAARparameters2 ) );
 
 		model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_NEGATIVE, negSamples );
-		model->evalCurrentConfidenceMap( negResponse );
+		model->evalCurrentConfidenceMap( negResponseSet );
 		model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_POSITIVE, posSamples );
-		model->evalCurrentConfidenceMap( posResponse );
+		model->evalCurrentConfidenceMap( posResponseSet );
 		model->modelUpdate();
 
 		// get replaced classifier and change the features
@@ -224,22 +226,22 @@ bool TrackerBoostingImpl::updateImpl( const cv::Mat& image, cv::Rect2d& bounding
 	rectangle( f, Rect( off.x, off.y, detectSamples.at( i ).cols, detectSamples.at( i ).rows ), Scalar( 255, 0, 0 ), 1 );
 	}*/
 
-	std::vector<cv::Mat> responses;
+	std::vector<cv::Mat> responseSet;
 	cv::Mat response;
 
 	std::vector<int> classifiers = model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->computeSelectedWeakClassifier();
 	cv::Ptr<TrackerFeatureHAAR> extractor = featureSet->getTrackerFeature()[0].second.staticCast<TrackerFeatureHAAR>();
 	extractor->extractSelected( classifiers, detectSamples, response );
-	responses.push_back( response );
+	responseSet.push_back( response );
 
 	// predict new location
 	ConfidenceMap cmap;
 	model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_CLASSIFY, detectSamples );
-	model.staticCast<TrackerBoostingModel>()->responseToConfidenceMap( responses, cmap );
+	model.staticCast<TrackerBoostingModel>()->responseToConfidenceMap( responseSet, cmap );
 	model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->setCurrentConfidenceMap( cmap );
 	model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->setSampleROI( ROI );
 
-	if( !model->runStateEstimator() )
+	if( !model->modelEstimation() )
 		return false;
 
 	cv::Ptr<TrackerTargetState> currentState = model->getLastTargetState();
@@ -271,9 +273,9 @@ bool TrackerBoostingImpl::updateImpl( const cv::Mat& image, cv::Rect2d& bounding
 
 	// extract features
 	featureSet->extraction( posSamples );
-	const std::vector<cv::Mat> posResponse = featureSet->getResponses();
+	const std::vector<cv::Mat> posResponseSet = featureSet->getResponses();
 	featureSet->extraction( negSamples );
-	const std::vector<cv::Mat> negResponse = featureSet->getResponses();
+	const std::vector<cv::Mat> negResponseSet = featureSet->getResponses();
 
 	// compute temp features
 	TrackerFeatureHAAR::Params HAARparameters2;
@@ -284,11 +286,9 @@ bool TrackerBoostingImpl::updateImpl( const cv::Mat& image, cv::Rect2d& bounding
 
 	// model estimate
 	model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_NEGATIVE, negSamples );
-	model->evalCurrentConfidenceMap( negResponse );
+	model->evalCurrentConfidenceMap( negResponseSet );
 	model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_POSITIVE, posSamples );
-	model->evalCurrentConfidenceMap( posResponse );
-
-	// model update
+	model->evalCurrentConfidenceMap( posResponseSet );
 	model->modelUpdate();
 
 	// get replaced classifier and change the features
