@@ -137,6 +137,19 @@ BOOSTING/fast:
 .PHONY : BOOSTING/fast
 
 #=============================================================================
+# Target rules for targets named tracker_AdaBoosting
+
+# Build rule for target.
+tracker_AdaBoosting: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tracker_AdaBoosting
+.PHONY : tracker_AdaBoosting
+
+# fast build rule for target.
+tracker_AdaBoosting/fast:
+	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
+.PHONY : tracker_AdaBoosting/fast
+
+#=============================================================================
 # Target rules for targets named tracker_MILBoosting
 
 # Build rule for target.
@@ -150,17 +163,17 @@ tracker_MILBoosting/fast:
 .PHONY : tracker_MILBoosting/fast
 
 #=============================================================================
-# Target rules for targets named tracker_AdaBoosting
+# Target rules for targets named hough
 
 # Build rule for target.
-tracker_AdaBoosting: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tracker_AdaBoosting
-.PHONY : tracker_AdaBoosting
+hough: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hough
+.PHONY : hough
 
 # fast build rule for target.
-tracker_AdaBoosting/fast:
-	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
-.PHONY : tracker_AdaBoosting/fast
+hough/fast:
+	$(MAKE) -f test/CMakeFiles/hough.dir/build.make test/CMakeFiles/hough.dir/build
+.PHONY : hough/fast
 
 # Help Target
 help:
@@ -172,8 +185,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... MIL"
 	@echo "... BOOSTING"
-	@echo "... tracker_MILBoosting"
 	@echo "... tracker_AdaBoosting"
+	@echo "... tracker_MILBoosting"
+	@echo "... hough"
 .PHONY : help
 
 

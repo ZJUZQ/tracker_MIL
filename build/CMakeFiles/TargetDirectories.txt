@@ -9,6 +9,7 @@
 /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/rebuild_cache.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/edit_cache.dir
-/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/rebuild_cache.dir
-/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/tracker_MILBoosting.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/tracker_AdaBoosting.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/tracker_MILBoosting.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/hough.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/rebuild_cache.dir

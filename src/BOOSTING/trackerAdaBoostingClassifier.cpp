@@ -438,42 +438,46 @@ float EstimatedGaussDistribution::getSigma(){
 /****************************** WeakClassifierHaarFeature ****************************************/
 
 WeakClassifierHaarFeature::WeakClassifierHaarFeature(){
-	sigma = 1;
-	mean = 0;
 
-	EstimatedGaussDistribution* _posGauss = new EstimatedGaussDistribution();
-	EstimatedGaussDistribution* _negGauss = new EstimatedGaussDistribution();
+	m_threshold = 0.0f;
+	m_parity = 0;
 
-	generateRandomClassifier( _posGauss, _negGauss ); // 初始化m_classifier
+	m_posGauss = new EstimatedGaussDistribution();
+	m_negGauss = new EstimatedGaussDistribution();
 
-	setInitialDistribution( (EstimatedGaussDistribution*) m_thresholdclassifier->getDistribution( -1 ) );
-	// set the negtive sample gaussion distribution's initial mean and sigma
-
-	setInitialDistribution( (EstimatedGaussDistribution*) m_thresholdclassifier->getDistribution( 1 ) );
-	// set the positive sample gaussion distribution's initial mean and sigma
+	setInitialDistribution( m_posGauss );	// set the negtive sample gaussion distribution's initial mean and sigma
+	setInitialDistribution( m_negGauss );	// set the positive sample gaussion distribution's initial mean and sigma
 }
 
 WeakClassifierHaarFeature::~WeakClassifierHaarFeature(){
-  	delete m_thresholdclassifier;
+  	if( m_posGauss != NULL )
+    	delete m_posGauss;
+  	if( m_negGauss != NULL )
+    	delete m_negGauss;
 }
 
-void WeakClassifierHaarFeature::setInitialDistribution( EstimatedGaussDistribution* gauss ){
+void WeakClassifierHaarFeature::setInitialDistribution( EstimatedGaussDistribution* gauss, float mean, float sigma ){
   	gauss->setValues( mean, sigma );
 }
 
-void WeakClassifierHaarFeature::generateRandomClassifier( EstimatedGaussDistribution* posGauss, EstimatedGaussDistribution* negGauss ){
-  	m_thresholdclassifier = new ClassifierThreshold( posGauss, negGauss );
-}
-
 bool WeakClassifierHaarFeature::update( float value, int target ){
-  	m_thresholdclassifier->update( value, target ); 	// update the posGauss and negGauss distributions' parameters
-                                         	// update the classifierthreshold's parameter: threshold and parity
+  	
+  	//update gauss distribution
+  	if( target == 1 )
+    	m_posGauss->update( value ); // update the u+ and sigma+
+  	else
+    	m_negGauss->update( value ); // update the u- and sigma-
 
-  	return ( m_thresholdclassifier->eval( value ) != target ); // ?  ture 表示分类错误
+	//update threshold and parity
+	m_threshold = ( m_posGauss->getMean() + m_negGauss->getMean() ) / 2.0f;
+	m_parity = ( m_posGauss->getMean() > m_negGauss->getMean() ) ? 1 : -1;
+
+	int hypothese = ( m_parity * ( value - m_threshold ) > 0 ) ? 1 : -1;
+  	return ( hypothese != target ); // ture 表示分类错误, for errorMast
 }
 
 int WeakClassifierHaarFeature::eval( float value ){
-  	return m_thresholdclassifier->eval( value );
+  	return ( ( m_parity * ( value - m_threshold ) > 0 ) ? 1 : -1 );
 }
 
 /*********************************** Detector ***********************************/
@@ -612,51 +616,6 @@ int Detector::getPatchIdxOfBestDetection(){
 
 int Detector::getPatchIdxOfDetection( int detectionIdx ){
   	return m_idxDetections[detectionIdx];
-}
-
-/********************************** ClassifierThreshold *********************************/
-/**
-   Calculate the hypotheses of a weakClassifier by using a simple threshold
- */
-
-ClassifierThreshold::ClassifierThreshold( EstimatedGaussDistribution* posGauss, EstimatedGaussDistribution* negGauss ){
-	m_posGauss = posGauss;
-	m_negGauss = negGauss;
-	m_threshold = 0.0f;
-	m_parity = 0;
-}
-
-ClassifierThreshold::~ClassifierThreshold(){
-  	if( m_posGauss != NULL )
-    	delete m_posGauss;
-  	if( m_negGauss != NULL )
-    	delete m_negGauss;
-}
-
-void* ClassifierThreshold::getDistribution( int label ){ // void* : 无类型指针，可以指向任何数据类型
-  	if( label == 1 )
-    	return m_posGauss;
-  	else
-    	return m_negGauss;
-}
-
-void ClassifierThreshold::update( float value, int label ){
-
-  	//update distribution
-  	if( label == 1 )
-    	m_posGauss->update( value ); // update the u+ and sigma+
-  	else
-    	m_negGauss->update( value ); // update the u- and sigma-
-
-	//update threshold and parity
-	m_threshold = ( m_posGauss->getMean() + m_negGauss->getMean() ) / 2.0f;
-	m_parity = ( m_posGauss->getMean() > m_negGauss->getMean() ) ? 1 : -1;
-}
-
-int ClassifierThreshold::eval( float value ){
-	// return the sample's label, 1 or -1
-
-  	return ( ( ( m_parity * ( value - m_threshold ) ) > 0 ) ? 1 : -1 );
 }
 
 

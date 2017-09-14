@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/CMakeFiles/tracker_AdaBoosting.dir/rule:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_AdaBoosting.dir/rule
+.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/rule
+
+# Convenience name for target.
+tracker_AdaBoosting: test/CMakeFiles/tracker_AdaBoosting.dir/rule
+
+.PHONY : tracker_AdaBoosting
+
+# fast build rule for target.
+tracker_AdaBoosting/fast:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
+.PHONY : tracker_AdaBoosting/fast
+
+# Convenience name for target.
 test/CMakeFiles/tracker_MILBoosting.dir/rule:
 	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_MILBoosting.dir/rule
 .PHONY : test/CMakeFiles/tracker_MILBoosting.dir/rule
@@ -126,19 +141,46 @@ tracker_MILBoosting/fast:
 .PHONY : tracker_MILBoosting/fast
 
 # Convenience name for target.
-test/CMakeFiles/tracker_AdaBoosting.dir/rule:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_AdaBoosting.dir/rule
-.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/rule
+test/CMakeFiles/hough.dir/rule:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/hough.dir/rule
+.PHONY : test/CMakeFiles/hough.dir/rule
 
 # Convenience name for target.
-tracker_AdaBoosting: test/CMakeFiles/tracker_AdaBoosting.dir/rule
+hough: test/CMakeFiles/hough.dir/rule
 
-.PHONY : tracker_AdaBoosting
+.PHONY : hough
 
 # fast build rule for target.
-tracker_AdaBoosting/fast:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
-.PHONY : tracker_AdaBoosting/fast
+hough/fast:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/hough.dir/build.make test/CMakeFiles/hough.dir/build
+.PHONY : hough/fast
+
+hough.o: hough.cpp.o
+
+.PHONY : hough.o
+
+# target to build an object file
+hough.cpp.o:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/hough.dir/build.make test/CMakeFiles/hough.dir/hough.cpp.o
+.PHONY : hough.cpp.o
+
+hough.i: hough.cpp.i
+
+.PHONY : hough.i
+
+# target to preprocess a source file
+hough.cpp.i:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/hough.dir/build.make test/CMakeFiles/hough.dir/hough.cpp.i
+.PHONY : hough.cpp.i
+
+hough.s: hough.cpp.s
+
+.PHONY : hough.s
+
+# target to generate assembly for a file
+hough.cpp.s:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/hough.dir/build.make test/CMakeFiles/hough.dir/hough.cpp.s
+.PHONY : hough.cpp.s
 
 tracker_AdaBoosting.o: tracker_AdaBoosting.cpp.o
 
@@ -201,9 +243,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... tracker_MILBoosting"
 	@echo "... tracker_AdaBoosting"
+	@echo "... tracker_MILBoosting"
+	@echo "... hough"
+	@echo "... rebuild_cache"
+	@echo "... hough.o"
+	@echo "... hough.i"
+	@echo "... hough.s"
 	@echo "... tracker_AdaBoosting.o"
 	@echo "... tracker_AdaBoosting.i"
 	@echo "... tracker_AdaBoosting.s"

@@ -15,7 +15,7 @@ namespace BOOSTING
 class BaseClassifier;
 class WeakClassifierHaarFeature;
 class EstimatedGaussDistribution;
-class ClassifierThreshold;
+
 class Detector;
 
 /******************************* StrongClassifierDirectSelection ***********************************/
@@ -164,7 +164,7 @@ public:
 
 /********************************* WeakClassifierHaarFeature ***********************************/
 
-//  弱分类器: 含有一个ClassifierThreshold,其中包含( posGauss + negGauss )
+//  弱分类器: calculate the weakclassifier's hypotheses through a simple threshold
 
 class WeakClassifierHaarFeature
 {
@@ -173,21 +173,21 @@ public:
 	WeakClassifierHaarFeature();
 	virtual ~WeakClassifierHaarFeature();
 
+	// set the gauss distribution's initial mean and sigma
+	void setInitialDistribution( EstimatedGaussDistribution* gauss, float mean = 0, float sigma = 1 );
+
 	bool update( float value, int target );
 
 	// return the sample's label, 1 or -1
 	int eval( float value );
 
 private:
-	float sigma;
-	float mean;
-	ClassifierThreshold* m_thresholdclassifier; // == posGauss + negGauss
 
-	// set the gauss distribution's initial mean and sigma
-	void setInitialDistribution( EstimatedGaussDistribution* gauss );
+	EstimatedGaussDistribution* m_posGauss; 	// N(mean_pos, sigma_pos), gauss distribution for positive labeled samples
+	EstimatedGaussDistribution* m_negGauss;	// N(mean_neg, sigma_neg), gauss distribution for negative labeled samples
 
-	void generateRandomClassifier( EstimatedGaussDistribution* m_posSamples, EstimatedGaussDistribution* m_negSamples );
-
+	float m_threshold;	// ( mu_pos + mu_neg ) / 2
+	int m_parity;		// sign( mu_pos - mu_neg )
 };
 
 /********************************** Detector ******************************************/
@@ -248,31 +248,6 @@ private:
 	cv::Mat_<unsigned char> m_confImageDisplay; // // confidence value convert to [0, 255] for display
 };
 
-/********************************* ClassifierThreshold *************************************/
-class ClassifierThreshold{
-	// Calculate the hypotheses of a weakClassifier hj(X) by using a simple threshold
-
-public:
-	ClassifierThreshold( EstimatedGaussDistribution* m_posGauss, EstimatedGaussDistribution* m_negGauss );
-	virtual ~ClassifierThreshold();
-
-	/** 
-		update the m_posGauss and m_negGauss with the value ( fj(X) ) and label first;
-		update the m_threshold and m_parity second;
-	*/
-	void update( float value, int label );
-
-	int eval( float value ); // return the sample's label, 1 or -1
-
-	void* getDistribution( int lable ); // if label == 1, return the m_posGauss; otherwise m_negGauss
-
-private:
-	EstimatedGaussDistribution* m_posGauss; 	// N(mean_pos, sigma_pos), gauss distribution for positive labeled samples
-	EstimatedGaussDistribution* m_negGauss;	// N(mean_neg, sigma_neg), gauss distribution for negative labeled samples
-
-	float m_threshold;	// ( mu_pos + mu_neg ) / 2
-	int m_parity;		// sign( mu_pos - mu_neg )
-};
 
 } /* namespace BOOSTING */
 
