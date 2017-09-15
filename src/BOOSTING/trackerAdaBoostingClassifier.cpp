@@ -22,7 +22,7 @@ StrongClassifierDirectSelection::StrongClassifierDirectSelection( int numBaseClf
 	m_errors.resize( numAllWeakClassifier );
 	m_sumErrors.resize( numAllWeakClassifier );
 
-	ROI = sampleROI;
+	searchROI = sampleROI;
 	detector = new Detector( this );
 }
 
@@ -49,12 +49,12 @@ cv::Size StrongClassifierDirectSelection::getPatchSize() const{
   	return patchSize;
 }
 
-cv::Rect StrongClassifierDirectSelection::getROI() const{
-  	return ROI;
+cv::Rect StrongClassifierDirectSelection::getSearchROI() const{
+  	return searchROI;
 }
 
 float StrongClassifierDirectSelection::classifySmooth( const std::vector<cv::Mat>& images, const cv::Rect& sampleROI, int& idx ){
-	ROI = sampleROI;
+	searchROI = sampleROI;
 	idx = 0;
 	float confidence = 0;
 	//detector->classify (image, patches);
@@ -83,16 +83,20 @@ int StrongClassifierDirectSelection::getSwappedClassifier() const{
   	return swappedClassifier;
 }
 
-bool StrongClassifierDirectSelection::update( const cv::Mat& resp, int target_Fg, float importance ){
-	// resp --> colummn vector, extracted features value for a sample patch
+bool StrongClassifierDirectSelection::update( const cv::Mat& respCol, int target_Fg, float importance ){
+	// respCol --> colummn vector, extracted features value for a sample patch
 
 	m_errorMask.assign( (size_t)numAllWeakClassifier, false );
 	m_errors.assign( (size_t)numAllWeakClassifier, 0.0f );
 	m_sumErrors.assign( (size_t)numAllWeakClassifier, 0.0f );
 
-  	baseClassifiers[0]->trainClassifier( resp, target_Fg, importance, m_errorMask ); // BaseClassifier** baseClassifier;
+  	// given a training sample's features response, update all weak classifiers
+  	baseClassifiers[0]->trainAllWeakClassifiers( respCol, target_Fg, importance, m_errorMask ); // BaseClassifier** baseClassifier;
   	
   	for ( int curBaseClassifier = 0; curBaseClassifier < numBaseClassifier; curBaseClassifier++ ){
+  	// update each baseclassifier / selector
+
+		// update each weakclassifier's wWrong, wCorrect, and estimate error, return the index of smalledst error
 		int selectedClassifier = baseClassifiers[curBaseClassifier]->selectBestClassifier( m_errorMask, importance, m_errors );
 
 		if( m_errors[selectedClassifier] >= 0.5 )
@@ -134,8 +138,13 @@ bool StrongClassifierDirectSelection::update( const cv::Mat& resp, int target_Fg
 void StrongClassifierDirectSelection::replaceWeakClassifier( int idx ){
 	if( useFeatureExchange && idx >= 0 ){
 		baseClassifiers[0]->replaceWeakClassifier( idx );
+
+		/*  所有BaseClassifiers都引用相同的BaseClassifiers[0]的weakclassifers(特征池，feature pool)，
+			只是各自的统计数据(wCorrect, wWrong)是独立的。
+			因此，当BaseClassifiers[0]变更了weakclassifier后，后续所有的BaseClassifiers相应的统计数据都要变更。 
+		*/
 		for ( int curBaseClassifier = 1; curBaseClassifier < numBaseClassifier; curBaseClassifier++ )
-	  		baseClassifiers[curBaseClassifier]->replaceClassifierStatistic( baseClassifiers[0]->getIdxOfNewWeakClassifier(), idx );  // ?
+	  		baseClassifiers[curBaseClassifier]->replaceClassifierStatistic( baseClassifiers[0]->getIdxOfNewWeakClassifier(), idx ); 
 	}
 }
 
@@ -175,7 +184,7 @@ BaseClassifier::BaseClassifier( int numWeakClassifier, int iterationInit ){
 	weakClassifiers = new WeakClassifierHaarFeature*[numWeakClassifier + iterationInit];
 	m_idxOfNewWeakClassifier = numWeakClassifier;
 
-	generateRandomClassifier(); // 生成 numWeakClassifier + iterationInit 个弱分类器weakclassifier
+	generateRandomWeakClassifiers(); // 生成 numWeakClassifier + iterationInit 个弱分类器weakclassifier
 
 	m_referenceWeakClassifier = false;
 	m_selectedClassifier = 0;
@@ -191,6 +200,7 @@ BaseClassifier::BaseClassifier( int numWeakClassifier, int iterationInit, WeakCl
 
 	m_numWeakClassifier = numWeakClassifier;
 	m_iterationInit = iterationInit;
+
 	weakClassifiers = weakCls;
 
 	m_referenceWeakClassifier = true; //  引用了weakCls
@@ -216,21 +226,21 @@ BaseClassifier::~BaseClassifier(){
 	m_wWrong.clear();
 }
 
-void BaseClassifier::generateRandomClassifier(){
+void BaseClassifier::generateRandomWeakClassifiers(){
 	for( int curWeakClassifier = 0; curWeakClassifier < m_numWeakClassifier + m_iterationInit; curWeakClassifier++ )
 		weakClassifiers[curWeakClassifier] = new WeakClassifierHaarFeature();
 }
 
-int BaseClassifier::eval( const cv::Mat& response_ ){
-  	return weakClassifiers[m_selectedClassifier]->eval( response_.at<float>( m_selectedClassifier ) );
+int BaseClassifier::eval( const cv::Mat& respCol ){
+  	return weakClassifiers[m_selectedClassifier]->eval( respCol.at<float>( m_selectedClassifier ) );
 }
 
 int BaseClassifier::getSelectedClassifier() const{
   	return m_selectedClassifier;
 }
 
-void BaseClassifier::trainClassifier( const cv::Mat& resp_traget, int Fg_target, float importance, std::vector<bool>& errorMask ){
-	// resp_traget --> column Mat, all extracted features value for the target patch
+void BaseClassifier::trainAllWeakClassifiers( const cv::Mat& respCol, int Fg_target, float importance, std::vector<bool>& errorMask ){
+	// train all weak classifiers; the importance of sample is larger, the training times K is larger
 	
 	//get poisson value
 	double A = 1;
@@ -241,7 +251,7 @@ void BaseClassifier::trainClassifier( const cv::Mat& resp_traget, int Fg_target,
 	{
 		double U_k = (double) std::rand() / RAND_MAX;
 		A *= U_k;
-		if( K > K_max || A < exp( -importance ) )
+		if( K > K_max || A < exp( -importance ) )	// importance is larger --> K is possible larger
 		  	break;
 		K++;
 	}
@@ -249,7 +259,7 @@ void BaseClassifier::trainClassifier( const cv::Mat& resp_traget, int Fg_target,
 	for( int curK = 0; curK <= K; curK++ ){
 		for( int curWeakClassifier = 0; curWeakClassifier < m_numWeakClassifier + m_iterationInit; curWeakClassifier++ ){
 	  		// errorMask: true表示分类器估计错误，false表示估计正确
-	  		errorMask[curWeakClassifier] = weakClassifiers[curWeakClassifier]->update( resp_traget.at<float>( curWeakClassifier ), Fg_target );
+	  		errorMask[curWeakClassifier] = weakClassifiers[curWeakClassifier]->update( respCol.at<float>( curWeakClassifier ), Fg_target );
 		}
 	}
 }
@@ -269,6 +279,8 @@ int BaseClassifier::selectBestClassifier( std::vector<bool>& errorMask, float im
   	int tmp_selectedClassifier = m_selectedClassifier;
 
   	for( int curWeakClassifier = 0; curWeakClassifier < m_numWeakClassifier + m_iterationInit; curWeakClassifier++ ){
+    	// update weak classifier's estimate error:  m_wWrong and m_wCorrect
+
     	if( errorMask[curWeakClassifier] ) 
       		m_wWrong[curWeakClassifier] += importance; // 分类错误
     	else
@@ -325,14 +337,14 @@ void BaseClassifier::replaceWeakClassifier( int index ){
 	weakClassifiers[m_idxOfNewWeakClassifier] = new WeakClassifierHaarFeature(); // 产生新的候选弱分类器
 }
 
-int BaseClassifier::computeReplaceWeakestClassifier( const std::vector<float> & errors ){
+int BaseClassifier::computeReplaceWeakestClassifier( const std::vector<float> & sumErrors ){
 	float maxError = 0.0f;
 	int index = -1;
 
   	//search the classifier with the largest error
 	for ( int curWeakClassifier = m_numWeakClassifier - 1; curWeakClassifier >= 0; curWeakClassifier-- ){
-		if( errors[curWeakClassifier] > maxError ){
-			maxError = errors[curWeakClassifier];
+		if( sumErrors[curWeakClassifier] > maxError ){
+			maxError = sumErrors[curWeakClassifier];
 			index = curWeakClassifier;
 		}
 	}
@@ -340,12 +352,12 @@ int BaseClassifier::computeReplaceWeakestClassifier( const std::vector<float> & 
 	CV_Assert( index > -1 );
 	CV_Assert( index != m_selectedClassifier );
 
-	//replace
-  	m_idxOfNewWeakClassifier++;
+	
+  	m_idxOfNewWeakClassifier++; // the m_idxOfNewWeakClassifier used to replace the bad weakClassifier
   	if( m_idxOfNewWeakClassifier == m_numWeakClassifier + m_iterationInit )
     	m_idxOfNewWeakClassifier = m_numWeakClassifier;
 
-  	if( maxError > errors[m_idxOfNewWeakClassifier] )
+  	if( maxError > sumErrors[m_idxOfNewWeakClassifier] )
     	return index;
   	else
     	return -1;
@@ -371,7 +383,7 @@ void BaseClassifier::replaceClassifierStatistic( int sourceIndex, int targetInde
 
 EstimatedGaussDistribution::EstimatedGaussDistribution(){
 	m_mean = 0;
-	this->m_P_mean = 1000;  // initial state for P, where P is the estimate error covariance
+	this->m_P_mean = 1000;  // initial state for P, where P is the estimate error covariance, R is the variance of noise N(0, R)
 	this->m_R_mean = 0.01f;
 
 	m_sigma = 1;
@@ -531,7 +543,7 @@ void Detector::classifySmooth( const std::vector<cv::Mat>& samples_, float minMa
 		stepRow = 1;
 
 	cv::Size patchGrid;
-	cv::Rect searchROI = m_strongClassifier->getROI();
+	cv::Rect searchROI = m_strongClassifier->getSearchROI();
 	patchGrid.height = ( (int) ( (float) ( searchROI.height - patchSz.height ) / stepRow ) + 1 );
 	patchGrid.width = ( (int) ( (float) ( searchROI.width - patchSz.width ) / stepCol ) + 1 );
 

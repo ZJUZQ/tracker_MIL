@@ -143,7 +143,7 @@ bool TrackerBoostingImpl::initImpl( const cv::Mat& image, const cv::Rect2d& boun
 
 	// featureSet
 	TrackerFeatureHAAR::Params HAARparameters;
-	HAARparameters.numFeatures = params.featureSetNumFeatures;
+	HAARparameters.numFeatures = params.featureSetNumFeatures; // featureSetNumFeatures = ( numBaseClassifiers * 10 ) + iterationInit
 	HAARparameters.isIntegral = true;
 	HAARparameters.rectSize = cv::Size( static_cast<int>(boundingBox.width), static_cast<int>(boundingBox.height) );
 	cv::Ptr<TrackerFeature> trackerFeature = cv::Ptr<TrackerFeatureHAAR>( new TrackerFeatureHAAR( HAARparameters ) );
@@ -181,12 +181,15 @@ bool TrackerBoostingImpl::initImpl( const cv::Mat& image, const cv::Rect2d& boun
 		model->modelUpdate();
 
 		// get replaced classifier and change the features
-		std::vector<int> replacedClassifier = stateEstimator->computeReplacedClassifier();
-		std::vector<int> swappedClassifier = stateEstimator->computeSwappedClassifier();
-		for( size_t j = 0; j < replacedClassifier.size(); j++ ){
-			if( replacedClassifier[j] != -1 && swappedClassifier[j] != -1 ){
-				trackerFeature.staticCast<TrackerFeatureHAAR>()->swapFeature( replacedClassifier[j], swappedClassifier[j] );
-				trackerFeature.staticCast<TrackerFeatureHAAR>()->swapFeature( swappedClassifier[j], trackerFeature2->getFeatureAt( (int)j ) );
+		std::vector<int> replacedWeakClassifiers = stateEstimator->computeReplacedClassifier();
+		std::vector<int> swappedWeakClassifiers = stateEstimator->computeSwappedClassifier();
+		for( size_t j = 0; j < replacedWeakClassifiers.size(); j++ ){
+			if( replacedWeakClassifiers[j] != -1 && swappedWeakClassifiers[j] != -1 ){
+				/* 	因为weakclassifier是基于TrackerFeatureHAAR的，因此，在交换了weakClassifierHaarFeature(没有实际实现Haar feature)后，
+					还需要实际交换实际的TrackerFeatureHAAR，两者之间索引是一致的。 
+				*/
+				trackerFeature.staticCast<TrackerFeatureHAAR>()->swapFeature( replacedWeakClassifiers[j], swappedWeakClassifiers[j] );
+				trackerFeature.staticCast<TrackerFeatureHAAR>()->swapFeature( swappedWeakClassifiers[j], trackerFeature2->getFeatureAt( (int)j ) );
 			}
 		}
 	}

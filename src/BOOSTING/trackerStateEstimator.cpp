@@ -137,20 +137,21 @@ std::vector<int> TrackerStateEstimatorAdaBoosting::computeSelectedWeakClassifier
 
 cv::Ptr<TrackerTargetState> TrackerStateEstimatorAdaBoosting::estimateImpl( const std::vector<ConfidenceMap>& /*confidenceMaps*/ ){
 	//run classify in order to compute next location
+
 	if( currentConfidenceMap.empty() )
 		return cv::Ptr<TrackerTargetState>();
 
-	std::vector<cv::Mat> images;
+	std::vector<cv::Mat> respColSet;
 
 	// typedef std::vector<std::pair<Ptr<TrackerTargetState>, float> > cv::ConfidenceMap
 	for ( size_t i = 0; i < currentConfidenceMap.size(); i++ ){
 		cv::Ptr<TrackerAdaBoostingTargetState> currentTargetState = currentConfidenceMap.at( i ).first.staticCast<TrackerAdaBoostingTargetState>();
-		images.push_back( currentTargetState->getTargetResponses() );
+		respColSet.push_back( currentTargetState->getTargetResponses() );
 	}
 
 	int bestIndex;
 	// 定义: Ptr<StrongClassifierDirectSelection> boostClassifier;
-	boostClassifier->classifySmooth( images, sampleROI, bestIndex );
+	boostClassifier->classifySmooth( respColSet, sampleROI, bestIndex );
 
 	// get bestIndex from classifySmooth
 	return currentConfidenceMap.at( bestIndex ).first;
@@ -172,12 +173,15 @@ void TrackerStateEstimatorAdaBoosting::updateImpl( std::vector<ConfidenceMap>& c
 	ConfidenceMap lastConfidenceMap = confidenceMaps.back();
 	bool featureEx = boostClassifier->getUseFeatureExchange();
 
+	/* each training sample will produce one bad weakclassifier to be replaced */
 	replacedClassifier.clear();
-	replacedClassifier.resize( lastConfidenceMap.size(), -1 );
+	replacedClassifier.resize( lastConfidenceMap.size(), -1 ); 
 	swappedClassifier.clear();
 	swappedClassifier.resize( lastConfidenceMap.size(), -1 );
 
 	for( size_t i = 0; i < lastConfidenceMap.size(); i++ ){
+	// for each training sample
+
 		cv::Ptr<TrackerAdaBoostingTargetState> currentTargetState = lastConfidenceMap.at( i ).first.staticCast<TrackerAdaBoostingTargetState>();
 
 		int currentFg = 1;
@@ -186,10 +190,10 @@ void TrackerStateEstimatorAdaBoosting::updateImpl( std::vector<ConfidenceMap>& c
 
 		cv::Mat respCol = currentTargetState->getTargetResponses();
 
-		boostClassifier->update( respCol, currentFg );
+		boostClassifier->update( respCol, currentFg ); // for each training sample, update all weakclassifiers and strongClassifier, Algorithm 2.1
 
 		if( featureEx ){
-			replacedClassifier[i] = boostClassifier->getReplacedClassifier();
+			replacedClassifier[i] = boostClassifier->getReplacedClassifier(); // each traing sample will produce one bad weakclassifier to be replaced
 			swappedClassifier[i] = boostClassifier->getSwappedClassifier();
 			if( replacedClassifier[i] >= 0 && swappedClassifier[i] >= 0 )
 				boostClassifier->replaceWeakClassifier( replacedClassifier[i] );

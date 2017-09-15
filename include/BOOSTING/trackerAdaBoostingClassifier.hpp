@@ -28,17 +28,25 @@ public:
 
 	void initBaseClassifiers(); // Initialize baseClassifiers
 
-	bool update( const cv::Mat& image, int target, float importance = 1.0 );
+	bool update( const cv::Mat& respCol, int target, float importance = 1.0 );
 
 	// evaluate the strongclassifier's confidence measure, sum( alpha_i * h_i )
 	float eval( const cv::Mat& response );
 
 	std::vector<int> getSelectedWeakClassifier();
+
 	float classifySmooth( const std::vector<cv::Mat>& images, const cv::Rect& sampleROI, int& idx );
+	
 	int getNumBaseClassifier();
+
+	// get the target size
 	cv::Size getPatchSize() const;
-	cv::Rect getROI() const;
+
+	// get the search region around the target
+	cv::Rect getSearchROI() const;
+
 	bool getUseFeatureExchange() const;
+
 	int getReplacedClassifier() const;
 
 	void replaceWeakClassifier( int idx );
@@ -55,7 +63,8 @@ private:
 	int iterInit;
 	int numAllWeakClassifier; // == numWeakClassifier + iterInit;
 	
-	cv::Size patchSize;
+	cv::Size patchSize;		// the target roi
+	cv::Rect searchROI;		// the search region around target
 
 	bool useFeatureExchange;
 
@@ -64,7 +73,7 @@ private:
 	std::vector<float> m_sumErrors;
 
 	Detector* detector;
-	cv::Rect ROI;
+	
 
 	int replacedClassifier; // feature pool中分类误差最大，将要被替换掉的弱分类器索引
 	int swappedClassifier;	// 候选弱分类器中用来替换replacedClassifier的新弱分类器索引
@@ -86,42 +95,42 @@ public:
 		return weakClassifiers;
 	}
 
-	// ?
-	void trainClassifier( const cv::Mat& image, int target, float importance, std::vector<bool>& errorMask );
+	// train all weak classifiers; the importance of sample is larger, the training times is larger
+	void trainAllWeakClassifiers( const cv::Mat& respCol, int target, float importance, std::vector<bool>& errorMask );
 	
-	// select the classifier with the smallest error, and return the index
+	// update each weakclassifier's wWrong, wCorrect, and estimate error, return the index of smalledst error
 	int selectBestClassifier( std::vector<bool>& errorMask, float importance, std::vector<float>& errors );
 	
-	// compute the weak classifier which has the largest error, return it's index
-	int computeReplaceWeakestClassifier( const std::vector<float>& errors );
+	int getSelectedClassifier() const;
+
+	// compute the weak classifier which has the largest history sum error, return it's index
+	int computeReplaceWeakestClassifier( const std::vector<float>& sumErrors );
 
 	// replace the targetIndex's wWrong and wCorrect with sourceIndex's, and initialize sourceIndx's wCorrect = wWrong = 1
 	void replaceClassifierStatistic( int sourceIndex, int targetIndex );
+
+	// 使用候选弱分类器替换weakClassifiers[index]
+	void replaceWeakClassifier( int index );
+
 
 	int getIdxOfNewWeakClassifier(){
 		return m_idxOfNewWeakClassifier;
 	}
 
 	// 返回该基分类器(使用当前选择的误差最小的弱分类器)判断sample的label, 1 或者 -1
-	int eval( const cv::Mat& response_ );
+	int eval( const cv::Mat& respCol );
 
 	virtual ~BaseClassifier();
 	 
 	// calculate the given weak classifier's error:  e_{m} = m_wWrong[m] / ( m_wCorrect[m] + m_wWrong[m] )
 	float getError( int curWeakClassifier );
+	void getErrors( float* errors ); // calculate all weak classifiers' errors
+
 	
-	// calculate all weak classifiers' errors
-	void getErrors( float* errors ); 
-
-	int getSelectedClassifier() const;
-
-	// 使用候选弱分类器替换weakClassifiers[index]
-	void replaceWeakClassifier( int index );
-
 protected:
-	void generateRandomClassifier(); // 生成 numWeakClassifier + iterationInit 个弱分类器WeakClassifierHaarFeature
+	void generateRandomWeakClassifiers(); // 生成 numWeakClassifier + iterationInit 个弱分类器WeakClassifierHaarFeature
 
-	WeakClassifierHaarFeature** weakClassifiers; // 弱分类器集合, feature pool
+	WeakClassifierHaarFeature** weakClassifiers; // 弱分类器集合, feature pool指针，真正的featurehaar在TrackerFeatureHAAR那里
 
 	bool m_referenceWeakClassifier;
 	int m_numWeakClassifier; // number of weak classifiers
@@ -144,7 +153,7 @@ class EstimatedGaussDistribution{
 public:
 
 	EstimatedGaussDistribution();
-	EstimatedGaussDistribution( float P_mean, float R_mean, float P_sigma, float R_sigma );
+	EstimatedGaussDistribution( float P_mean, float R_mean, float P_sigma, float R_sigma ); // initial state for P, where P is the estimate error covariance, R is the variance of noise N(0, R)
 	virtual ~EstimatedGaussDistribution();
 	void update( float value );  //, float timeConstant = -1.0);
 	float getMean();
