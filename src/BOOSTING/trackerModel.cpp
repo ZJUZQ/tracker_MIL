@@ -79,6 +79,10 @@ cv::Ptr<TrackerTargetState> TrackerModel::getLastTargetState() const{
 	return trajectory.back();
 }
 
+void TrackerModel::removeLastTargetState(){
+	trajectory.pop_back();
+}
+
 const std::vector<ConfidenceMap>& TrackerModel::getConfidenceMaps() const{
   return confidenceMaps;
 }

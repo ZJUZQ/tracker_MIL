@@ -57,6 +57,9 @@ public:
     */
     cv::Ptr<TrackerTargetState> getLastTargetState() const;
 
+    /* add by me */
+    void removeLastTargetState();
+
     /** @brief Get the list of the ConfidenceMap
     */
     const std::vector<ConfidenceMap>& getConfidenceMaps() const;

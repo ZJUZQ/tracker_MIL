@@ -36,6 +36,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/vortex/zhou_temp_test/visual_tracker/build/src/cmake_install.cmake")
   include("/home/vortex/zhou_temp_test/visual_tracker/build/test/cmake_install.cmake")
+  include("/home/vortex/zhou_temp_test/visual_tracker/build/test_draft/cmake_install.cmake")
 
 endif()
 

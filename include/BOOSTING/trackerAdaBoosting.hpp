@@ -39,6 +39,9 @@ public:
      */
 	bool update( cv::InputArray image, cv::Rect2d& boundingBox );
 
+	/* Add by me: just estimate the new most likely boundingbox, without update the model */
+	bool estimateOnly( cv::InputArray image, cv::Rect2d& boundingBox );
+
 	virtual void read( const cv::FileNode& fn )=0;
 	virtual void write( cv::FileStorage& fs ) const=0;
 
@@ -46,6 +49,9 @@ protected:
 
 	virtual bool initImpl( const cv::Mat& image, const cv::Rect2d& boundingBox ) = 0;
 	virtual bool updateImpl( const cv::Mat& image, cv::Rect2d& boundingBox ) = 0;
+
+	/* Add by me: just estimate the new most likely boundingbox, without update the model */
+	virtual bool estimateOnlyImpl( cv::InputArray image, cv::Rect2d& boundingBox ) = 0;
 
 	bool isInit;
 

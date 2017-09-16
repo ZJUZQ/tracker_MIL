@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     GaussianBlur( gray, gray, Size(9, 9), 2, 2 );
     vector<Vec3f> circles;
     HoughCircles(gray, circles, HOUGH_GRADIENT,
-                 2, gray.rows/30, 200, 100 );
+                 2, gray.rows/8, 50, 30, gray.rows/4, gray.rows/2);
     for( size_t i = 0; i < circles.size(); i++ )
     {
          Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));

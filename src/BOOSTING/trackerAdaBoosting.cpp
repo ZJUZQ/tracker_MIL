@@ -15,6 +15,9 @@ public:
 	bool initImpl( const cv::Mat& image, const cv::Rect2d& boundingBox );
 	bool updateImpl( const cv::Mat& image, cv::Rect2d& boundingBox );
 
+	/* Add by me: just estimate the new most likely boundingbox, without update the model */
+	bool estimateOnlyImpl( cv::InputArray image, cv::Rect2d& boundingBox );
+
 	TrackerBoosting::Params params;
 };
 
@@ -57,6 +60,16 @@ bool Tracker::update( cv::InputArray image, cv::Rect2d& boundingBox ){
 		return false;
 
 	return updateImpl( image.getMat(), boundingBox );
+}
+
+/* Add by me: just estimate the new most likely boundingbox, without update the model */
+bool Tracker::estimateOnly( cv::InputArray image, cv::Rect2d& boundingBox ){
+	if( !isInit )
+		return false;
+	if( image.empty() )
+		return false;
+
+	return estimateOnlyImpl( image.getMat(), boundingBox );
 }
 
 /************************ TrackerBoosting **********************/
@@ -305,6 +318,67 @@ bool TrackerBoostingImpl::updateImpl( const cv::Mat& image, cv::Rect2d& bounding
 	}
 
 	return true;
+}
+
+
+/* Add by me: just estimate the new most likely boundingbox, without update the model */
+bool TrackerBoostingImpl::estimateOnlyImpl( cv::InputArray image, cv::Rect2d& boundingBox ){
+
+	cv::Mat_<int> intImage;
+	cv::Mat_<double> intSqImage;
+	cv::Mat image_;
+	cv::cvtColor( image, image_, CV_RGB2GRAY );
+	cv::integral( image_, intImage, intSqImage, CV_32S );
+
+	// get the last location X(k-1)
+	cv::Ptr<TrackerTargetState> lastLocation = model->getLastTargetState();
+	cv::Rect lastBoundingBox( (int)lastLocation->getTargetPosition().x, (int)lastLocation->getTargetPosition().y, 
+							  lastLocation->getTargetWidth(), lastLocation->getTargetHeight() );
+
+	// sampling new frame based on last location
+	( sampler->getSamplers().at( 0 ).second ).staticCast<TrackerSamplerCS>()->setMode( TrackerSamplerCS::MODE_CLASSIFY );
+	sampler->sampling( intImage, lastBoundingBox );
+	const std::vector<cv::Mat> detectSamples = sampler->getSamples();
+	cv::Rect ROI = ( sampler->getSamplers().at( 0 ).second ).staticCast<TrackerSamplerCS>()->getsampleROI();
+
+	if( detectSamples.empty() )
+		return false;
+
+	/*//TODO debug samples
+	Mat f;
+	image.copyTo( f );
+
+	for ( size_t i = 0; i < detectSamples.size(); i = i + 10 )
+	{
+	Size sz;
+	Point off;
+	detectSamples.at( i ).locateROI( sz, off );
+	rectangle( f, Rect( off.x, off.y, detectSamples.at( i ).cols, detectSamples.at( i ).rows ), Scalar( 255, 0, 0 ), 1 );
+	}*/
+
+	std::vector<cv::Mat> responseSet;
+	cv::Mat response;
+
+	std::vector<int> classifiers = model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->computeSelectedWeakClassifier();
+	cv::Ptr<TrackerFeatureHAAR> extractor = featureSet->getTrackerFeature()[0].second.staticCast<TrackerFeatureHAAR>();
+	extractor->extractSelected( classifiers, detectSamples, response );
+	responseSet.push_back( response );
+
+	// predict new location
+	ConfidenceMap cmap;
+	model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_CLASSIFY, detectSamples );
+	model.staticCast<TrackerBoostingModel>()->responseToConfidenceMap( responseSet, cmap );
+	model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->setCurrentConfidenceMap( cmap );
+	model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->setSampleROI( ROI );
+
+	if( !model->modelEstimation() )
+		return false;
+
+	cv::Ptr<TrackerTargetState> currentState = model->getLastTargetState();
+	boundingBox = cv::Rect( (int)currentState->getTargetPosition().x, (int)currentState->getTargetPosition().y, 
+							currentState->getTargetWidth(), currentState->getTargetHeight() );
+
+	model->removeLastTargetState(); // remove the temporary TargetState in the trajectory
 }
 
 
