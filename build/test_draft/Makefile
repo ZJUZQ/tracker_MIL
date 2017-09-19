@@ -111,21 +111,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/rule:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/rule
-.PHONY : test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/rule
-
-# Convenience name for target.
-trackerPose_AdaBoosting_Hough: test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/rule
-
-.PHONY : trackerPose_AdaBoosting_Hough
-
-# fast build rule for target.
-trackerPose_AdaBoosting_Hough/fast:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/build.make test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/build
-.PHONY : trackerPose_AdaBoosting_Hough/fast
-
-# Convenience name for target.
 test_draft/CMakeFiles/hough.dir/rule:
 	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test_draft/CMakeFiles/hough.dir/rule
 .PHONY : test_draft/CMakeFiles/hough.dir/rule
@@ -167,33 +152,6 @@ hough.cpp.s:
 	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/hough.dir/build.make test_draft/CMakeFiles/hough.dir/hough.cpp.s
 .PHONY : hough.cpp.s
 
-trackerPose_AdaBoosting_Hough.o: trackerPose_AdaBoosting_Hough.cpp.o
-
-.PHONY : trackerPose_AdaBoosting_Hough.o
-
-# target to build an object file
-trackerPose_AdaBoosting_Hough.cpp.o:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/build.make test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/trackerPose_AdaBoosting_Hough.cpp.o
-.PHONY : trackerPose_AdaBoosting_Hough.cpp.o
-
-trackerPose_AdaBoosting_Hough.i: trackerPose_AdaBoosting_Hough.cpp.i
-
-.PHONY : trackerPose_AdaBoosting_Hough.i
-
-# target to preprocess a source file
-trackerPose_AdaBoosting_Hough.cpp.i:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/build.make test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/trackerPose_AdaBoosting_Hough.cpp.i
-.PHONY : trackerPose_AdaBoosting_Hough.cpp.i
-
-trackerPose_AdaBoosting_Hough.s: trackerPose_AdaBoosting_Hough.cpp.s
-
-.PHONY : trackerPose_AdaBoosting_Hough.s
-
-# target to generate assembly for a file
-trackerPose_AdaBoosting_Hough.cpp.s:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/build.make test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/trackerPose_AdaBoosting_Hough.cpp.s
-.PHONY : trackerPose_AdaBoosting_Hough.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -202,14 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... trackerPose_AdaBoosting_Hough"
 	@echo "... hough"
 	@echo "... hough.o"
 	@echo "... hough.i"
 	@echo "... hough.s"
-	@echo "... trackerPose_AdaBoosting_Hough.o"
-	@echo "... trackerPose_AdaBoosting_Hough.i"
-	@echo "... trackerPose_AdaBoosting_Hough.s"
 .PHONY : help
 
 

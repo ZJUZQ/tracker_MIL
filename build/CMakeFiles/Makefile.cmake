@@ -12,6 +12,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "../src/BOOSTING/CMakeLists.txt"
+  "../src/BOOSTING_DIRECTION/CMakeLists.txt"
   "../src/CMakeLists.txt"
   "../src/MIL/CMakeLists.txt"
   "../test/CMakeLists.txt"
@@ -52,6 +53,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/MIL/CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/BOOSTING/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/BOOSTING_DIRECTION/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test/CMakeFiles/CMakeDirectoryInformation.cmake"
   "test_draft/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
@@ -60,8 +62,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "src/MIL/CMakeFiles/MIL.dir/DependInfo.cmake"
   "src/BOOSTING/CMakeFiles/BOOSTING.dir/DependInfo.cmake"
-  "test/CMakeFiles/tracker_MILBoosting.dir/DependInfo.cmake"
+  "src/BOOSTING_DIRECTION/CMakeFiles/BOOSTING_DIRECTION.dir/DependInfo.cmake"
   "test/CMakeFiles/tracker_AdaBoosting.dir/DependInfo.cmake"
-  "test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir/DependInfo.cmake"
+  "test/CMakeFiles/tracker_MILBoosting.dir/DependInfo.cmake"
+  "test/CMakeFiles/trackerPosture_AdaBoosting.dir/DependInfo.cmake"
   "test_draft/CMakeFiles/hough.dir/DependInfo.cmake"
   )

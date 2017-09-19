@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/CMakeFiles/tracker_AdaBoosting.dir/rule:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_AdaBoosting.dir/rule
+.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/rule
+
+# Convenience name for target.
+tracker_AdaBoosting: test/CMakeFiles/tracker_AdaBoosting.dir/rule
+
+.PHONY : tracker_AdaBoosting
+
+# fast build rule for target.
+tracker_AdaBoosting/fast:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
+.PHONY : tracker_AdaBoosting/fast
+
+# Convenience name for target.
 test/CMakeFiles/tracker_MILBoosting.dir/rule:
 	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_MILBoosting.dir/rule
 .PHONY : test/CMakeFiles/tracker_MILBoosting.dir/rule
@@ -126,19 +141,46 @@ tracker_MILBoosting/fast:
 .PHONY : tracker_MILBoosting/fast
 
 # Convenience name for target.
-test/CMakeFiles/tracker_AdaBoosting.dir/rule:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tracker_AdaBoosting.dir/rule
-.PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/rule
+test/CMakeFiles/trackerPosture_AdaBoosting.dir/rule:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/trackerPosture_AdaBoosting.dir/rule
+.PHONY : test/CMakeFiles/trackerPosture_AdaBoosting.dir/rule
 
 # Convenience name for target.
-tracker_AdaBoosting: test/CMakeFiles/tracker_AdaBoosting.dir/rule
+trackerPosture_AdaBoosting: test/CMakeFiles/trackerPosture_AdaBoosting.dir/rule
 
-.PHONY : tracker_AdaBoosting
+.PHONY : trackerPosture_AdaBoosting
 
 # fast build rule for target.
-tracker_AdaBoosting/fast:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
-.PHONY : tracker_AdaBoosting/fast
+trackerPosture_AdaBoosting/fast:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/trackerPosture_AdaBoosting.dir/build.make test/CMakeFiles/trackerPosture_AdaBoosting.dir/build
+.PHONY : trackerPosture_AdaBoosting/fast
+
+trackerPosture_AdaBoosting.o: trackerPosture_AdaBoosting.cpp.o
+
+.PHONY : trackerPosture_AdaBoosting.o
+
+# target to build an object file
+trackerPosture_AdaBoosting.cpp.o:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/trackerPosture_AdaBoosting.dir/build.make test/CMakeFiles/trackerPosture_AdaBoosting.dir/trackerPosture_AdaBoosting.cpp.o
+.PHONY : trackerPosture_AdaBoosting.cpp.o
+
+trackerPosture_AdaBoosting.i: trackerPosture_AdaBoosting.cpp.i
+
+.PHONY : trackerPosture_AdaBoosting.i
+
+# target to preprocess a source file
+trackerPosture_AdaBoosting.cpp.i:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/trackerPosture_AdaBoosting.dir/build.make test/CMakeFiles/trackerPosture_AdaBoosting.dir/trackerPosture_AdaBoosting.cpp.i
+.PHONY : trackerPosture_AdaBoosting.cpp.i
+
+trackerPosture_AdaBoosting.s: trackerPosture_AdaBoosting.cpp.s
+
+.PHONY : trackerPosture_AdaBoosting.s
+
+# target to generate assembly for a file
+trackerPosture_AdaBoosting.cpp.s:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test/CMakeFiles/trackerPosture_AdaBoosting.dir/build.make test/CMakeFiles/trackerPosture_AdaBoosting.dir/trackerPosture_AdaBoosting.cpp.s
+.PHONY : trackerPosture_AdaBoosting.cpp.s
 
 tracker_AdaBoosting.o: tracker_AdaBoosting.cpp.o
 
@@ -201,9 +243,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... tracker_MILBoosting"
 	@echo "... tracker_AdaBoosting"
+	@echo "... tracker_MILBoosting"
+	@echo "... trackerPosture_AdaBoosting"
+	@echo "... rebuild_cache"
+	@echo "... trackerPosture_AdaBoosting.o"
+	@echo "... trackerPosture_AdaBoosting.i"
+	@echo "... trackerPosture_AdaBoosting.s"
 	@echo "... tracker_AdaBoosting.o"
 	@echo "... tracker_AdaBoosting.i"
 	@echo "... tracker_AdaBoosting.s"

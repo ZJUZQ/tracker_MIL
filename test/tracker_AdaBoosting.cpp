@@ -137,6 +137,11 @@ int main( int argc, char** argv ){
 	    		//updates the tracker
 	    		if( tracker->update( frame, boundingBox ) ){
 	      			cv::rectangle( image, boundingBox, Scalar( 255, 0, 0 ), 2, 1 );
+
+	      			cv::Point2d center; // the center of the circularly symmetrical part of the track object
+	      			center.x = boundingBox.x + boundingBox.width / 2;
+	      			center.y = boundingBox.y + boundingBox.height / 2;
+	      			cv::circle( image, center, 3, cv::Scalar(0, 255, 0), 4, 1 );
 	    		}
 	  		}
 

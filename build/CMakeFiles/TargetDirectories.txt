@@ -8,11 +8,14 @@
 /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/edit_cache.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/rebuild_cache.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING/CMakeFiles/BOOSTING.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING_DIRECTION/CMakeFiles/rebuild_cache.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING_DIRECTION/CMakeFiles/edit_cache.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/src/BOOSTING_DIRECTION/CMakeFiles/BOOSTING_DIRECTION.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/edit_cache.dir
-/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/rebuild_cache.dir
-/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/tracker_MILBoosting.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/tracker_AdaBoosting.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/tracker_MILBoosting.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/trackerPosture_AdaBoosting.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/rebuild_cache.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/edit_cache.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/rebuild_cache.dir
-/home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/trackerPose_AdaBoosting_Hough.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/hough.dir
