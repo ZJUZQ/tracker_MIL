@@ -111,21 +111,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test_draft/CMakeFiles/trackerPosture.dir/rule:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test_draft/CMakeFiles/trackerPosture.dir/rule
-.PHONY : test_draft/CMakeFiles/trackerPosture.dir/rule
-
-# Convenience name for target.
-trackerPosture: test_draft/CMakeFiles/trackerPosture.dir/rule
-
-.PHONY : trackerPosture
-
-# fast build rule for target.
-trackerPosture/fast:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/build
-.PHONY : trackerPosture/fast
-
-# Convenience name for target.
 test_draft/CMakeFiles/hough.dir/rule:
 	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f CMakeFiles/Makefile2 test_draft/CMakeFiles/hough.dir/rule
 .PHONY : test_draft/CMakeFiles/hough.dir/rule
@@ -167,33 +152,6 @@ hough.cpp.s:
 	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/hough.dir/build.make test_draft/CMakeFiles/hough.dir/hough.cpp.s
 .PHONY : hough.cpp.s
 
-trackerPosture.o: trackerPosture.cpp.o
-
-.PHONY : trackerPosture.o
-
-# target to build an object file
-trackerPosture.cpp.o:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o
-.PHONY : trackerPosture.cpp.o
-
-trackerPosture.i: trackerPosture.cpp.i
-
-.PHONY : trackerPosture.i
-
-# target to preprocess a source file
-trackerPosture.cpp.i:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.i
-.PHONY : trackerPosture.cpp.i
-
-trackerPosture.s: trackerPosture.cpp.s
-
-.PHONY : trackerPosture.s
-
-# target to generate assembly for a file
-trackerPosture.cpp.s:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.s
-.PHONY : trackerPosture.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -202,14 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... trackerPosture"
 	@echo "... hough"
 	@echo "... hough.o"
 	@echo "... hough.i"
 	@echo "... hough.s"
-	@echo "... trackerPosture.o"
-	@echo "... trackerPosture.i"
-	@echo "... trackerPosture.s"
 .PHONY : help
 
 

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/vortex/zhou_temp_test/visual_tracker/test_draft/trackerPosture.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o"
+  "/home/vortex/zhou_temp_test/visual_tracker/test/trackerPosture.cpp" "/home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

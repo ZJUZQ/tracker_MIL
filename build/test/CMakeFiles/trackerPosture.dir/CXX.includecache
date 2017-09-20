@@ -146,7 +146,7 @@ BOOSTING_DIRECTION/common_includes.hpp
 BOOSTING_DIRECTION/feature.hpp
 ../include/BOOSTING_DIRECTION/BOOSTING_DIRECTION/feature.hpp
 
-/home/vortex/zhou_temp_test/visual_tracker/test_draft/trackerPosture.cpp
+/home/vortex/zhou_temp_test/visual_tracker/test/trackerPosture.cpp
 opencv2/core/utility.hpp
 -
 opencv2/tracking.hpp
@@ -170,11 +170,11 @@ Eigen/Dense
 Eigen/Geometry
 -
 BOOSTING/trackerAdaBoosting.hpp
-/home/vortex/zhou_temp_test/visual_tracker/test_draft/BOOSTING/trackerAdaBoosting.hpp
+/home/vortex/zhou_temp_test/visual_tracker/test/BOOSTING/trackerAdaBoosting.hpp
 BOOSTING/roiSelector.hpp
-/home/vortex/zhou_temp_test/visual_tracker/test_draft/BOOSTING/roiSelector.hpp
+/home/vortex/zhou_temp_test/visual_tracker/test/BOOSTING/roiSelector.hpp
 BOOSTING_DIRECTION/directionAdaBoosting.hpp
-/home/vortex/zhou_temp_test/visual_tracker/test_draft/BOOSTING_DIRECTION/directionAdaBoosting.hpp
+/home/vortex/zhou_temp_test/visual_tracker/test/BOOSTING_DIRECTION/directionAdaBoosting.hpp
 
 /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cxcore.h
 opencv2/core/core_c.h

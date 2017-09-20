@@ -176,19 +176,6 @@ tracker_MILBoosting/fast:
 .PHONY : tracker_MILBoosting/fast
 
 #=============================================================================
-# Target rules for targets named trackerPosture_AdaBoosting
-
-# Build rule for target.
-trackerPosture_AdaBoosting: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 trackerPosture_AdaBoosting
-.PHONY : trackerPosture_AdaBoosting
-
-# fast build rule for target.
-trackerPosture_AdaBoosting/fast:
-	$(MAKE) -f test/CMakeFiles/trackerPosture_AdaBoosting.dir/build.make test/CMakeFiles/trackerPosture_AdaBoosting.dir/build
-.PHONY : trackerPosture_AdaBoosting/fast
-
-#=============================================================================
 # Target rules for targets named trackerPosture
 
 # Build rule for target.
@@ -198,7 +185,7 @@ trackerPosture: cmake_check_build_system
 
 # fast build rule for target.
 trackerPosture/fast:
-	$(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/build
+	$(MAKE) -f test/CMakeFiles/trackerPosture.dir/build.make test/CMakeFiles/trackerPosture.dir/build
 .PHONY : trackerPosture/fast
 
 #=============================================================================
@@ -227,7 +214,6 @@ help:
 	@echo "... BOOSTING_DIRECTION"
 	@echo "... tracker_AdaBoosting"
 	@echo "... tracker_MILBoosting"
-	@echo "... trackerPosture_AdaBoosting"
 	@echo "... trackerPosture"
 	@echo "... hough"
 .PHONY : help

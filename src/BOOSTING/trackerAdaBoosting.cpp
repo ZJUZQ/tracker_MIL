@@ -18,6 +18,9 @@ public:
 	/* Add by me: just estimate the new most likely boundingbox, without update the model */
 	bool estimateOnlyImpl( cv::InputArray image, cv::Rect2d& boundingBox );
 
+	// Add by me: update the strong classifier with a given sample which has class label
+	bool updateWithSampleImpl( cv::InputArray sample, int labelFg );
+
 	TrackerBoosting::Params params;
 };
 
@@ -70,6 +73,16 @@ bool Tracker::estimateOnly( cv::InputArray image, cv::Rect2d& boundingBox ){
 		return false;
 
 	return estimateOnlyImpl( image.getMat(), boundingBox );
+}
+
+// Add by me: update the strong classifier with a given sample which has class label
+bool Tracker::updateWithSample( cv::InputArray sample, int labelFg ){
+	if( !isInit )
+		return false;
+	if( sample.empty() )
+		return false;
+
+	return updateWithSampleImpl( sample.getMat(), labelFg );
 }
 
 /************************ TrackerBoosting **********************/
@@ -209,12 +222,60 @@ bool TrackerBoostingImpl::initImpl( const cv::Mat& image, const cv::Rect2d& boun
 	return true;
 }
 
+// Add by me: update the strong classifier with a given sample which has class label
+bool TrackerBoostingImpl::updateWithSampleImpl( cv::InputArray sample, int labelFg ){
+
+	cv::Mat_<int> intImage;
+	cv::Mat_<double> intSqImage;
+	cv::Mat image_;
+	cv::cvtColor( sample, image_, CV_RGB2GRAY );
+	//cv::integral( image_, intImage, intSqImage, CV_32S );
+	cv::integral( image_, intImage, CV_32S );
+
+	std::vector<cv::Mat> samples;
+	samples.push_back( intImage );
+
+	featureSet->extraction( samples );
+	const std::vector<cv::Mat> ResponseSet = featureSet->getResponses();
+
+	// 将随机生成新的TrackerFeatureHAAR，用来替换一个样本训练时挑出的最差feature
+	TrackerFeatureHAAR::Params HAARparameters2;
+	HAARparameters2.numFeatures = 1;
+	HAARparameters2.isIntegral = true;
+	HAARparameters2.rectSize = cv::Size( (int)sample.cols(), (int)sample.rows() );
+	cv::Ptr<TrackerFeatureHAAR> trackerFeature2 = cv::Ptr<TrackerFeatureHAAR>( new TrackerFeatureHAAR( HAARparameters2 ) );
+
+	if( labelFg == 1 ){
+		model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_POSITIVE, samples );
+		model->evalCurrentConfidenceMap( ResponseSet );
+	}
+	else if( labelFg == -1 ){
+		model.staticCast<TrackerBoostingModel>()->setMode( TrackerBoostingModel::MODE_NEGATIVE, samples );
+		model->evalCurrentConfidenceMap( ResponseSet );
+	}
+	
+	model->modelUpdate();
+
+	// get replaced classifier and change the features
+	std::vector<int> replacedClassifier = model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->computeReplacedClassifier();
+	std::vector<int> swappedClassifier = model->getTrackerStateEstimator().staticCast<TrackerStateEstimatorAdaBoosting>()->computeSwappedClassifier();
+	for( size_t j = 0; j < replacedClassifier.size(); j++ ){
+		if( replacedClassifier[j] != -1 && swappedClassifier[j] != -1 ){
+			featureSet->getTrackerFeature().at( 0 ).second.staticCast<TrackerFeatureHAAR>()->swapFeature( replacedClassifier[j], swappedClassifier[j] );
+			featureSet->getTrackerFeature().at( 0 ).second.staticCast<TrackerFeatureHAAR>()->swapFeature( swappedClassifier[j], trackerFeature2->getFeatureAt( (int)j ) );
+		}
+	}
+	return true;
+}
+
+
 bool TrackerBoostingImpl::updateImpl( const cv::Mat& image, cv::Rect2d& boundingBox ){
 	cv::Mat_<int> intImage;
 	cv::Mat_<double> intSqImage;
 	cv::Mat image_;
 	cv::cvtColor( image, image_, CV_RGB2GRAY );
-	cv::integral( image_, intImage, intSqImage, CV_32S );
+	//cv::integral( image_, intImage, intSqImage, CV_32S );
+	cv::integral( image_, intImage, CV_32S );
 
 	// get the last location X(k-1)
 	cv::Ptr<TrackerTargetState> lastLocation = model->getLastTargetState();

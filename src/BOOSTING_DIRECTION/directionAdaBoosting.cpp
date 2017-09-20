@@ -93,7 +93,8 @@ bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& object
         else
         	cv::cvtColor( image, image_, CV_RGB2GRAY );
 
-        cv::integral( image_, intImage, intSqImage, CV_32S );
+        //cv::integral( image_, intImage, intSqImage, CV_32S );
+        cv::integral( image_, intImage, CV_32S );
 
  		// Add some noise tranlate to imporve the classifier's generalization ability
  		Samples.push_back( intImage( cv::Rect( objectBB.x + std::rand() % 9 - 4,
@@ -172,7 +173,8 @@ bool directionAdaBoosting::updateWithOneSample( const cv::Mat& imgObject, const 
 	else
 		cv::cvtColor( imgObject, image, CV_RGB2GRAY );
 
-	cv::integral( image, intImage, intSqImage, CV_32S );
+	//cv::integral( image, intImage, intSqImage, CV_32S );
+    cv::integral( image, intImage, CV_32S );
 
 	// Add some noise tranlate to imporve the classifier's generalization ability
 	Samples.push_back( intImage );
@@ -224,7 +226,8 @@ int directionAdaBoosting::classifierSample( const cv::Mat& sample ){
     else
     	cv::cvtColor( sample, imgGray, CV_RGB2GRAY );	
 
-    cv::integral( imgGray, intImage, intSqImage, CV_32S );
+    //cv::integral( imgGray, intImage, intSqImage, CV_32S );
+    cv::integral( imgGray, intImage, CV_32S );
 
     std::vector<cv::Mat> samples;
     samples.push_back( intImage );
@@ -257,7 +260,8 @@ float directionAdaBoosting::evalSample( const cv::Mat& sample){
     else
     	cv::cvtColor( sample, imgGray, CV_RGB2GRAY );	
 
-    cv::integral( imgGray, intImage, intSqImage, CV_32S );
+    //cv::integral( imgGray, intImage, intSqImage, CV_32S );
+    cv::integral( imgGray, intImage, CV_32S );
 
     std::vector<cv::Mat> samples;
     samples.push_back( intImage );

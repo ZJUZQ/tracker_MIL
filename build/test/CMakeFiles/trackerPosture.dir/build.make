@@ -49,36 +49,36 @@ CMAKE_SOURCE_DIR = /home/vortex/zhou_temp_test/visual_tracker
 CMAKE_BINARY_DIR = /home/vortex/zhou_temp_test/visual_tracker/build
 
 # Include any dependencies generated for this target.
-include test_draft/CMakeFiles/trackerPosture.dir/depend.make
+include test/CMakeFiles/trackerPosture.dir/depend.make
 
 # Include the progress variables for this target.
-include test_draft/CMakeFiles/trackerPosture.dir/progress.make
+include test/CMakeFiles/trackerPosture.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include test_draft/CMakeFiles/trackerPosture.dir/flags.make
+include test/CMakeFiles/trackerPosture.dir/flags.make
 
-test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o: test_draft/CMakeFiles/trackerPosture.dir/flags.make
-test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o: ../test_draft/trackerPosture.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o"
-	cd /home/vortex/zhou_temp_test/visual_tracker/build/test_draft && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/test_draft/trackerPosture.cpp
+test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o: test/CMakeFiles/trackerPosture.dir/flags.make
+test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o: ../test/trackerPosture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o"
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/test && g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o -c /home/vortex/zhou_temp_test/visual_tracker/test/trackerPosture.cpp
 
-test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.i: cmake_force
+test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/trackerPosture.dir/trackerPosture.cpp.i"
-	cd /home/vortex/zhou_temp_test/visual_tracker/build/test_draft && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/test_draft/trackerPosture.cpp > CMakeFiles/trackerPosture.dir/trackerPosture.cpp.i
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/test && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vortex/zhou_temp_test/visual_tracker/test/trackerPosture.cpp > CMakeFiles/trackerPosture.dir/trackerPosture.cpp.i
 
-test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.s: cmake_force
+test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/trackerPosture.dir/trackerPosture.cpp.s"
-	cd /home/vortex/zhou_temp_test/visual_tracker/build/test_draft && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/test_draft/trackerPosture.cpp -o CMakeFiles/trackerPosture.dir/trackerPosture.cpp.s
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/test && g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vortex/zhou_temp_test/visual_tracker/test/trackerPosture.cpp -o CMakeFiles/trackerPosture.dir/trackerPosture.cpp.s
 
-test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires:
+test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires:
 
-.PHONY : test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires
+.PHONY : test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires
 
-test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides: test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires
-	$(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides.build
-.PHONY : test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides
+test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides: test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/trackerPosture.dir/build.make test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides.build
+.PHONY : test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides
 
-test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides.build: test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o
+test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.provides.build: test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o
 
 
 # Object files for target trackerPosture
@@ -88,8 +88,8 @@ trackerPosture_OBJECTS = \
 # External object files for target trackerPosture
 trackerPosture_EXTERNAL_OBJECTS =
 
-../bin/trackerPosture: test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o
-../bin/trackerPosture: test_draft/CMakeFiles/trackerPosture.dir/build.make
+../bin/trackerPosture: test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o
+../bin/trackerPosture: test/CMakeFiles/trackerPosture.dir/build.make
 ../bin/trackerPosture: ../lib/libBOOSTING.so
 ../bin/trackerPosture: ../lib/libBOOSTING_DIRECTION.so
 ../bin/trackerPosture: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.2.0
@@ -134,24 +134,24 @@ trackerPosture_EXTERNAL_OBJECTS =
 ../bin/trackerPosture: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.2.0
 ../bin/trackerPosture: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
 ../bin/trackerPosture: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
-../bin/trackerPosture: test_draft/CMakeFiles/trackerPosture.dir/link.txt
+../bin/trackerPosture: test/CMakeFiles/trackerPosture.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../../bin/trackerPosture"
-	cd /home/vortex/zhou_temp_test/visual_tracker/build/test_draft && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/trackerPosture.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/trackerPosture.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-test_draft/CMakeFiles/trackerPosture.dir/build: ../bin/trackerPosture
+test/CMakeFiles/trackerPosture.dir/build: ../bin/trackerPosture
 
-.PHONY : test_draft/CMakeFiles/trackerPosture.dir/build
+.PHONY : test/CMakeFiles/trackerPosture.dir/build
 
-test_draft/CMakeFiles/trackerPosture.dir/requires: test_draft/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires
+test/CMakeFiles/trackerPosture.dir/requires: test/CMakeFiles/trackerPosture.dir/trackerPosture.cpp.o.requires
 
-.PHONY : test_draft/CMakeFiles/trackerPosture.dir/requires
+.PHONY : test/CMakeFiles/trackerPosture.dir/requires
 
-test_draft/CMakeFiles/trackerPosture.dir/clean:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build/test_draft && $(CMAKE_COMMAND) -P CMakeFiles/trackerPosture.dir/cmake_clean.cmake
-.PHONY : test_draft/CMakeFiles/trackerPosture.dir/clean
+test/CMakeFiles/trackerPosture.dir/clean:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build/test && $(CMAKE_COMMAND) -P CMakeFiles/trackerPosture.dir/cmake_clean.cmake
+.PHONY : test/CMakeFiles/trackerPosture.dir/clean
 
-test_draft/CMakeFiles/trackerPosture.dir/depend:
-	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vortex/zhou_temp_test/visual_tracker /home/vortex/zhou_temp_test/visual_tracker/test_draft /home/vortex/zhou_temp_test/visual_tracker/build /home/vortex/zhou_temp_test/visual_tracker/build/test_draft /home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/trackerPosture.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : test_draft/CMakeFiles/trackerPosture.dir/depend
+test/CMakeFiles/trackerPosture.dir/depend:
+	cd /home/vortex/zhou_temp_test/visual_tracker/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vortex/zhou_temp_test/visual_tracker /home/vortex/zhou_temp_test/visual_tracker/test /home/vortex/zhou_temp_test/visual_tracker/build /home/vortex/zhou_temp_test/visual_tracker/build/test /home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/trackerPosture.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : test/CMakeFiles/trackerPosture.dir/depend
 

@@ -42,6 +42,9 @@ public:
 	/* Add by me: just estimate the new most likely boundingbox, without update the model */
 	bool estimateOnly( cv::InputArray image, cv::Rect2d& boundingBox );
 
+	// Add by me: update the strong classifier with a given sample which has class label
+	bool updateWithSample( cv::InputArray sample, int labelFg = 1 );
+
 	virtual void read( const cv::FileNode& fn )=0;
 	virtual void write( cv::FileStorage& fs ) const=0;
 
@@ -52,6 +55,9 @@ protected:
 
 	/* Add by me: just estimate the new most likely boundingbox, without update the model */
 	virtual bool estimateOnlyImpl( cv::InputArray image, cv::Rect2d& boundingBox ) = 0;
+
+	// Add by me: update the strong classifier with a given sample which has class label
+	virtual bool updateWithSampleImpl( cv::InputArray sample, int labelFg ) = 0;
 
 	bool isInit;
 
