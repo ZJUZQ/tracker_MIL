@@ -277,7 +277,7 @@ test/preinstall:
 test/CMakeFiles/tracker_AdaBoosting.dir/all: src/BOOSTING/CMakeFiles/BOOSTING.dir/all
 	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/depend
 	$(MAKE) -f test/CMakeFiles/tracker_AdaBoosting.dir/build.make test/CMakeFiles/tracker_AdaBoosting.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=32,33 "Built target tracker_AdaBoosting"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=34,35 "Built target tracker_AdaBoosting"
 .PHONY : test/CMakeFiles/tracker_AdaBoosting.dir/all
 
 # Include target in all.
@@ -314,7 +314,7 @@ clean: test/CMakeFiles/tracker_AdaBoosting.dir/clean
 test/CMakeFiles/tracker_MILBoosting.dir/all: src/MIL/CMakeFiles/MIL.dir/all
 	$(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/depend
 	$(MAKE) -f test/CMakeFiles/tracker_MILBoosting.dir/build.make test/CMakeFiles/tracker_MILBoosting.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=34,35 "Built target tracker_MILBoosting"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=36,37 "Built target tracker_MILBoosting"
 .PHONY : test/CMakeFiles/tracker_MILBoosting.dir/all
 
 # Include target in all.
@@ -351,7 +351,7 @@ clean: test/CMakeFiles/tracker_MILBoosting.dir/clean
 test/CMakeFiles/trackerPosture_AdaBoosting.dir/all: src/BOOSTING/CMakeFiles/BOOSTING.dir/all
 	$(MAKE) -f test/CMakeFiles/trackerPosture_AdaBoosting.dir/build.make test/CMakeFiles/trackerPosture_AdaBoosting.dir/depend
 	$(MAKE) -f test/CMakeFiles/trackerPosture_AdaBoosting.dir/build.make test/CMakeFiles/trackerPosture_AdaBoosting.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=30,31 "Built target trackerPosture_AdaBoosting"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=32,33 "Built target trackerPosture_AdaBoosting"
 .PHONY : test/CMakeFiles/trackerPosture_AdaBoosting.dir/all
 
 # Include target in all.
@@ -385,11 +385,13 @@ clean: test/CMakeFiles/trackerPosture_AdaBoosting.dir/clean
 # Directory level rules for directory test_draft
 
 # Convenience name for "all" pass in the directory.
+test_draft/all: test_draft/CMakeFiles/trackerPosture.dir/all
 test_draft/all: test_draft/CMakeFiles/hough.dir/all
 
 .PHONY : test_draft/all
 
 # Convenience name for "clean" pass in the directory.
+test_draft/clean: test_draft/CMakeFiles/trackerPosture.dir/clean
 test_draft/clean: test_draft/CMakeFiles/hough.dir/clean
 
 .PHONY : test_draft/clean
@@ -398,6 +400,44 @@ test_draft/clean: test_draft/CMakeFiles/hough.dir/clean
 test_draft/preinstall:
 
 .PHONY : test_draft/preinstall
+
+#=============================================================================
+# Target rules for target test_draft/CMakeFiles/trackerPosture.dir
+
+# All Build rule for target.
+test_draft/CMakeFiles/trackerPosture.dir/all: src/BOOSTING/CMakeFiles/BOOSTING.dir/all
+test_draft/CMakeFiles/trackerPosture.dir/all: src/BOOSTING_DIRECTION/CMakeFiles/BOOSTING_DIRECTION.dir/all
+	$(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/depend
+	$(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles --progress-num=30,31 "Built target trackerPosture"
+.PHONY : test_draft/CMakeFiles/trackerPosture.dir/all
+
+# Include target in all.
+all: test_draft/CMakeFiles/trackerPosture.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+test_draft/CMakeFiles/trackerPosture.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles 18
+	$(MAKE) -f CMakeFiles/Makefile2 test_draft/CMakeFiles/trackerPosture.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/vortex/zhou_temp_test/visual_tracker/build/CMakeFiles 0
+.PHONY : test_draft/CMakeFiles/trackerPosture.dir/rule
+
+# Convenience name for target.
+trackerPosture: test_draft/CMakeFiles/trackerPosture.dir/rule
+
+.PHONY : trackerPosture
+
+# clean rule for target.
+test_draft/CMakeFiles/trackerPosture.dir/clean:
+	$(MAKE) -f test_draft/CMakeFiles/trackerPosture.dir/build.make test_draft/CMakeFiles/trackerPosture.dir/clean
+.PHONY : test_draft/CMakeFiles/trackerPosture.dir/clean
+
+# clean rule for target.
+clean: test_draft/CMakeFiles/trackerPosture.dir/clean
+
+.PHONY : clean
 
 #=============================================================================
 # Target rules for target test_draft/CMakeFiles/hough.dir

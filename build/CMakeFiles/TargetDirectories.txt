@@ -18,4 +18,5 @@
 /home/vortex/zhou_temp_test/visual_tracker/build/test/CMakeFiles/rebuild_cache.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/edit_cache.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/rebuild_cache.dir
+/home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/trackerPosture.dir
 /home/vortex/zhou_temp_test/visual_tracker/build/test_draft/CMakeFiles/hough.dir

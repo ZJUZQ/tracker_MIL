@@ -13,13 +13,9 @@ namespace BOOSTING_DIRECTION{
 class directionAdaBoosting : public virtual cv::Algorithm  // 虚基类，即只对此基类生成一块内存区域，这样最终派生类中就只会含有一个基类
 { 
 public:
-	directionAdaBoosting();
-
-	~directionAdaBoosting();
-
 	struct Params{
 		Params();
-		Params( int numBaseClfs_, int numWeakClfs_, int numAllWeakClfs_, cv::Size patchSize_, bool useFeatureExchange_ );
+		//Params( int numBaseClfs_, int numWeakClfs_, int numAllWeakClfs_, cv::Size patchSize_, bool useFeatureExchange_ );
 		int numBaseClfs; // number of base classifiers
 		int numWeakClfs; // number of weak classifiers
 		int numAllWeakClfs; // 多出来的是备份weak classifiers，用于替换前面表现不好的weak classfier
@@ -28,9 +24,16 @@ public:
 		bool useFeatureExchange;
 	};
 
+	directionAdaBoosting(  directionAdaBoosting::Params& params_  );
+	directionAdaBoosting();
+
+	~directionAdaBoosting();
+
+	
+
 	/** Initialize the direction boosting classifier with a know bounding box that surrounding the target
      */
-	bool init( const cv::Mat& imageT, const cv::Rect2d& objectBB, Params params_ = Params() );
+	bool init( const cv::Mat& imageT, const cv::Rect2d& objectBB );
 
 	/** Given a new object image with class label, update the strong classifier	
 	*/
@@ -39,7 +42,7 @@ public:
 
 	/** compute the given sample's class: 1 for down and -1 for up
 	 */
-	int classifierSample( const cv::Mat& sample);
+	int classifierSample( const cv::Mat& sample );
 
 	/** compute the given sample's confidence: poistive for down and negtive for up
 	 */
@@ -48,7 +51,7 @@ public:
 	void read( const cv::FileNode& fn ) {}
 	void write( cv::FileStorage& fs ) const {}
 
-private:
+public:
 	bool isInit;
 	Params params;
 

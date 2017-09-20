@@ -9,8 +9,10 @@ directionAdaBoosting::Params::Params(){
 	numWeakClfs = numBaseClfs * 10; // number of weak classifiers
 	numAllWeakClfs = numWeakClfs + 5;
 	patchSize = cv::Size( 30, 30 );
+    useFeatureExchange = true;
 }
 
+/*
 directionAdaBoosting::Params::Params( int numBaseClfs_, int numWeakClfs_, int numAllWeakClfs_, cv::Size patchSize_, bool useFeatureExchange_ ){
 	numBaseClfs = numBaseClfs_; // number of base classifiers
 	numWeakClfs = numWeakClfs_; // number of weak classifiers
@@ -18,9 +20,16 @@ directionAdaBoosting::Params::Params( int numBaseClfs_, int numWeakClfs_, int nu
 	patchSize = patchSize_;
 	useFeatureExchange = useFeatureExchange_;
 }
+*/
 
 directionAdaBoosting::directionAdaBoosting(){
+    isInit = false;
+    params = directionAdaBoosting::Params();
+}
+
+directionAdaBoosting::directionAdaBoosting( directionAdaBoosting::Params& params_ ){
 	isInit = false;
+    params = params_;
 }
 
 directionAdaBoosting::~directionAdaBoosting(){
@@ -30,14 +39,12 @@ directionAdaBoosting::~directionAdaBoosting(){
 /** imageT: tamplate image
 	objectBB: boundingBox of the tracking object
  */
-bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& objectBB, Params params_ ){
+bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& objectBB ){
 	if( isInit )
 		return false;
 
 	if( imageT.empty() )
 		return false;
-
-    params = params_;
 
 	// tracker feature
 	TrackerFeatureHAAR::Params HAARparameters;
@@ -68,9 +75,9 @@ bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& object
         cv::Ptr<TrackerFeatureHAAR> trackerFeature2 = cv::Ptr<TrackerFeatureHAAR>( new TrackerFeatureHAAR( HAARparameters2 ) );
  
         std::vector<cv::Mat> Samples;
- 
+
         int rotationDegree = std::rand() % 360; // rotation angle of imageT in degrees 
-        if( abs( rotationDegree - 90 ) <= 2 || abs( rotationDegree - 270 ) <= 2 )
+        if( abs( rotationDegree - 90 ) <= 1 || abs( rotationDegree - 270 ) <= 1 )
             continue;
  
         cv::Mat image;
@@ -87,10 +94,10 @@ bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& object
         	cv::cvtColor( image, image_, CV_RGB2GRAY );
 
         cv::integral( image_, intImage, intSqImage, CV_32S );
- 
+
  		// Add some noise tranlate to imporve the classifier's generalization ability
- 		Samples.push_back( intImage( cv::Rect( objectBB.x + std::rand() % 7 - 3,
- 											   objectBB.y + std::rand() % 7 - 3, 
+ 		Samples.push_back( intImage( cv::Rect( objectBB.x + std::rand() % 9 - 4,
+ 											   objectBB.y + std::rand() % 9 - 4, 
  											   objectBB.width, objectBB.height ) ) );
 
         /** In image coordinate, the y-axis towns down, so :
@@ -106,7 +113,7 @@ bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& object
         cv::Mat response;
         trackerFeature->compute( Samples, response );
         strongClassifier->update( response.col(0), labelPos ); // for each training sample, update all weakclassifiers and strongClassifier, Algorithm 2.1
- 
+
         int replacedWeakClassifier, swappedWeakClassifier;
 
         if( params.useFeatureExchange ){
@@ -119,7 +126,7 @@ bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& object
             replacedWeakClassifier = -1;
             swappedWeakClassifier = -1;
         }
- 
+
         /*  因为weakclassifier是基于TrackerFeatureHAAR的，因此，在交换了weakClassifierHaarFeature(没有实际实现Haar feature)后，
             还需要实际交换实际的TrackerFeatureHAAR，两者之间索引是一致的。 
         */
@@ -139,8 +146,13 @@ bool directionAdaBoosting::init( const cv::Mat& imageT, const cv::Rect2d& object
  */
 bool directionAdaBoosting::updateWithOneSample( const cv::Mat& imgObject, const int labelUp ){
 
+    if( !isInit )
+        return false;
+
 	if( imgObject.empty() )
 		return false;
+    CV_Assert( imgObject.cols == params.patchSize.width );
+    CV_Assert( imgObject.rows == params.patchSize.height );
 
 	// 将随机生成新的TrackerFeatureHAAR，用来替换每次用一个样本训练时挑出的最差featurehaar
 	TrackerFeatureHAAR::Params HAARparameters2;
@@ -196,7 +208,13 @@ bool directionAdaBoosting::updateWithOneSample( const cv::Mat& imgObject, const 
 
 /** compute the given sample's class: 1 for down and -1 for up
 	 */
-int directionAdaBoosting::classifierSample( const cv::Mat& sample){
+int directionAdaBoosting::classifierSample( const cv::Mat& sample ){
+    if( !isInit )
+        return false;
+
+    CV_Assert( sample.cols == params.patchSize.width );
+    CV_Assert( sample.rows == params.patchSize.height );
+
 	cv::Mat imgGray;            
     cv::Mat_<int> intImage;
     cv::Mat_<double> intSqImage;
@@ -224,6 +242,12 @@ int directionAdaBoosting::classifierSample( const cv::Mat& sample){
 /** compute the given sample's confidence: poistive for down and negtive for up
  */
 float directionAdaBoosting::evalSample( const cv::Mat& sample){
+    if( !isInit )
+        return false;
+
+    CV_Assert( sample.cols == params.patchSize.width );
+    CV_Assert( sample.rows == params.patchSize.height );
+
 	cv::Mat imgGray;            
     cv::Mat_<int> intImage;
     cv::Mat_<double> intSqImage;

@@ -66,5 +66,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/CMakeFiles/tracker_AdaBoosting.dir/DependInfo.cmake"
   "test/CMakeFiles/tracker_MILBoosting.dir/DependInfo.cmake"
   "test/CMakeFiles/trackerPosture_AdaBoosting.dir/DependInfo.cmake"
+  "test_draft/CMakeFiles/trackerPosture.dir/DependInfo.cmake"
   "test_draft/CMakeFiles/hough.dir/DependInfo.cmake"
   )
